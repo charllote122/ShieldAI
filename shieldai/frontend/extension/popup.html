@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 320px;
+            padding: 16px;
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: #1e293b;
+            border-radius: 8px;
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+        }
+        
+        .settings {
+            space-y: 12px;
+        }
+        
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #475569;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #6366f1;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+        
+        .stats {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #334155;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 12px;
+        }
+        
+        button:hover {
+            background: #4338ca;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🛡️ ShieldAI</div>
+        <div style="font-size: 12px; color: #94a3b8;">Digital Violence Protection</div>
+    </div>
+    
+    <div class="status">
+        <span>Protection Status</span>
+        <div class="status-indicator" id="statusIndicator"></div>
+    </div>
+    
+    <div class="settings">
+        <div class="setting-item">
+            <span>Enable Protection</span>
+            <label class="switch">
+                <input type="checkbox" id="toggleEnabled" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div class="setting-item">
+            <span>Show Warnings</span>
+            <label class="switch">
+                <input type="checkbox" id="toggleWarnings" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div class="setting-item">
+            <span>Sensitivity</span>
+            <select id="sensitivitySelect" style="background: #1e293b; color: white; border: 1px solid #475569; padding: 4px; border-radius: 4px;">
+                <option value="0.5">Low</option>
+                <option value="0.7" selected>Medium</option>
+                <option value="0.9">High</option>
+            </select>
+        </div>
+    </div>
+    
+    <button id="testButton">Test Analysis</button>
+    
+    <div class="stats">
+        <div>Platform: <span id="currentPlatform">Detecting...</span></div>
+        <div>Messages Analyzed: <span id="analyzedCount">0</span></div>
+        <div>Last Check: <span id="lastCheck">Just now</span></span></div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
