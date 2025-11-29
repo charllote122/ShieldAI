@@ -3,8 +3,13 @@
     <nav class="nav container">
         <div class="logo">
             <a href="index.html" class="logo-link">
-                <h1>🇰🇪 ShieldAI Kenya</h1>
-                <span>Protecting Kenyan Women & Girls from Digital Violence</span>
+                <div class="logo-content">
+                    <div class="logo-icon">🛡️</div>
+                    <div class="logo-text">
+                        <h1>ShieldAI Kenya</h1>
+                        <span>Protecting Kenyan Women & Girls from Digital Violence</span>
+                    </div>
+                </div>
             </a>
         </div>
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
@@ -117,12 +122,10 @@ window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     
     if (header) {
-        if (scrolled > 100) {
-            header.style.background = 'rgba(0, 0, 0, 0.95)';
-            header.style.backdropFilter = 'blur(10px)';
+        if (scrolled > 50) {
+            header.classList.add('scrolled');
         } else {
-            header.style.background = '';
-            header.style.backdropFilter = '';
+            header.classList.remove('scrolled');
         }
     }
 });
@@ -138,7 +141,7 @@ window.addEventListener('DOMContentLoaded', function() {
             emergencyAlert.className = 'kenya-emergency-alert';
             emergencyAlert.innerHTML = `
                 <div class="emergency-alert-content">
-                    <span class="emergency-icon">🚨</span>
+                    <div class="emergency-icon">⚠️</div>
                     <div class="emergency-text">
                         <strong>Kenya Emergency Support</strong>
                         <span>Call 1199 | Text 1195 | Police: 999/112</span>
@@ -210,10 +213,10 @@ document.addEventListener('keydown', function(event) {
 </script>
 
 <style>
-/* Kenya Header Specific Styles */
+/* Professional Header Styles */
 .header {
-    background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #006600 100%);
-    border-bottom: 2px solid #FFD700;
+    background: #1a1a1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1rem 0;
     position: fixed;
     top: 0;
@@ -221,6 +224,19 @@ document.addEventListener('keydown', function(event) {
     right: 0;
     z-index: 1000;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.header.scrolled {
+    background: rgba(26, 26, 26, 0.95);
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 .nav {
@@ -229,24 +245,40 @@ document.addEventListener('keydown', function(event) {
     align-items: center;
 }
 
-.logo h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #FFD700, #FFFFFF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.25rem;
+.logo-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-.logo span {
+.logo-icon {
+    font-size: 2rem;
+    color: #dc2626;
+}
+
+.logo-text h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+
+.logo-text span {
     font-size: 0.875rem;
-    color: #E5E7EB;
+    color: #cccccc;
     opacity: 0.8;
+    display: block;
 }
 
 .logo-link {
     text-decoration: none;
     color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    opacity: 0.9;
 }
 
 .nav-links {
@@ -256,17 +288,18 @@ document.addEventListener('keydown', function(event) {
 }
 
 .nav-link {
-    color: #E5E7EB;
+    color: #e5e7eb;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
     padding: 0.5rem 0;
+    font-size: 0.95rem;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: #FFD700;
+    color: #dc2626;
 }
 
 .nav-link::after {
@@ -276,7 +309,7 @@ document.addEventListener('keydown', function(event) {
     left: 0;
     width: 0;
     height: 2px;
-    background: #FFD700;
+    background: #dc2626;
     transition: width 0.3s ease;
 }
 
@@ -295,14 +328,19 @@ document.addEventListener('keydown', function(event) {
     width: 30px;
     height: 30px;
     justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    opacity: 0.8;
 }
 
 .mobile-menu-btn span {
     width: 100%;
-    height: 3px;
-    background: #FFD700;
+    height: 2px;
+    background: #ffffff;
     transition: all 0.3s ease;
-    border-radius: 2px;
+    border-radius: 1px;
 }
 
 /* Kenya Emergency Alert */
@@ -311,14 +349,16 @@ document.addEventListener('keydown', function(event) {
     top: 80px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, #DC2626, #991B1B);
+    background: #dc2626;
     color: white;
     padding: 1rem;
     border-radius: 8px;
-    border: 2px solid #FFD700;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 999;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     animation: slideDown 0.5s ease;
+    max-width: 500px;
+    width: 90%;
 }
 
 .emergency-alert-content {
@@ -328,7 +368,7 @@ document.addEventListener('keydown', function(event) {
 }
 
 .emergency-icon {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .emergency-text {
@@ -338,18 +378,33 @@ document.addEventListener('keydown', function(event) {
     gap: 0.25rem;
 }
 
+.emergency-text strong {
+    font-size: 0.9rem;
+}
+
+.emergency-text span {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
 .emergency-close {
     background: none;
     border: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     cursor: pointer;
     padding: 0;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: opacity 0.3s ease;
+    border-radius: 3px;
+}
+
+.emergency-close:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Kenyan User Specific Styles */
@@ -381,11 +436,12 @@ body.kenyan-user .header {
         top: 100%;
         left: 0;
         right: 0;
-        background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #006600 100%);
+        background: #1a1a1a;
         flex-direction: column;
         padding: 1rem;
-        border-top: 2px solid #FFD700;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        backdrop-filter: blur(10px);
     }
     
     .nav-links.active {
@@ -394,9 +450,10 @@ body.kenyan-user .header {
     
     .nav-link {
         padding: 1rem 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
         width: 100%;
         text-align: center;
+        font-size: 1rem;
     }
     
     .nav-link:last-child {
@@ -407,31 +464,52 @@ body.kenyan-user .header {
         left: 1rem;
         right: 1rem;
         transform: none;
+        top: 70px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.25rem;
+    }
+    
+    .logo-text span {
+        font-size: 0.75rem;
     }
 }
 
 @media (max-width: 480px) {
-    .logo h1 {
-        font-size: 1.25rem;
+    .container {
+        padding: 0 1rem;
     }
     
-    .logo span {
-        font-size: 0.75rem;
+    .logo-content {
+        gap: 0.5rem;
+    }
+    
+    .logo-icon {
+        font-size: 1.5rem;
     }
     
     .kenya-emergency-alert {
-        top: 70px;
+        padding: 0.75rem;
+    }
+    
+    .emergency-alert-content {
+        gap: 0.75rem;
     }
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
     .header {
-        border-bottom: 3px solid #FFD700;
+        border-bottom: 2px solid #ffffff;
     }
     
     .nav-link {
         font-weight: 600;
+    }
+    
+    .kenya-emergency-alert {
+        border: 2px solid #ffffff;
     }
 }
 
@@ -439,12 +517,22 @@ body.kenyan-user .header {
 @media (prefers-reduced-motion: reduce) {
     .header,
     .nav-link,
-    .mobile-menu-btn span {
+    .mobile-menu-btn,
+    .mobile-menu-btn span,
+    .logo-link {
         transition: none;
     }
     
     .kenya-emergency-alert {
         animation: none;
     }
+}
+
+/* Focus styles for accessibility */
+.nav-link:focus,
+.mobile-menu-btn:focus,
+.emergency-close:focus {
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
 }
 </style>
