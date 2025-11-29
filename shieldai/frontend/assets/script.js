@@ -3,7 +3,8 @@
 // Enhanced ShieldAPI with better error handling, performance, and security
 window.ShieldAPI = {
     config: {
-        API_BASE_URL: window.APP_CONFIG?.API_BASE_URL || 'https://shieldai-31j7.onrender.com',
+        // Prefer runtime config (window.CONFIG) if available. Otherwise, fall back to sensible defaults.
+        API_BASE_URL: (window.CONFIG && window.CONFIG.API_BASE_URL) ? window.CONFIG.API_BASE_URL : (location.hostname === 'localhost' || location.hostname === '127.0.0.1' ? 'http://localhost:8000' : 'https://shieldai-31j7.onrender.com'),
         ENDPOINTS: {
             STATS: '/stats',
             ANALYZE: '/analyze',

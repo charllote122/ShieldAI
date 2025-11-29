@@ -1,6 +1,9 @@
 // config.js - ShieldAI Configuration
+// This file provides a canonical runtime config object (CONFIG).
+// If `window.APP_CONFIG` is populated (for example by env.js or hosting platform),
+// values from that object will be used/merged so the site has a single source-of-truth.
 const CONFIG = {
-    // API Configuration
+    // API Configuration (default)
     API_BASE_URL: 'https://shieldai-31j7.onrender.com',
     API_TIMEOUT: 10000, // 10 seconds
     API_RETRY_ATTEMPTS: 3,
@@ -261,6 +264,20 @@ const CONFIG = {
         HOTJAR_ID: null // Your Hotjar ID
     }
 };
+
+// If a runtime `window.APP_CONFIG` exists (e.g. injected by env.js or hosting), merge
+// it into the canonical CONFIG so all scripts can read one object. We also expose
+// the same object on both `window.CONFIG` and `window.APP_CONFIG` for compatibility.
+if (typeof window !== 'undefined' && window.APP_CONFIG && typeof window.APP_CONFIG === 'object') {
+    // shallow merge (APP_CONFIG wins)
+    Object.assign(CONFIG, window.APP_CONFIG);
+}
+
+// Expose on both names so other scripts referencing either will work
+if (typeof window !== 'undefined') {
+    window.CONFIG = CONFIG;
+    window.APP_CONFIG = CONFIG;
+}
 
 // Environment-specific overrides
 if (typeof window !== 'undefined') {

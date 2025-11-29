@@ -3,7 +3,8 @@ console.log('🇰🇪 ShieldAI Kenya Extension Loaded');
 
 class ShieldAIKenya {
     constructor() {
-        this.apiBase = 'https://shieldai-31j7.onrender.com';
+        // Prefer runtime injected config if present (page or extension can inject APP_CONFIG / CONFIG)
+        this.apiBase = (window.APP_CONFIG && window.APP_CONFIG.API_BASE_URL) || (window.CONFIG && window.CONFIG.API_BASE_URL) || (location.hostname === 'localhost' || location.hostname === '127.0.0.1' ? 'http://localhost:8000' : 'https://shieldai-31j7.onrender.com');
         this.isEnabled = true;
         this.protectedCount = 0;
         this.blockedCount = 0;

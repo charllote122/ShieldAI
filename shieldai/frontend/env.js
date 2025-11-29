@@ -44,3 +44,8 @@ window.APP_CONFIG = {
         GOLD: '#FFD700' // Gold
     }
 };
+
+// Ensure both names are available at runtime so scripts can read a single source
+if (typeof window !== 'undefined' && !window.CONFIG) {
+    window.CONFIG = window.APP_CONFIG;
+}
