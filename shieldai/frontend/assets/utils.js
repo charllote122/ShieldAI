@@ -1,37 +1,29 @@
+// Number formatting
+console.log(ShieldUtils.formatNumber(1234.567)); // "1,234.57"
+console.log(ShieldUtils.formatNumber(1234.567, { maximumFractionDigits: 0 })); // "1,235"
+
+// Text sanitization
+const safeText = ShieldUtils.sanitizeText('<script>alert("xss")</script> Hello!', {
+    maxLength: 100,
+    stripEmojis: true
+});
+
+// Debounced search
+const searchHandler = ShieldUtils.debounce(
+    (query) => console.log('Searching:', query), 
+    300, 
+    true
+);
+
+// Language detection
+const lang = ShieldUtils.detectLanguage('Bonjour comment allez-vous aujourd\'hui?', {
+    minConfidence: 0.2,
+    supportedLanguages: ['en', 'fr', 'es']
+});
+
 // Utility functions
-class ShieldUtils {
-    static formatNumber(num) {
-        return new Intl.NumberFormat().format(num);
-    }
-
-    static sanitizeText(text) {
-        return text.trim().replace(/[<>]/g, '');
-    }
-
-    static debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
-
-    static detectLanguage(text) {
-        // Simple language detection for demo
-        const patterns = {
-            'fr': /\b(le|la|les|un|une|des|je|tu|il|elle|nous|vous|ils|elles)\b/i,
-            'sw': /\b(na|ni|ya|wa|za|ku|m|ki|vi)\b/i,
-            'yo': /\b(ṣe|ki|ni|o|a|ti|ko|pe)\b/i,
-            'ig': /\b(na|bụ|maka|n'ihi|mgbe)\b/i
-        };
-
-        for (const [lang, pattern] of Object.entries(patterns)) {
-            if (pattern.test(text)) return lang;
-        }
-        return 'en';
-    }
-}
+const id = ShieldUtils.generateId(12);
+const isEmpty = ShieldUtils.isEmpty({});
+const capitalized = ShieldUtils.capitalizeWords('hello world');
+const truncated = ShieldUtils.truncateText('This is a long text that needs truncating', 20);
+const fileSize = ShieldUtils.formatFileSize(1048576); // "1 MB"
