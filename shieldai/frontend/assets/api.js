@@ -56,7 +56,7 @@ class ShieldAPI {
                                 platform: platform,
                                 language: language,
                                 context: {
-                                    region: 'africa',
+                                    region: 'Kenya',
                                     timestamp: new Date().toISOString(),
                                     attempt: attempt
                                 }
@@ -254,7 +254,7 @@ class ShieldAPI {
         }
     }
 
-    static async getSupportResources(country = 'nigeria', options = {}) {
+    static async getSupportResources(country = 'kenya', options = {}) {
         const { useCache = true } = options;
         const cacheKey = `resources_${country}`;
 
@@ -263,7 +263,7 @@ class ShieldAPI {
         }
 
         try {
-            const response = await fetch(`${this.API_BASE}${CONFIG.ENDPOINTS.RESOURCES}/${country}`, {
+            const response = await fetch(`${this.API_BASE}${CONFIG.ENDPOINTS.RESOURCES}/kenya`, {
                 headers: {
                     'X-Client-Version': CONFIG.VERSION
                 }
@@ -290,7 +290,7 @@ class ShieldAPI {
                 return this._cache.get(cacheKey).data;
             }
             
-            return this.getFallbackResources(country);
+            return this.getFallbackResources('kenya');
         }
     }
 
@@ -327,14 +327,11 @@ class ShieldAPI {
             
             return { 
                 languages: [
-                    { code: 'en', name: 'English', native_name: 'English' },
-                    { code: 'sw', name: 'Swahili', native_name: 'Kiswahili' },
-                    { code: 'fr', name: 'French', native_name: 'Français' },
-                    { code: 'yo', name: 'Yoruba', native_name: 'Yorùbá' },
-                    { code: 'ig', name: 'Igbo', native_name: 'Igbo' },
-                    { code: 'ha', name: 'Hausa', native_name: 'Hausa' }
+                    { code: 'en', name: 'English', native_name: 'English', region: 'Kenya' },
+                    { code: 'sw', name: 'Swahili', native_name: 'Kiswahili', region: 'Kenya' }
                 ],
-                fallback: true
+                fallback: true,
+                region: 'Kenya'
             };
         }
     }
@@ -555,38 +552,33 @@ class ShieldAPI {
         };
     }
 
-    static getFallbackResources(country = 'nigeria') {
+    static getFallbackResources(country = 'kenya') {
         const resources = {
-            nigeria: {
-                name: "Nigeria",
-                hotlines: [
-                    { name: "Lagos Mental Health Hotline", number: "0800-123-4567", available: "24/7" },
-                    { name: "National Suicide Prevention", number: "0800-765-4321", available: "24/7" },
-                    { name: "Gender-Based Violence", number: "0800-333-3333", available: "24/7" }
-                ],
-                organizations: [
-                    { name: "Mental Health Foundation Nigeria", website: "https://mhfnigeria.org", focus: "Mental health support" },
-                    { name: "Women's Rights Organization", website: "https://wro.org.ng", focus: "Gender-based violence" }
-                ],
-                crisis_text_line: "Text 'HELP' to 741741",
-                emergency_services: ["112", "199"],
-                fallback: true
-            },
             kenya: {
                 name: "Kenya",
+                country_code: "KE",
+                region: "East Africa",
                 hotlines: [
-                    { name: "Mental Health Kenya", number: "0800-723-723", available: "24/7" },
-                    { name: "Gender Violence Recovery Centre", number: "0800-720-072", available: "24/7" }
+                    { name: "Kenya Mental Health Hotline", number: "1199", available: "24/7", free: true, languages: ["sw", "en"] },
+                    { name: "Nairobi Women's Hospital GBV Hotline", number: "0800 720 715", available: "24/7", free: true, languages: ["sw", "en"] },
+                    { name: "Gender-Based Violence Hotline", number: "1199", available: "24/7", free: true, languages: ["sw", "en"] }
                 ],
                 organizations: [
-                    { name: "Kenya Mental Health Association", website: "https://kmha.or.ke" }
+                    { name: "Basic Needs Kenya", website: "https://basicneeds.org", focus: "Mental health support", languages: ["sw", "en"] },
+                    { name: "Africa Mental Health Foundation", website: "https://amhf.or.ke", focus: "Mental health research", languages: ["en"] }
                 ],
-                emergency_services: ["999", "112"],
+                emergency_services: {
+                    ambulance: "999",
+                    police: "112",
+                    fire: "911",
+                    general_emergency: "112"
+                },
+                supported_cities: ["Nairobi", "Mombasa", "Kisumu", "Nakuru", "Eldoret", "Kericho", "Kilifi"],
                 fallback: true
             }
         };
 
-        return resources[country] || resources.nigeria;
+        return resources[country] || resources.kenya;
     }
 }
 

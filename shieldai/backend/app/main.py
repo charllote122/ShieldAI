@@ -196,43 +196,46 @@ async def get_stats():
     }
     return stats
 
-@app.get("/resources/{country}")
-async def get_resources(country: str):
-    """Get mental health resources for a specific country - Kenya Focus"""
-    resources = {
-        "kenya": {
-            "name": "Kenya",
-            "country_code": "KE",
-            "hotlines": [
-                {"name": "Kenya Mental Health Hotline", "number": "1199", "available": "24/7", "free": True},
-                {"name": "Nairobi Women's Hospital GBV Hotline", "number": "0800 720 715", "available": "24/7", "free": True},
-            ],
-            "organizations": [
-                {"name": "Basic Needs Kenya", "website": "https://basicneeds.org", "description": "Mental health and development organization"},
-                {"name": "Africa Mental Health Foundation", "website": "https://amhf.or.ke", "description": "Research and mental health advocacy"},
-            ],
-            "crisis_text_line": "Text 'HELP' to 40213",
-            "emergency_services": ["999", "112", "911"],
-        }
+@app.get("/resources/kenya")
+async def get_resources():
+    """Get mental health and support resources for Kenya"""
+    return {
+        "name": "Kenya",
+        "country_code": "KE",
+        "region": "East Africa",
+        "hotlines": [
+            {"name": "Kenya Mental Health Hotline", "number": "1199", "available": "24/7", "free": True, "languages": ["sw", "en"]},
+            {"name": "Nairobi Women's Hospital GBV Hotline", "number": "0800 720 715", "available": "24/7", "free": True, "languages": ["sw", "en"]},
+            {"name": "Gender-Based Violence Hotline", "number": "1199", "available": "24/7", "free": True, "languages": ["sw", "en"]},
+        ],
+        "organizations": [
+            {"name": "Basic Needs Kenya", "website": "https://basicneeds.org", "description": "Mental health and development organization", "focus": "Mental Health"},
+            {"name": "Africa Mental Health Foundation", "website": "https://amhf.or.ke", "description": "Research and mental health advocacy", "focus": "Research"},
+            {"name": "Gender-Based Violence Recovery Centre", "website": "https://gbvrc.or.ke", "description": "Support for survivors of gender-based violence", "focus": "GBV Support"},
+        ],
+        "emergency_services": {
+            "ambulance": "999",
+            "police": "112",
+            "fire": "911",
+            "general_emergency": "112"
+        },
+        "supported_regions": ["Nairobi", "Mombasa", "Kisumu", "Nakuru", "Eldoret", "Kericho", "Kilifi"]
     }
-    
-    country_resources = resources.get(country.lower(), resources["kenya"])
-    return country_resources
 
 @app.get("/languages/supported")
 async def get_supported_languages():
-    """Get supported languages for analysis - East Africa Focus"""
+    """Get supported languages for analysis - Kenya Focus (English & Swahili)"""
     return {
         "languages": [
-            {"code": "sw", "name": "Swahili", "native_name": "Kiswahili", "region": "East Africa", "primary": True},
-            {"code": "en", "name": "English", "native_name": "English", "region": "International", "primary": True},
+            {"code": "en", "name": "English", "native_name": "English", "region": "Kenya", "speakers_millions": 10, "primary": False},
+            {"code": "sw", "name": "Swahili", "native_name": "Kiswahili", "region": "East Africa", "speakers_millions": 16, "primary": True},
         ],
         "default_language": "en",
         "primary_language": "sw",
         "auto_detect": True,
-        "african_languages": True,
-        "region_focus": "East Africa",
-        "supported_countries": ["Kenya", "Tanzania", "Uganda", "Rwanda", "Ethiopia", "Somalia"]
+        "region": "Kenya",
+        "supported_countries": ["Kenya"],
+        "note": "Infrastructure ready for future expansion to East Africa"
     }
 
 @app.post("/analyze")

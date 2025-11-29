@@ -2042,6 +2042,48 @@
                 font-size: 1.5rem;
             }
         }
+            /* Chat/Manual Input Section Styles */
+            .chat-section {
+                background: var(--kenya-light);
+                border-radius: 12px;
+                box-shadow: var(--shadow);
+                margin: 2rem 0;
+                padding: 2rem;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .chat-section h3 {
+                color: var(--kenya-black);
+                margin-bottom: 1rem;
+            }
+            #chatForm input[type="text"] {
+                flex: 1;
+                padding: 0.75rem 1rem;
+                border-radius: 8px;
+                border: 1px solid #D1D5DB;
+                font-size: 1rem;
+                background: var(--white);
+                color: var(--kenya-black);
+            }
+            #chatForm button {
+                min-width: 120px;
+            }
+            #chatLoading {
+                display: none;
+                margin-top: 1rem;
+                color: var(--kenya-black);
+            }
+            #chatError {
+                display: none;
+                margin-top: 1rem;
+                color: var(--kenya-red);
+            }
+            @media (max-width: 768px) {
+                .chat-section {
+                    padding: 1rem;
+                }
+            }
     </style>
 </head>
 <body class="kenya-home">
@@ -2777,6 +2819,17 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Chat/Manual Input Section -->
+                    <div class="chat-section" style="margin: 2rem 0; padding: 2rem; background: var(--kenya-light); border-radius: 12px; box-shadow: var(--shadow); max-width: 600px; margin-left: auto; margin-right: auto;">
+                        <h3 style="color: var(--kenya-black); margin-bottom: 1rem;">🔎 Kenya Real-Time Message Check</h3>
+                        <form id="chatForm" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                            <input type="text" id="chatInput" placeholder="Type or paste a message to check for safety..." style="flex: 1; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #D1D5DB; font-size: 1rem; background: var(--white); color: var(--kenya-black);" required />
+                            <button type="submit" class="btn btn-primary" style="min-width: 120px;">Analyze</button>
+                        </form>
+                        <div id="chatLoading" style="display:none; margin-top:1rem; color:var(--kenya-black);">Analyzing message...</div>
+                        <div id="chatError" style="display:none; margin-top:1rem; color:var(--kenya-red);">Error analyzing message. Please try again.</div>
                     </div>
 
                     <!-- Analysis Results Panel -->
@@ -3705,7 +3758,7 @@
                         <div class="stat-number">2,569</div>
                     </div>
                     <div class="region-card">
-                        <h3>🇪🇬 North Africa</hh3>
+                        <h3>🇪🇬 North Africa</h3>
                         <p>Egypt, Morocco, Algeria, Tunisia</p>
                         <div class="stat-number">1,929</div>
                     </div>
@@ -4252,11 +4305,12 @@
                 console.log('❌ Kenya backend connection failed:', error);
                 
                 // Update Kenya API status badge to show error
-                const apiStatus = document.getElementById('apiStatus');
-                if (apiStatus) {
-                    apiStatus.textContent = '⚠️ Offline Mode';
-                    apiStatus.className = 'api-status api-offline';
-                }
+
+                    const apiStatus = document.getElementById('apiStatus');
+                    if (apiStatus) {
+                        apiStatus.textContent = '⚠️ Offline Mode';
+                        apiStatus.className = 'api-status api-offline';
+                    }
                 
                 return false;
             }
@@ -4382,6 +4436,45 @@
                 `;
             }
         }
+
+            // Chat/Manual Input Handler
+            document.addEventListener('DOMContentLoaded', function() {
+                const chatForm = document.getElementById('chatForm');
+                const chatInput = document.getElementById('chatInput');
+                const chatLoading = document.getElementById('chatLoading');
+                const chatError = document.getElementById('chatError');
+                if (chatForm && chatInput) {
+                    chatForm.addEventListener('submit', async function(e) {
+                        e.preventDefault();
+                        chatError.style.display = 'none';
+                        chatLoading.style.display = 'block';
+                        const message = chatInput.value.trim();
+                        try {
+                            // Use global ShieldAPI.analyzeText for backend analysis
+                            const result = await window.ShieldAPI.analyzeText(message);
+                            chatLoading.style.display = 'none';
+                            if (result && result.type) {
+                                showAnalysisResults({
+                                    content: message,
+                                    type: result.type || 'Unknown',
+                                    severity: result.severity || 'Unknown',
+                                    language: result.language || 'Unknown',
+                                    action: result.action || 'Unknown',
+                                    confidence: result.confidence || 90,
+                                    culturalContext: result.culturalContext || 'Kenyan context applied.'
+                                });
+                            } else {
+                                chatError.textContent = 'No analysis result. Please try again.';
+                                chatError.style.display = 'block';
+                            }
+                        } catch (err) {
+                            chatLoading.style.display = 'none';
+                            chatError.textContent = 'Error analyzing message. Please try again.';
+                            chatError.style.display = 'block';
+                        }
+                    });
+                }
+            });
 
         // Download extension: when present the anchor will download the packaged zip.
         // The previous simulated downloadExtension() is no longer used — kept here for backwards compatibility.

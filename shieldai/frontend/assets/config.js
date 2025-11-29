@@ -131,39 +131,43 @@ const CONFIG = {
         ADVANCED_REPORTING: true
     },
     
-    // Localization
+    // Localization - Kenya Focus
     SUPPORTED_LANGUAGES: [
-        { code: 'en', name: 'English', nativeName: 'English' },
-        { code: 'sw', name: 'Swahili', nativeName: 'Kiswahili' },
-        { code: 'fr', name: 'French', nativeName: 'Français' },
-        { code: 'yo', name: 'Yoruba', nativeName: 'Yorùbá' },
-        { code: 'ig', name: 'Igbo', nativeName: 'Igbo' },
-        { code: 'ha', name: 'Hausa', nativeName: 'Hausa' },
-        { code: 'am', name: 'Amharic', nativeName: 'አማርኛ' },
-        { code: 'so', name: 'Somali', nativeName: 'Soomaali' }
+        { code: 'en', name: 'English', nativeName: 'English', region: 'Kenya' },
+        { code: 'sw', name: 'Swahili', nativeName: 'Kiswahili', region: 'Kenya', primary: true }
     ],
     
     DEFAULT_LANGUAGE: 'en',
     
-    // Regional Settings
+    // Regional Settings - Kenya Primary with Future Africa Expansion
     REGIONS: {
+        'kenya': {
+            name: 'Kenya',
+            countries: ['Kenya'],
+            primary_language: 'sw',
+            emergency_numbers: ['999', '112'],
+            cities: ['Nairobi', 'Mombasa', 'Kisumu', 'Nakuru', 'Eldoret', 'Kericho', 'Kilifi']
+        },
         'east-africa': {
             name: 'East Africa',
             countries: ['Kenya', 'Tanzania', 'Uganda', 'Rwanda', 'Burundi'],
             primary_language: 'sw',
-            emergency_numbers: ['999', '112']
+            emergency_numbers: ['999', '112'],
+            status: 'planned'
         },
         'west-africa': {
             name: 'West Africa',
             countries: ['Nigeria', 'Ghana', 'Senegal', "Côte d'Ivoire", 'Cameroon'],
             primary_language: 'en',
-            emergency_numbers: ['112', '199']
+            emergency_numbers: ['112', '199'],
+            status: 'planned'
         },
         'southern-africa': {
             name: 'Southern Africa',
             countries: ['South Africa', 'Zimbabwe', 'Zambia', 'Botswana'],
             primary_language: 'en',
-            emergency_numbers: ['10111', '112']
+            emergency_numbers: ['10111', '112'],
+            status: 'planned'
         }
     },
     
@@ -238,13 +242,14 @@ const CONFIG = {
         MAX_VISIBLE: 3
     },
     
-    // Demo/Development Settings
+    // Demo/Development Settings - Kenya Focus
     DEMO: {
         ENABLED: true,
+        REGION: 'Kenya',
         SAMPLE_TEXTS: [
-            "This is a wonderful day!",
+            "This is a wonderful day in Nairobi!",
             "You are so stupid and worthless.",
-            "Women belong in the kitchen, not in tech.",
+            "Women belong in the kitchen, not leading companies.",
             "I think we should all work together peacefully.",
             "I hate you and hope something bad happens to you."
         ],
