@@ -1,12 +1,18 @@
-// Configuration for ShieldAI
 const CONFIG = {
-    API_BASE_URL: 'https://api.shieldai.org/v1',
+    // For Codespaces - backend is on the same machine
+    API_BASE_URL: 'http://localhost:8000',
+    
     DETECTION_THRESHOLD: 0.7,
     SUPPORTED_LANGUAGES: ['en', 'fr', 'sw', 'yo', 'ig'],
     SUPPORTED_PLATFORMS: ['twitter', 'facebook', 'instagram', 'whatsapp', 'linkedin'],
-    EMERGENCY_CONTACTS: {
-        'GBV Hotline': '0800 333 333',
-        'Mental Health': '0800 456 789',
-        'Legal Aid': '0800 222 111'
+    
+    ENDPOINTS: {
+        ANALYZE: '/analyze',
+        BATCH_ANALYZE: '/analyze/batch',
+        STATS: '/stats',
+        RESOURCES: '/resources',
+        HEALTH: '/health',
+        LANGUAGES: '/languages/supported',
+        ANALYTICS: '/analytics/history'
     }
 };

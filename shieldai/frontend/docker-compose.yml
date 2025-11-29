@@ -1,23 +1,20 @@
 version: '3.8'
 
 services:
-  shieldai-frontend:
+  frontend:
     build: .
     ports:
       - "3000:80"
-    volumes:
-      - ./src:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
     environment:
-      - NODE_ENV=development
-    restart: unless-stopped
+      - API_BASE_URL=http://backend:8000
 
-  # Add this if you need a backend API too
-  shieldai-backend:
-    image: tiangolo/uvicorn-gunicorn-fastapi:python3.11
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
-      - "8000:80"
+      - "8000:8000"
     environment:
-      - MODULE_NAME=app.main
-    volumes:
-      - ../backend:/app
-    restart: unless-stopped
+      - DATABASE_URL=sqlite:///./shieldai.db
