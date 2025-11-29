@@ -3,8 +3,8 @@
     <nav class="nav container">
         <div class="logo">
             <a href="index.html" class="logo-link">
-                <h1>🌍 ShieldAI Africa</h1>
-                <span>Protecting Women Across the African Continent</span>
+                <h1>🇰🇪 ShieldAI Kenya</h1>
+                <span>Protecting Kenyan Women & Girls from Digital Violence</span>
             </a>
         </div>
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
@@ -15,16 +15,16 @@
         <div class="nav-links" id="navLinks">
             <a href="index.html" class="nav-link">Home</a>
             <a href="demo.html" class="nav-link">Live Demo</a>
-            <a href="features.html" class="nav-link">African Features</a>
-            <a href="impact.html" class="nav-link">Africa Impact</a>
-            <a href="resources.html" class="nav-link">African Resources</a>
-            <a href="extension.html" class="nav-link">Download Extension</a>
+            <a href="resources.html" class="nav-link">Kenyan Resources</a>
+            <a href="impact.html" class="nav-link">Kenya Impact</a>
+            <a href="about.html" class="nav-link">About Kenya</a>
+            <a href="extension.html" class="nav-link">Get Protection</a>
         </div>
     </nav>
 </header>
 
 <script>
-// Mobile menu functionality
+// Mobile menu functionality for Kenya site
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileMenuBtn && navLinks) {
         mobileMenuBtn.addEventListener('click', function() {
             navLinks.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
             
             // Animate hamburger to X
             const spans = this.querySelectorAll('span');
@@ -51,29 +52,42 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinksList.forEach(link => {
             link.addEventListener('click', function() {
                 navLinks.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
                 mobileMenuBtn.querySelectorAll('span').forEach(span => {
                     span.style.transform = 'none';
                     span.style.opacity = '1';
                 });
             });
         });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navLinks.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.querySelectorAll('span').forEach(span => {
+                    span.style.transform = 'none';
+                    span.style.opacity = '1';
+                });
+            }
+        });
     }
 });
 
-// Add active state based on current page
+// Add active state based on current page for Kenya site
 document.addEventListener('DOMContentLoaded', function() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link');
     
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href');
-        if (currentPage === linkPage) {
+        if (currentPage === linkPage || (currentPage === '' && linkPage === 'index.html')) {
             link.classList.add('active');
         }
     });
 });
 
-// Initialize mobile menu function for other pages
+// Initialize mobile menu function for Kenya pages
 window.initializeMobileMenu = function() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
@@ -81,6 +95,7 @@ window.initializeMobileMenu = function() {
     if (mobileMenuBtn && navLinks) {
         mobileMenuBtn.addEventListener('click', function() {
             navLinks.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
             
             const spans = this.querySelectorAll('span');
             if (navLinks.classList.contains('active')) {
@@ -96,14 +111,340 @@ window.initializeMobileMenu = function() {
     }
 };
 
-// Add continent animation on scroll
+// Kenya header scroll effect
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
     const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
     
     if (header) {
-        header.style.backgroundPosition = `0px ${rate}px`;
+        if (scrolled > 100) {
+            header.style.background = 'rgba(0, 0, 0, 0.95)';
+            header.style.backdropFilter = 'blur(10px)';
+        } else {
+            header.style.background = '';
+            header.style.backdropFilter = '';
+        }
+    }
+});
+
+// Kenya emergency alert system
+window.addEventListener('DOMContentLoaded', function() {
+    // Check if we should show emergency alert (for demo purposes)
+    const showEmergency = Math.random() > 0.7; // 30% chance to show
+    
+    if (showEmergency && window.location.pathname.includes('index.html')) {
+        setTimeout(() => {
+            const emergencyAlert = document.createElement('div');
+            emergencyAlert.className = 'kenya-emergency-alert';
+            emergencyAlert.innerHTML = `
+                <div class="emergency-alert-content">
+                    <span class="emergency-icon">🚨</span>
+                    <div class="emergency-text">
+                        <strong>Kenya Emergency Support</strong>
+                        <span>Call 1199 | Text 1195 | Police: 999/112</span>
+                    </div>
+                    <button class="emergency-close" onclick="this.parentElement.parentElement.remove()">×</button>
+                </div>
+            `;
+            document.body.prepend(emergencyAlert);
+            
+            // Auto-remove after 10 seconds
+            setTimeout(() => {
+                if (emergencyAlert.parentElement) {
+                    emergencyAlert.remove();
+                }
+            }, 10000);
+        }, 2000);
+    }
+});
+
+// Kenya language detection for better user experience
+window.addEventListener('DOMContentLoaded', function() {
+    const userLanguage = navigator.language || navigator.userLanguage;
+    const isKenyanUser = userLanguage.includes('sw') || userLanguage.includes('en-KE') || userLanguage.includes('KE');
+    
+    if (isKenyanUser) {
+        document.body.classList.add('kenyan-user');
+        
+        // Could add Kenyan-specific features here
+        console.log('🇰🇪 Welcome Kenyan user!');
+    }
+});
+
+// Keyboard navigation for Kenya site accessibility
+document.addEventListener('keydown', function(event) {
+    const navLinks = document.getElementById('navLinks');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    
+    // Escape key closes mobile menu
+    if (event.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuBtn.querySelectorAll('span').forEach(span => {
+                span.style.transform = 'none';
+                span.style.opacity = '1';
+            });
+        }
+    }
+    
+    // Tab key navigation trap in mobile menu
+    if (event.key === 'Tab' && navLinks && navLinks.classList.contains('active')) {
+        const focusableElements = navLinks.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        
+        if (event.shiftKey) {
+            if (document.activeElement === firstElement) {
+                event.preventDefault();
+                lastElement.focus();
+            }
+        } else {
+            if (document.activeElement === lastElement) {
+                event.preventDefault();
+                firstElement.focus();
+            }
+        }
     }
 });
 </script>
+
+<style>
+/* Kenya Header Specific Styles */
+.header {
+    background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #006600 100%);
+    border-bottom: 2px solid #FFD700;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFD700, #FFFFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.25rem;
+}
+
+.logo span {
+    font-size: 0.875rem;
+    color: #E5E7EB;
+    opacity: 0.8;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: #E5E7EB;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #FFD700;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #FFD700;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 30px;
+    height: 30px;
+    justify-content: space-between;
+}
+
+.mobile-menu-btn span {
+    width: 100%;
+    height: 3px;
+    background: #FFD700;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Kenya Emergency Alert */
+.kenya-emergency-alert {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #DC2626, #991B1B);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid #FFD700;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: slideDown 0.5s ease;
+}
+
+.emergency-alert-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.emergency-icon {
+    font-size: 1.5rem;
+}
+
+.emergency-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.emergency-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kenyan User Specific Styles */
+body.kenyan-user .header {
+    border-bottom-color: #006600;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        transform: translateX(-50%) translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #006600 100%);
+        flex-direction: column;
+        padding: 1rem;
+        border-top: 2px solid #FFD700;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-link {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    .kenya-emergency-alert {
+        left: 1rem;
+        right: 1rem;
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.25rem;
+    }
+    
+    .logo span {
+        font-size: 0.75rem;
+    }
+    
+    .kenya-emergency-alert {
+        top: 70px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .header {
+        border-bottom: 3px solid #FFD700;
+    }
+    
+    .nav-link {
+        font-weight: 600;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .header,
+    .nav-link,
+    .mobile-menu-btn span {
+        transition: none;
+    }
+    
+    .kenya-emergency-alert {
+        animation: none;
+    }
+}
+</style>

@@ -3,74 +3,81 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-brand">
-                <h3>🌍 ShieldAI Africa</h3>
-                <p>Protecting women and girls from digital violence across the African continent</p>
+                <h3>🇰🇪 ShieldAI Kenya</h3>
+                <p>Protecting Kenyan women and girls from digital violence across all 47 counties</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Twitter Africa" title="Follow us on Twitter">🐦</a>
-                    <a href="#" aria-label="Facebook Africa" title="Like us on Facebook">📘</a>
-                    <a href="#" aria-label="LinkedIn Africa" title="Connect on LinkedIn">💼</a>
-                    <a href="#" aria-label="Instagram Africa" title="Follow on Instagram">📸</a>
+                    <a href="#" aria-label="Twitter Kenya" title="Follow us on Twitter">🐦</a>
+                    <a href="#" aria-label="Facebook Kenya" title="Like us on Facebook">📘</a>
+                    <a href="#" aria-label="LinkedIn Kenya" title="Connect on LinkedIn">💼</a>
+                    <a href="#" aria-label="Instagram Kenya" title="Follow on Instagram">📸</a>
                 </div>
-                <div class="africa-emergency-footer">
-                    <strong>🚨 Pan-African Emergency:</strong> Multiple Helplines Available
+                <div class="kenya-emergency-footer">
+                    <strong>🚨 Kenyan Emergency:</strong> Call 1199 | Text 1195 | Police: 999/112
                 </div>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
-                    <h4>African Protection</h4>
+                    <h4>Kenyan Protection</h4>
                     <a href="demo.html">Live Demo</a>
-                    <a href="features.html">African Features</a>
+                    <a href="resources.html">Kenyan Features</a>
                     <a href="extension.html">Get Protection</a>
-                    <a href="impact.html">Africa Impact</a>
+                    <a href="impact.html">Kenya Impact</a>
                 </div>
                 <div class="footer-column">
-                    <h4>African Resources</h4>
-                    <a href="resources.html">Pan-African Support</a>
+                    <h4>Kenyan Resources</h4>
+                    <a href="resources.html">Kenyan Support</a>
                     <a href="resources.html#hotlines">Emergency Hotlines</a>
                     <a href="resources.html#organizations">Local Organizations</a>
                     <a href="resources.html#hospitals">Mental Health</a>
                 </div>
                 <div class="footer-column">
-                    <h4>About ShieldAI</h4>
-                    <a href="about.html">Our African Mission</a>
-                    <a href="impact.html">Impact Across Africa</a>
-                    <a href="#">Contact African Team</a>
+                    <h4>About ShieldAI Kenya</h4>
+                    <a href="about.html">Our Kenyan Mission</a>
+                    <a href="impact.html">Impact in Kenya</a>
+                    <a href="about.html#contact">Contact Kenyan Team</a>
                     <a href="#">Privacy & Safety</a>
                 </div>
                 <div class="footer-column">
-                    <h4>African Regions</h4>
-                    <a href="resources.html?region=east">East Africa</a>
-                    <a href="resources.html?region=west">West Africa</a>
-                    <a href="resources.html?region=south">Southern Africa</a>
-                    <a href="resources.html?region=north">North Africa</a>
+                    <h4>Kenyan Regions</h4>
+                    <a href="resources.html?region=nairobi">Nairobi</a>
+                    <a href="resources.html?region=coast">Coast Region</a>
+                    <a href="resources.html?region=rift">Rift Valley</a>
+                    <a href="resources.html?region=western">Western Kenya</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="africa-partners">
-                <span>🌍 Trusted by African Women Across 24 Countries:</span>
-                <div class="countries-list">
-                    <span>Nigeria</span>
-                    <span>Kenya</span>
-                    <span>South Africa</span>
-                    <span>Ghana</span>
-                    <span>Egypt</span>
-                    <span>Ethiopia</span>
+            <div class="kenya-partners">
+                <span>🤝 Partnered with Kenyan Organizations:</span>
+                <div class="partners-list">
+                    <span>Women's Rights Kenya</span>
+                    <span>Mental Health Kenya</span>
+                    <span>Tech for Good KE</span>
+                    <span>Gender Violence Recovery</span>
                 </div>
             </div>
             <div class="language-support">
-                <span>🗣️ Available in 8 Languages:</span>
+                <span>🗣️ Available in Kenyan Languages:</span>
                 <div class="languages-list">
-                    <span>English</span>
-                    <span>French</span>
-                    <span>Arabic</span>
                     <span>Swahili</span>
-                    <span>Hausa</span>
-                    <span>Yoruba</span>
+                    <span>English</span>
+                    <span>Sheng</span>
                 </div>
             </div>
-            <p>Built for POWER HACKS 2025 - UNiTE to End Digital Violence Against Women & Girls Across Africa</p>
-            <p class="copyright">&copy; 2025 ShieldAI Africa. Protecting women across the continent.</p>
+            <div class="county-coverage">
+                <span>🏙️ Serving All 47 Kenyan Counties:</span>
+                <div class="counties-list">
+                    <span>Nairobi</span>
+                    <span>Mombasa</span>
+                    <span>Kisumu</span>
+                    <span>Nakuru</span>
+                    <span>Eldoret</span>
+                    <span>+42 more</span>
+                </div>
+            </div>
+            <p>Built for POWER HACKS 2025 - UNiTE to End Digital Violence Against Women & Girls in Kenya</p>
+            <p class="copyright">&copy; 2025 ShieldAI Kenya. Protecting Kenyan women and girls.</p>
+            <p class="mission-statement">Build Safe. Build Bold. Unite to End Digital Violence Against All Women & Girls in Kenya</p>
         </div>
     </div>
 </footer>
@@ -102,33 +109,507 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Add interactive country/language tags
+// Add interactive elements for Kenya footer
 document.addEventListener('DOMContentLoaded', function() {
-    const countryTags = document.querySelectorAll('.countries-list span');
+    // Interactive partner tags
+    const partnerTags = document.querySelectorAll('.partners-list span');
     const languageTags = document.querySelectorAll('.languages-list span');
+    const countyTags = document.querySelectorAll('.counties-list span');
     
-    countryTags.forEach(tag => {
+    // Partner tags interaction
+    partnerTags.forEach(tag => {
         tag.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-2px)';
-            this.style.boxShadow = '0 4px 8px rgba(0, 135, 81, 0.3)';
+            this.style.boxShadow = '0 4px 8px rgba(255, 0, 0, 0.3)';
+            this.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
         });
         
         tag.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
             this.style.boxShadow = 'none';
+            this.style.backgroundColor = '';
+        });
+        
+        tag.addEventListener('click', function() {
+            // Show more info about the partner organization
+            console.log('🇰🇪 Kenyan Partner:', this.textContent);
         });
     });
     
+    // Language tags interaction
     languageTags.forEach(tag => {
         tag.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-2px)';
-            this.style.boxShadow = '0 4px 8px rgba(255, 215, 0, 0.3)';
+            this.style.boxShadow = '0 4px 8px rgba(0, 102, 0, 0.3)';
+            this.style.backgroundColor = 'rgba(0, 102, 0, 0.2)';
         });
         
         tag.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
             this.style.boxShadow = 'none';
+            this.style.backgroundColor = '';
+        });
+    });
+    
+    // County tags interaction
+    countyTags.forEach(tag => {
+        tag.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 4px 8px rgba(255, 215, 0, 0.3)';
+            this.style.backgroundColor = 'rgba(255, 215, 0, 0.2)';
+        });
+        
+        tag.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+            this.style.backgroundColor = '';
+        });
+        
+        tag.addEventListener('click', function() {
+            if (this.textContent !== '+42 more') {
+                console.log('📍 Kenyan County:', this.textContent);
+            } else {
+                // Show all 47 counties modal
+                showAllCounties();
+            }
         });
     });
 });
+
+// Show all 47 Kenyan counties
+function showAllCounties() {
+    const counties = [
+        'Nairobi', 'Mombasa', 'Kisumu', 'Nakuru', 'Eldoret', 'Thika', 'Malindi', 
+        'Kitale', 'Garissa', 'Kakamega', 'Nyeri', 'Machakos', 'Meru', 'Nanyuki',
+        'Kericho', 'Isiolo', 'Lamu', 'Marsabit', 'Homa Bay', 'Wajir', 'Embu',
+        'Kitui', 'Busia', 'Siaya', 'Kirinyaga', 'Bungoma', 'Voi', 'Kapenguria',
+        'Narok', 'Nyamira', 'Sotik', 'Moyale', 'Lodwar', 'Kajiado', 'Kiambu',
+        'Kilifi', 'Taita Taveta', 'Muranga', 'Nyandarua', 'Nandi', 'Laikipia',
+        'West Pokot', 'Samburu', 'Trans Nzoia', 'Uasin Gishu', 'Elgeyo Marakwet', 'Baringo'
+    ];
+    
+    const modal = document.createElement('div');
+    modal.className = 'kenya-counties-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🇰🇪 All 47 Kenyan Counties We Serve</h3>
+                <button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">×</button>
+            </div>
+            <div class="counties-grid">
+                ${counties.map(county => `<span class="county-tag">${county}</span>`).join('')}
+            </div>
+            <div class="modal-footer">
+                <p>Protecting women and girls across every county in Kenya</p>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Add click outside to close
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+}
+
+// Emergency number quick dial
+document.addEventListener('DOMContentLoaded', function() {
+    const emergencyFooter = document.querySelector('.kenya-emergency-footer');
+    if (emergencyFooter) {
+        emergencyFooter.style.cursor = 'pointer';
+        emergencyFooter.addEventListener('click', function() {
+            if (confirm('🚨 Call Kenyan Emergency: 1199 (Mental Health) or 999/112 (Police)?')) {
+                console.log('🇰🇪 Emergency dial initiated');
+                // In a real app, this would trigger phone dial
+            }
+        });
+    }
+});
+
+// Add Kenyan holiday theme
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const isJamhuriDay = today.getMonth() === 11 && today.getDate() === 12; // Dec 12
+    const isMadarakaDay = today.getMonth() === 5 && today.getDate() === 1; // June 1
+    
+    if (isJamhuriDay || isMadarakaDay) {
+        document.querySelector('.footer').classList.add('kenya-holiday');
+    }
+});
 </script>
+
+<style>
+/* Kenya Footer Specific Styles */
+.footer {
+    background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #006600 100%);
+    color: #E5E7EB;
+    padding: 3rem 0 1rem;
+    border-top: 2px solid #FFD700;
+    margin-top: 4rem;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #FF0000, #000000, #006600);
+    opacity: 0.6;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-brand h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFD700, #FFFFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-links a:hover {
+    background: #FFD700;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.kenya-emergency-footer {
+    background: linear-gradient(135deg, #DC2626, #991B1B);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #FFD700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.kenya-emergency-footer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.footer-column h4 {
+    color: #FFD700;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.footer-column a {
+    display: block;
+    color: #E5E7EB;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    position: relative;
+    padding-left: 0.5rem;
+}
+
+.footer-column a:hover {
+    color: #FFD700;
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.footer-column a::before {
+    content: '▸';
+    position: absolute;
+    left: -0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.footer-column a:hover::before {
+    opacity: 1;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.kenya-partners, .language-support, .county-coverage {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 102, 0, 0.2);
+}
+
+.kenya-partners span, .language-support span, .county-coverage span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #FFD700;
+}
+
+.partners-list, .languages-list, .counties-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.partners-list span {
+    background: rgba(255, 0, 0, 0.2);
+    color: #FF6B6B;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.875rem;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.languages-list span {
+    background: rgba(0, 102, 0, 0.2);
+    color: #68D391;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.875rem;
+    border: 1px solid rgba(0, 102, 0, 0.3);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.counties-list span {
+    background: rgba(255, 215, 0, 0.2);
+    color: #FFD700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.875rem;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.footer-bottom p {
+    margin: 0.5rem 0;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+.copyright {
+    opacity: 0.6 !important;
+    font-size: 0.8rem !important;
+}
+
+.mission-statement {
+    color: #FFD700 !important;
+    font-weight: 600;
+    font-size: 1rem !important;
+    margin-top: 1rem !important;
+    opacity: 1 !important;
+}
+
+/* Kenya Counties Modal */
+.kenya-counties-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #006600 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid #FFD700;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 1rem;
+}
+
+.modal-header h3 {
+    color: #FFD700;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1rem;
+    text-align: center;
+}
+
+/* Kenyan Holiday Theme */
+.footer.kenya-holiday {
+    background: linear-gradient(135deg, #FF0000 0%, #000000 30%, #006600 70%, #FFD700 100%);
+}
+
+.footer.kenya-holiday::before {
+    background: linear-gradient(90deg, #FF0000, #FFD700, #006600, #000000);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .partners-list, .languages-list, .counties-list {
+        justify-content: flex-start;
+    }
+    
+    .modal-content {
+        padding: 1rem;
+    }
+    
+    .counties-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+    
+    .footer-content {
+        gap: 1.5rem;
+    }
+}
+
+/* Focus styles for accessibility */
+.social-links a:focus,
+.footer-column a:focus,
+.kenya-emergency-footer:focus,
+.partners-list span:focus,
+.languages-list span:focus,
+.counties-list span:focus {
+    outline: 2px solid #FFD700;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .footer {
+        border-top: 3px solid #FFD700;
+    }
+    
+    .footer-column a {
+        font-weight: 600;
+    }
+    
+    .kenya-emergency-footer {
+        border-left: 4px solid white;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .social-links a,
+    .footer-column a,
+    .kenya-emergency-footer,
+    .partners-list span,
+    .languages-list span,
+    .counties-list span {
+        transition: none;
+    }
+    
+    .social-links a:hover,
+    .footer-column a:hover,
+    .kenya-emergency-footer:hover,
+    .partners-list span:hover,
+    .languages-list span:hover,
+    .counties-list span:hover {
+        transform: none;
+    }
+}
+</style>
