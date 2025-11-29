@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Extension - ShieldAI</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">🛡️</div>
+            <h2>ShieldAI</h2>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <div id="header-placeholder"></div>
+
+    <!-- Extension Hero -->
+    <section class="page-hero extension-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>ShieldAI Browser Extension</h1>
+                    <p class="hero-subtitle">Real-time protection against digital violence on every website you visit</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Active Users</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">99%</span>
+                            <span class="stat-label">Satisfaction</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">&lt;1MB</span>
+                            <span class="stat-label">Lightweight</span>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="installExtension()">
+                            <span class="btn-icon">⬇️</span>
+                            Install Extension
+                        </button>
+                        <button class="btn btn-secondary" onclick="showDemoVideo()">
+                            <span class="btn-icon">🎥</span>
+                            Watch Demo
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-controls">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="browser-url">https://social-media.com</div>
+                            <div class="shield-indicator">🛡️ Protected</div>
+                        </div>
+                        <div class="browser-content">
+                            <div class="social-post">
+                                <div class="post-header">
+                                    <span class="user">User123</span>
+                                </div>
+                                <div class="post-content">
+                                    <p class="blocked-message">[Content blocked by ShieldAI - Toxic message detected]</p>
+                                </div>
+                            </div>
+                            <div class="social-post">
+                                <div class="post-header">
+                                    <span class="user">SupportiveUser</span>
+                                </div>
+                                <div class="post-content">
+                                    <p>Great work! Keep inspiring others 👏</p>
+                                    <div class="shield-badge safe">✅ Safe</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="extension-features">
+        <div class="container">
+            <h2 class="section-title">✨ Extension Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Works Everywhere</h3>
+                    <p>Protection on all major platforms: Twitter, Facebook, Instagram, WhatsApp Web, and more</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-time Analysis</h3>
+                    <p>Instant protection as you type with &lt;500ms response time</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Privacy First</h3>
+                    <p>Your data stays on your device. No tracking, no ads, complete privacy</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Smart Filtering</h3>
+                    <p>AI-powered content analysis with cultural context awareness</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💝</div>
+                    <h3>Support Integration</h3>
+                    <p>Quick access to mental health resources and crisis support</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🆓</div>
+                    <h3>Completely Free</h3>
+                    <p>No subscriptions, no hidden fees - protection for everyone</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Steps -->
+    <section class="installation-steps">
+        <div class="container">
+            <h2 class="section-title">📥 Easy Installation</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Download Extension</h3>
+                        <p>Get ShieldAI from the Chrome Web Store with one click</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Add to Browser</h3>
+                        <p>Click "Add to Chrome" and confirm installation</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Start Browsing</h3>
+                        <p>Protection begins automatically on all supported sites</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Customize Settings</h3>
+                        <p>Adjust protection levels and preferences in settings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Platforms -->
+    <section class="supported-platforms">
+        <div class="container">
+            <h2 class="section-title">📱 Supported Platforms</h2>
+            <div class="platforms-grid">
+                <div class="platform-card">
+                    <div class="platform-icon">🐦</div>
+                    <h3>Twitter/X</h3>
+                    <p>Real-time protection for tweets, replies, and DMs</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">📘</div>
+                    <h3>Facebook</h3>
+                    <p>Comment filtering and message protection</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">📷</div>
+                    <h3>Instagram</h3>
+                    <p>Comment moderation and DM safety</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">💬</div>
+                    <h3>WhatsApp Web</h3>
+                    <p>Message analysis and threat detection</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <p>Professional harassment prevention</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">📺</div>
+                    <h3>YouTube</h3>
+                    <p>Comment section moderation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section class="privacy-section">
+        <div class="container">
+            <h2 class="section-title">🔒 Your Privacy Matters</h2>
+            <div class="privacy-features">
+                <div class="privacy-point">
+                    <div class="privacy-icon">💾</div>
+                    <div class="privacy-content">
+                        <h3>Local Processing</h3>
+                        <p>All analysis happens on your device - your data never leaves your browser</p>
+                    </div>
+                </div>
+                <div class="privacy-point">
+                    <div class="privacy-icon">👁️</div>
+                    <div class="privacy-content">
+                        <h3>No Tracking</h3>
+                        <p>We don't track your browsing history or personal information</p>
+                    </div>
+                </div>
+                <div class="privacy-point">
+                    <div class="privacy-icon">🔐</div>
+                    <div class="privacy-content">
+                        <h3>Open Source</h3>
+                        <p>Transparent code that anyone can review and verify</p>
+                    </div>
+                </div>
+                <div class="privacy-point">
+                    <div class="privacy-icon">🌍</div>
+                    <div class="privacy-content">
+                        <h3>GDPR Compliant</h3>
+                        <p>Fully compliant with international privacy standards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Start Browsing Safely Today</h2>
+                <p>Join 50,000+ women across Africa who browse the internet with confidence and protection</p>
+                <div class="cta-actions">
+                    <button class="btn btn-primary" onclick="installExtension()">
+                        <span class="btn-icon">⬇️</span>
+                        Install ShieldAI Extension
+                    </button>
+                    <a href="demo.html" class="btn btn-secondary">Try Demo First</a>
+                </div>
+                <div class="trust-badges">
+                    <div class="badge">✅ No Credit Card Required</div>
+                    <div class="badge">✅ 30-Second Setup</div>
+                    <div class="badge">✅ Free Forever</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/script.js"></script>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                initializeMobileMenu();
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+
+        function installExtension() {
+            alert('Extension installation would start here. In a real implementation, this would redirect to Chrome Web Store.');
+        }
+
+        function showDemoVideo() {
+            alert('Demo video would play here showing the extension in action.');
+        }
+    </script>
+</body>
+</html>

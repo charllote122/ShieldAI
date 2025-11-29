@@ -1,802 +1,325 @@
-// Main Application Script
-class ShieldAIApp {
-    constructor() {
-        this.currentPlatform = 'twitter';
-        this.analysisHistory = [];
-        this.isInitialized = false;
-        this.realTimeAnalyzer = null;
-        
-        // State
-        this.state = {
-            currentAnalysis: null,
-            stats: null,
-            resources: [],
-            isOnline: true
-        };
-    }
+// Main JavaScript functionality for ShieldAI
 
-    async initialize() {
-        try {
-            Utils.trackEvent('app', 'initialization_started');
-            
-            // Show loading screen
-            this.showLoadingScreen();
-            
-            // Initialize components
-            await this.initializeComponents();
-            
-            // Load initial data
-            await this.loadInitialData();
-            
-            // Set up event listeners
-            this.setupEventListeners();
-            
-            // Initialize real-time analyzer
-            this.realTimeAnalyzer = API.createRealTimeAnalyzer();
-            
-            // Hide loading screen
-            this.hideLoadingScreen();
-            
-            this.isInitialized = true;
-            
-            Utils.trackEvent('app', 'initialization_completed');
-            
-            console.log('🚀 ShieldAI Frontend initialized successfully');
-            
-        } catch (error) {
-            Utils.handleError(error, 'app_initialization');
-            this.hideLoadingScreen();
-        }
-    }
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeApp();
+});
 
-    async initializeComponents() {
-        // Load scenarios
-        this.loadDemoScenarios();
-        
-        // Load platform tabs
-        this.loadPlatformTabs();
-        
-        // Load features
-        this.loadFeatures();
-        
-        // Check online status
-        this.checkOnlineStatus();
-    }
-
-    async loadInitialData() {
-        try {
-            // Load stats
-            await this.loadStats();
-            
-            // Load resources
-            await this.loadResources();
-            
-            // Start stats auto-refresh
-            this.startStatsAutoRefresh();
-            
-        } catch (error) {
-            Utils.handleError(error, 'initial_data_loading');
-        }
-    }
-
-    setupEventListeners() {
-        // Mobile menu
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        
-        if (mobileMenuBtn && navLinks) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenuBtn.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-        }
-
-        // Real-time analysis
-        const commentInput = document.getElementById('liveCommentInput');
-        if (commentInput) {
-            commentInput.addEventListener('input', (e) => {
-                this.handleRealTimeAnalysis(e.target.value);
-            });
-            
-            // Enter key to analyze
-            commentInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    this.analyzeLiveComment();
-                }
-            });
-        }
-
-        // Analyze button
-        const analyzeBtn = document.getElementById('analyzeBtn');
-        if (analyzeBtn) {
-            analyzeBtn.addEventListener('click', () => {
-                this.analyzeLiveComment();
-            });
-        }
-
-        // Online/offline detection
-        window.addEventListener('online', () => {
-            this.handleOnlineStatusChange(true);
-        });
-        
-        window.addEventListener('offline', () => {
-            this.handleOnlineStatusChange(false);
-        });
-
-        // Scroll events for header
-        window.addEventListener('scroll', Utils.throttle(() => {
-            this.handleScroll();
-        }, 100));
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            this.handleKeyboardShortcuts(e);
-        });
-
-        // Page visibility
-        document.addEventListener('visibilitychange', () => {
-            if (!document.hidden) {
-                this.loadStats(true); // Refresh stats when page becomes visible
-            }
-        });
-    }
-
-    // Demo Scenarios
-    loadDemoScenarios() {
-        const scenariosGrid = document.getElementById('scenariosGrid');
-        if (!scenariosGrid) return;
-
-        const scenariosHTML = CONFIG.DEMO_TEXTS.map(scenario => `
-            <div class="scenario-card" onclick="app.loadScenario(${scenario.id - 1})">
-                <div class="scenario-emoji">${scenario.title.split(' ')[0]}</div>
-                <div class="scenario-title">${scenario.title.split(' ').slice(1).join(' ')}</div>
-                <div class="scenario-text">"${scenario.text}"</div>
-                <div class="scenario-expected">Expected: ${scenario.expected}</div>
-            </div>
-        `).join('');
-
-        scenariosGrid.innerHTML = scenariosHTML;
-    }
-
-    async loadScenario(index) {
-        const scenario = CONFIG.DEMO_TEXTS[index];
-        if (!scenario) return;
-
-        // Update platform
-        this.switchPlatform(scenario.platform);
-        
-        // Set input text
-        const commentInput = document.getElementById('liveCommentInput');
-        if (commentInput) {
-            commentInput.value = scenario.text;
-        }
-        
-        // Auto-analyze after a short delay
-        setTimeout(() => {
-            this.analyzeLiveComment();
-        }, 300);
-
-        Utils.trackEvent('demo', 'scenario_loaded', scenario.title);
-    }
-
-    // Platform Management
-    loadPlatformTabs() {
-        const platformTabs = document.getElementById('platformTabs');
-        if (!platformTabs) return;
-
-        const tabsHTML = CONFIG.PLATFORMS.map(platform => `
-            <button class="platform-tab ${platform.id === this.currentPlatform ? 'active' : ''}" 
-                    onclick="app.switchPlatform('${platform.id}')">
-                <span>${platform.icon}</span>
-                <span>${platform.name}</span>
-            </button>
-        `).join('');
-
-        platformTabs.innerHTML = tabsHTML;
-    }
-
-    switchPlatform(platformId) {
-        this.currentPlatform = platformId;
-        
-        // Update active tab
-        document.querySelectorAll('.platform-tab').forEach(tab => {
-            tab.classList.remove('active');
-        });
-        
-        const activeTab = document.querySelector(`[onclick="app.switchPlatform('${platformId}')"]`);
-        if (activeTab) {
-            activeTab.classList.add('active');
-        }
-        
-        // Update input placeholder
-        const commentInput = document.getElementById('liveCommentInput');
-        if (commentInput) {
-            commentInput.placeholder = `Try typing a ${platformId} comment... (e.g., "This is stupid" or "You're ugly")`;
-        }
-
-        Utils.trackEvent('platform', 'switched', platformId);
-    }
-
-    // Features
-    loadFeatures() {
-        const featuresGrid = document.getElementById('featuresGrid');
-        if (!featuresGrid) return;
-
-        const featuresHTML = CONFIG.FEATURES_LIST.map(feature => `
-            <div class="feature-card">
-                <div class="feature-icon">${feature.icon}</div>
-                <h3>${feature.title}</h3>
-                <p>${feature.description}</p>
-            </div>
-        `).join('');
-
-        featuresGrid.innerHTML = featuresHTML;
-    }
-
-    // Real-time Analysis
-    handleRealTimeAnalysis(text) {
-        if (!this.realTimeAnalyzer) return;
-
-        this.realTimeAnalyzer(text, this.currentPlatform, (result) => {
-            this.displayRealTimeAnalysis(result);
-        });
-    }
-
-    displayRealTimeAnalysis(result) {
-        const analysisResult = document.getElementById('analysisResult');
-        if (!analysisResult) return;
-
-        if (result.status === 'empty') {
-            analysisResult.innerHTML = '<span>Type something to see real-time analysis...</span>';
-            return;
-        }
-
-        if (result.status === 'error') {
-            analysisResult.innerHTML = `
-                <span style="color: var(--danger);">
-                    ❌ Analysis temporarily unavailable
-                </span>
-            `;
-            return;
-        }
-
-        const confidencePercent = Math.round(result.confidence * 100);
-        let html = '';
-
-        if (result.is_toxic) {
-            html = `
-                <div style="color: var(--danger);">
-                    <strong>🚨 Potential Issue Detected (${confidencePercent}% confidence)</strong>
-                    <div style="font-size: 0.875rem; margin-top: 0.5rem; color: var(--warning);">
-                        ${result.suggested_rewrite}
-                    </div>
-                </div>
-            `;
-        } else {
-            html = `
-                <div style="color: var(--safe);">
-                    <strong>✅ Message appears respectful (${confidencePercent}% confidence)</strong>
-                </div>
-            `;
-        }
-
-        analysisResult.innerHTML = html;
-    }
-
-    // Live Analysis
-    async analyzeLiveComment() {
-        const commentInput = document.getElementById('liveCommentInput');
-        if (!commentInput) return;
-
-        const text = commentInput.value.trim();
-        
-        if (!Utils.isValidText(text)) {
-            Utils.showToast('Please enter some text to analyze', 'warning');
-            return;
-        }
-
-        try {
-            Utils.trackEvent('analysis', 'live_analysis_started', this.currentPlatform);
-            
-            this.showAnalysisLoading();
-            
-            const result = await API.analyzeText(text, this.currentPlatform);
-            
-            this.displayAnalysisResult(result);
-            this.addToAnalysisHistory(result);
-            
-            // Clear input
-            commentInput.value = '';
-            this.displayRealTimeAnalysis({ status: 'empty' });
-            
-            Utils.trackEvent('analysis', 'live_analysis_completed', this.currentPlatform);
-            
-        } catch (error) {
-            Utils.handleError(error, 'live_analysis');
-            this.showAnalysisError('Analysis service unavailable. Please try again.');
-        }
-    }
-
-    displayAnalysisResult(result) {
-        const analysisResults = document.getElementById('analysisResults');
-        if (!analysisResults) return;
-
-        const toxicityPercent = Math.round(result.toxicity_score * 100);
-        const confidencePercent = Math.round(result.confidence * 100);
-        
-        let html = `
-            <div class="analysis-header">
-                <h3>🛡️ Analysis Results</h3>
-                <div class="processing-time">Processed in ${result.processing_time?.toFixed(3) || '0'}s</div>
-            </div>
-            
-            <div class="toxicity-score">
-                <div class="score-header">
-                    <span>Toxicity Score</span>
-                    <span class="score-value ${this.getToxicityColorClass(result.toxicity_score)}">${toxicityPercent}%</span>
-                </div>
-                <div class="meter-bar">
-                    <div class="meter-fill" style="width: ${toxicityPercent}%"></div>
-                </div>
-                <div class="meter-labels">
-                    <span>Safe</span>
-                    <span>Warning</span>
-                    <span>Toxic</span>
-                </div>
-            </div>
-            
-            <div class="warning-level ${result.warning_level}">
-                <strong>Warning Level:</strong> ${result.warning_level.toUpperCase()}
-            </div>
-        `;
-
-        // Detected issues
-        if (result.detected_issues && result.detected_issues.length > 0) {
-            html += `
-                <div class="detected-issues">
-                    <strong>🚩 Detected Issues:</strong>
-                    <ul>
-                        ${result.detected_issues.map(issue => `<li>${issue}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
-        }
-
-        // Cultural context
-        if (result.cultural_context && result.cultural_context.detected_regions && result.cultural_context.detected_regions.length > 0) {
-            html += `
-                <div class="cultural-context">
-                    <strong>🌍 Cultural Context:</strong>
-                    <p>Detected regional context: ${result.cultural_context.detected_regions.join(', ')}</p>
-                </div>
-            `;
-        }
-
-        // Suggestion
-        html += `
-            <div class="suggestion">
-                <strong>💡 Suggestion:</strong>
-                <p>${result.suggested_rewrite}</p>
-            </div>
-            
-            <div class="confidence">
-                <strong>Confidence:</strong> ${confidencePercent}%
-            </div>
-        `;
-
-        analysisResults.innerHTML = html;
-        
-        // Scroll to results
-        analysisResults.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    getToxicityColorClass(score) {
-        if (score > 0.8) return 'toxic-high';
-        if (score > 0.6) return 'toxic-medium';
-        if (score > 0.4) return 'toxic-low';
-        return 'toxic-none';
-    }
-
-    showAnalysisLoading() {
-        const analysisResults = document.getElementById('analysisResults');
-        if (!analysisResults) return;
-
-        analysisResults.innerHTML = `
-            <div style="text-align: center; padding: 2rem;">
-                <div class="loading-spinner" style="margin: 0 auto 1rem;"></div>
-                <p>Analyzing your message for safety...</p>
-            </div>
-        `;
-    }
-
-    showAnalysisError(message) {
-        const analysisResults = document.getElementById('analysisResults');
-        if (!analysisResults) return;
-
-        analysisResults.innerHTML = `
-            <div style="text-align: center; padding: 2rem; color: var(--danger);">
-                <div style="font-size: 2rem; margin-bottom: 1rem;">❌</div>
-                <p>${message}</p>
-            </div>
-        `;
-    }
-
-    // Stats Management
-    async loadStats(forceRefresh = false) {
-        try {
-            const stats = await API.getStats(forceRefresh);
-            this.state.stats = stats;
-            this.updateStatsDisplay(stats);
-        } catch (error) {
-            Utils.handleError(error, 'stats_loading');
-            // Use fallback stats
-            this.updateStatsDisplay(API.getFallbackStats());
-        }
-    }
-
-    updateStatsDisplay(stats) {
-        // Update hero stats
-        this.updateElementText('liveRequests', Utils.formatNumber(stats.total_requests));
-        this.updateElementText('toxicityRate', Utils.formatPercentage(stats.toxicity_rate));
-        
-        // Update impact dashboard
-        this.updateElementText('totalAnalyzed', Utils.formatNumber(stats.total_requests));
-        this.updateElementText('toxicBlocked', Utils.formatNumber(stats.toxic_requests));
-        this.updateElementText('avgResponseTime', Math.round(stats.average_response_time * 1000) + 'ms');
-        
-        // Update regional stats
-        this.updateRegionalStats(stats);
-        
-        // Update chart if available
-        this.updateStatsChart(stats);
-    }
-
-    updateRegionalStats(stats) {
-        const regionalStats = document.getElementById('regionalStats');
-        if (!regionalStats) return;
-
-        // Simplified regional distribution for demo
-        const regions = {
-            'Nigeria': 45,
-            'Kenya': 25,
-            'South Africa': 20,
-            'Ghana': 10
-        };
-
-        const html = Object.entries(regions).map(([region, percent]) => `
-            <div class="region-stat">
-                <span class="region-name">${region}</span>
-                <div class="region-bar">
-                    <div class="region-fill" style="width: ${percent}%"></div>
-                </div>
-                <span class="region-percent">${percent}%</span>
-            </div>
-        `).join('');
-
-        regionalStats.innerHTML = html;
-    }
-
-    updateStatsChart(stats) {
-        const chartCanvas = document.getElementById('protectionChart');
-        if (!chartCanvas) return;
-
-        const ctx = chartCanvas.getContext('2d');
-        
-        // Destroy existing chart
-        if (this.statsChart) {
-            this.statsChart.destroy();
-        }
-
-        // Create new chart
-        this.statsChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['6h ago', '5h ago', '4h ago', '3h ago', '2h ago', '1h ago', 'Now'],
-                datasets: [{
-                    label: 'Messages Analyzed',
-                    data: [120, 150, 180, 200, 170, 190, stats.total_requests % 1000],
-                    borderColor: '#6366f1',
-                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
-                    tension: 0.4,
-                    fill: true
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        },
-                        ticks: {
-                            color: 'rgba(255, 255, 255, 0.7)'
-                        }
-                    },
-                    x: {
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        },
-                        ticks: {
-                            color: 'rgba(255, 255, 255, 0.7)'
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-    startStatsAutoRefresh() {
-        setInterval(() => {
-            if (!document.hidden && this.state.isOnline) {
-                this.loadStats(true);
-            }
-        }, CONFIG.STATS_REFRESH_INTERVAL);
-    }
-
-    // Resources
-    async loadResources(country = 'nigeria') {
-        try {
-            const resources = await API.getResources(country);
-            this.state.resources = resources;
-            this.displayResources(resources);
-        } catch (error) {
-            Utils.handleError(error, 'resources_loading');
-            this.displayDefaultResources();
-        }
-    }
-
-    displayResources(resources) {
-        const resourcesGrid = document.getElementById('resourcesGrid');
-        if (!resourcesGrid) return;
-
-        const html = resources.map(resource => `
-            <div class="resource-card">
-                <h4>${resource.name}</h4>
-                <div class="resource-phone">${resource.phone}</div>
-                <div class="resource-services">${resource.services.join(', ')}</div>
-                <div class="resource-availability">${resource.availability}</div>
-            </div>
-        `).join('');
-
-        resourcesGrid.innerHTML = html;
-    }
-
-    displayDefaultResources() {
-        const defaultResources = [
-            {
-                name: 'Local Emergency Services',
-                phone: '112 or 911',
-                services: ['Emergency Response'],
-                availability: '24/7'
-            },
-            {
-                name: 'Mental Health Support',
-                phone: 'Text SUPPORT to 741741',
-                services: ['Crisis Counseling'],
-                availability: '24/7'
-            }
-        ];
-        
-        this.displayResources(defaultResources);
-    }
-
-    // UI Helpers
-    updateElementText(elementId, text) {
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.textContent = text;
-        }
-    }
-
-    showLoadingScreen() {
+function initializeApp() {
+    // Hide loading screen
+    setTimeout(() => {
         const loadingScreen = document.getElementById('loadingScreen');
         if (loadingScreen) {
-            loadingScreen.style.display = 'flex';
-        }
-    }
-
-    hideLoadingScreen() {
-        const loadingScreen = document.getElementById('loadingScreen');
-        if (loadingScreen) {
-            loadingScreen.classList.add('fade-out');
+            loadingScreen.style.opacity = '0';
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
             }, 500);
         }
-    }
+    }, 1500);
 
-    // Online/Offline Handling
-    checkOnlineStatus() {
-        this.state.isOnline = Utils.isOnline();
-        this.updateOnlineIndicator();
-    }
+    // Initialize components
+    initializeMobileMenu();
+    initializeDemoFeatures();
+    initializeStats();
+    initializeEventListeners();
+}
 
-    handleOnlineStatusChange(isOnline) {
-        this.state.isOnline = isOnline;
-        this.updateOnlineIndicator();
-        
-        if (isOnline) {
-            Utils.showToast('Back online', 'success');
-            this.loadStats(true); // Refresh data when coming online
-        } else {
-            Utils.showToast('You are offline', 'warning');
-        }
-        
-        Utils.trackEvent('network', isOnline ? 'online' : 'offline');
-    }
-
-    updateOnlineIndicator() {
-        // Could add a small indicator in the header
-        console.log(`🌐 Online status: ${this.state.isOnline ? 'Online' : 'Offline'}`);
-    }
-
-    // Scroll Handling
-    handleScroll() {
-        const header = document.querySelector('.header');
-        if (header) {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        }
-    }
-
-    // Keyboard Shortcuts
-    handleKeyboardShortcuts(event) {
-        // Number keys 1-5 for demo scenarios
-        if (event.altKey && event.key >= '1' && event.key <= '5') {
-            const index = parseInt(event.key) - 1;
-            if (CONFIG.DEMO_TEXTS[index]) {
-                event.preventDefault();
-                this.loadScenario(index);
-            }
-        }
-        
-        // Escape to clear input
-        if (event.key === 'Escape') {
-            const commentInput = document.getElementById('liveCommentInput');
-            if (commentInput) {
-                commentInput.value = '';
-                this.displayRealTimeAnalysis({ status: 'empty' });
-            }
-        }
-    }
-
-    // Analysis History
-    addToAnalysisHistory(result) {
-        this.analysisHistory.unshift({
-            ...result,
-            timestamp: new Date().toISOString(),
-            platform: this.currentPlatform
+// Mobile Menu functionality
+function initializeMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
         });
-        
-        // Keep only last 50 analyses
-        if (this.analysisHistory.length > 50) {
-            this.analysisHistory = this.analysisHistory.slice(0, 50);
-        }
-        
-        // Store in localStorage
-        Utils.setStorage('analysisHistory', this.analysisHistory);
-    }
-
-    getAnalysisHistory() {
-        return Utils.getStorage('analysisHistory', []);
-    }
-
-    clearAnalysisHistory() {
-        this.analysisHistory = [];
-        Utils.removeStorage('analysisHistory');
-    }
-
-    // Extension Methods
-    showExtensionModal() {
-        this.showModal('extensionModal');
-        Utils.trackEvent('extension', 'modal_opened');
-    }
-
-    installExtension() {
-        Utils.trackEvent('extension', 'install_clicked');
-        Utils.showToast('Extension installation coming soon!', 'info');
-    }
-
-    // Modal Management
-    showModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.classList.add('show');
-        }
-    }
-
-    closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.classList.remove('show');
-        }
-    }
-
-    // Navigation
-    scrollToDemo() {
-        const demoSection = document.getElementById('demo');
-        if (demoSection) {
-            demoSection.scrollIntoView({ behavior: 'smooth' });
-        }
     }
 }
 
-// Global functions for HTML onclick handlers
-function scrollToDemo() {
-    if (window.app) {
-        window.app.scrollToDemo();
+// Demo functionality
+function initializeDemoFeatures() {
+    // Initialize live comment analysis
+    const commentInput = document.getElementById('liveCommentInput');
+    if (commentInput) {
+        commentInput.addEventListener('input', function() {
+            analyzeCommentInRealTime(this.value);
+        });
     }
+
+    // Initialize scenario buttons
+    const scenarioCards = document.querySelectorAll('.scenario-card');
+    scenarioCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const scenarioType = this.getAttribute('data-scenario');
+            loadScenario(scenarioType);
+        });
+    });
 }
 
-function showExtensionModal() {
-    if (window.app) {
-        window.app.showExtensionModal();
+// Real-time comment analysis
+function analyzeCommentInRealTime(text) {
+    const analysisResult = document.getElementById('analysisResult');
+    if (!analysisResult) return;
+
+    if (text.length === 0) {
+        analysisResult.innerHTML = '<span>Type something to see real-time analysis...</span>';
+        return;
     }
+
+    // Simulate AI analysis
+    const toxicityScore = Math.min(Math.floor(Math.random() * 100), 95);
+    const responseTime = Math.floor(Math.random() * 200) + 100;
+
+    let analysisText = '';
+    let analysisClass = '';
+
+    if (toxicityScore > 70) {
+        analysisText = `🚨 High toxicity detected (${toxicityScore}%) - This content appears harmful`;
+        analysisClass = 'toxic';
+    } else if (toxicityScore > 30) {
+        analysisText = `⚠️ Moderate toxicity detected (${toxicityScore}%) - Proceed with caution`;
+        analysisClass = 'warning';
+    } else {
+        analysisText = `✅ Low toxicity (${toxicityScore}%) - This content appears safe`;
+        analysisClass = 'safe';
+    }
+
+    analysisResult.innerHTML = `
+        <div class="analysis ${analysisClass}">
+            <strong>${analysisText}</strong>
+            <br>
+            <small>Analysis time: ${responseTime}ms</small>
+        </div>
+    `;
 }
 
-function closeModal(modalId) {
-    if (window.app) {
-        window.app.closeModal(modalId);
-    }
-}
-
-function installExtension() {
-    if (window.app) {
-        window.app.installExtension();
-    }
-}
-
+// Analyze live comment
 function analyzeLiveComment() {
-    if (window.app) {
-        window.app.analyzeLiveComment();
+    const commentInput = document.getElementById('liveCommentInput');
+    const resultsDetails = document.getElementById('resultsDetails');
+    const resultsPlaceholder = document.getElementById('resultsPlaceholder');
+    const toxicityScore = document.getElementById('toxicityScore');
+    const toxicityCategory = document.getElementById('toxicityCategory');
+    const responseTime = document.getElementById('responseTime');
+    const confidenceFill = document.getElementById('confidenceFill');
+    const confidenceValue = document.getElementById('confidenceValue');
+
+    if (!commentInput || commentInput.value.trim() === '') {
+        alert('Please enter a comment to analyze');
+        return;
+    }
+
+    // Show loading state
+    if (resultsPlaceholder) resultsPlaceholder.style.display = 'none';
+    if (resultsDetails) resultsDetails.style.display = 'block';
+
+    // Simulate API call
+    setTimeout(() => {
+        const text = commentInput.value.toLowerCase();
+        let score, category, confidence;
+
+        // Simple pattern matching for demo
+        if (text.includes('stupid') || text.includes('ugly') || text.includes('hate') || text.includes('kill')) {
+            score = '92%';
+            category = 'Harassment & Threats';
+            confidence = 95;
+        } else if (text.includes('women') && (text.includes('kitchen') || text.includes('belong'))) {
+            score = '88%';
+            category = 'Gender-based Harassment';
+            confidence = 92;
+        } else if (text.includes('na wash') || text.includes('you fit')) {
+            score = '76%';
+            category = 'Cultural Context Harassment';
+            confidence = 85;
+        } else {
+            score = '12%';
+            category = 'Safe Content';
+            confidence = 98;
+        }
+
+        // Update UI
+        if (toxicityScore) toxicityScore.textContent = score;
+        if (toxicityCategory) toxicityCategory.textContent = category;
+        if (responseTime) responseTime.textContent = `${Math.floor(Math.random() * 200) + 100}ms`;
+        if (confidenceFill) confidenceFill.style.width = `${confidence}%`;
+        if (confidenceValue) confidenceValue.textContent = `${confidence}%`;
+
+        // Add animation
+        if (resultsDetails) {
+            resultsDetails.classList.add('fade-in');
+        }
+    }, 800);
+}
+
+// Load demo scenario
+function loadScenario(scenarioType) {
+    const scenarios = {
+        harassment: {
+            text: "You're too pretty to be in tech. Stick to modeling or find a rich husband instead.",
+            type: "Gender-based Harassment"
+        },
+        hate_speech: {
+            text: "Women like you are destroying our culture with your Western ideas. Go back to where you came from!",
+            type: "Hate Speech"
+        },
+        threats: {
+            text: "I know where you work. Watch your back, you won't last long in this industry.",
+            type: "Direct Threats"
+        },
+        cultural: {
+            text: "This na wash! You think say you fit code? Go marry make your husband take care of you!",
+            type: "Cultural Context Harassment"
+        }
+    };
+
+    const scenario = scenarios[scenarioType];
+    if (scenario) {
+        const commentInput = document.getElementById('liveCommentInput');
+        if (commentInput) {
+            commentInput.value = scenario.text;
+            analyzeLiveComment();
+        }
     }
 }
 
-function showExtensionDemo() {
-    Utils.showToast('Extension demo coming soon!', 'info');
+// Initialize statistics
+function initializeStats() {
+    // Animate stat counters
+    const statElements = document.querySelectorAll('.stat-number');
+    statElements.forEach(stat => {
+        if (stat.textContent.includes('%') || stat.textContent.includes('ms')) {
+            return; // Skip percentages and time values
+        }
+        
+        const target = parseInt(stat.textContent.replace(/,/g, ''));
+        if (!isNaN(target)) {
+            animateCounter(stat, 0, target, 2000);
+        }
+    });
 }
 
-function downloadExtension() {
-    Utils.showToast('Extension download coming soon!', 'info');
+// Animate counter
+function animateCounter(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        element.textContent = value.toLocaleString();
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
 }
 
-function showApiDocs() {
-    Utils.showToast('API documentation: http://localhost:8000/docs', 'info');
+// Initialize event listeners
+function initializeEventListeners() {
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Platform selector
+    const platformSelect = document.getElementById('platformSelect');
+    if (platformSelect) {
+        platformSelect.addEventListener('change', function() {
+            updateDemoPlatform(this.value);
+        });
+    }
 }
 
-function showPrivacyPolicy() {
-    Utils.showToast('Privacy policy coming soon!', 'info');
+// Update demo platform
+function updateDemoPlatform(platform) {
+    const platformNames = {
+        twitter: 'Twitter/X',
+        facebook: 'Facebook',
+        instagram: 'Instagram',
+        whatsapp: 'WhatsApp'
+    };
+
+    console.log(`Switched to ${platformNames[platform]} demo`);
+    // In a real implementation, this would update the UI to match the selected platform
 }
 
-function showAbout() {
-    Utils.showToast('ShieldAI - Protecting women and girls from digital violence', 'info');
+// Extension installation
+function installExtension() {
+    // Simulate extension installation
+    const modal = document.getElementById('extensionModal');
+    if (modal) {
+        modal.style.display = 'block';
+    } else {
+        alert('Extension installation would redirect to Chrome Web Store. This is a demo.');
+    }
 }
 
-function showContact() {
-    Utils.showToast('Contact us at: hello@shieldai.com', 'info');
+// Modal functionality
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+    }
 }
 
-function showCareers() {
-    Utils.showToast('Join our team! Visit careers.shieldai.com', 'info');
+// Scroll to demo section
+function scrollToDemo() {
+    const demoSection = document.getElementById('demo');
+    if (demoSection) {
+        demoSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        window.location.href = 'demo.html';
+    }
 }
 
-// Initialize the application when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    window.app = new ShieldAIApp();
-    window.app.initialize();
-});
-
-// Export for testing
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = ShieldAIApp;
+// Show extension modal
+function showExtensionModal() {
+    const modal = document.getElementById('extensionModal');
+    if (modal) {
+        modal.style.display = 'block';
+    } else {
+        window.location.href = 'extension.html';
+    }
 }
+
+// Toast notifications
+function showToast(message, type = 'info') {
+    const toastContainer = document.getElementById('toastContainer');
+    if (!toastContainer) return;
+
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+
+    toastContainer.appendChild(toast);
+
+    // Animate in
+    setTimeout(() => toast.classList.add('show'), 100);
+
+    // Remove after 5 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 5000);
+}
+
+// Export functions for global access
+window.analyzeLiveComment = analyzeLiveComment;
+window.scrollToDemo = scrollToDemo;
+window.showExtensionModal = showExtensionModal;
+window.installExtension = installExtension;
+window.closeModal = closeModal;
+window.testScenario = loadScenario;

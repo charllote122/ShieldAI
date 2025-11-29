@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  shieldai-frontend:
+    build: .
+    ports:
+      - "3000:80"
+    volumes:
+      - ./src:/usr/share/nginx/html:ro
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+
+  # Add this if you need a backend API too
+  shieldai-backend:
+    image: tiangolo/uvicorn-gunicorn-fastapi:python3.11
+    ports:
+      - "8000:80"
+    environment:
+      - MODULE_NAME=app.main
+    volumes:
+      - ../backend:/app
+    restart: unless-stopped
