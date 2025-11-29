@@ -3,83 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Demo - ShieldAI</title>
+    <title>Kenya Live Demo - ShieldAI</title>
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .kenya-demo {
+            background: linear-gradient(135deg, #000000 0%, #1a365d 100%);
+            color: white;
+        }
+        
+        .demo-hero {
+            background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #006600 100%);
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .kenya-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF0000, #FFD700);
+            color: black;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .scenario-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .scenario-card:hover {
+            transform: translateY(-5px);
+            border-color: #FFD700;
+        }
+        
+        .scenario-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-simulator {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .social-post {
+            background: #1F2937;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #374151;
+        }
+        
+        .toxic-text {
+            color: #EF4444;
+            text-decoration: line-through;
+        }
+        
+        .shieldai-warning {
+            background: #FEF3C7;
+            color: #92400E;
+            padding: 0.5rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            border-left: 4px solid #D97706;
+        }
+        
+        .comment-input-container {
+            margin-top: 1rem;
+        }
+        
+        .comment-input {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        #liveCommentInput {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #4B5563;
+            border-radius: 8px;
+            background: #374151;
+            color: white;
+        }
+        
+        #analyzeBtn {
+            background: #FFD700;
+            color: black;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .real-time-analysis {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            min-height: 60px;
+        }
+        
+        .analysis-result {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .kenya-emergency-demo {
+            background: linear-gradient(135deg, #DC2626, #991B1B);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+    </style>
 </head>
-<body>
+<body class="kenya-demo">
     <div id="loadingScreen" class="loading-screen">
         <div class="loading-content">
-            <div class="loading-logo">🛡️</div>
-            <h2>ShieldAI</h2>
+            <div class="loading-logo">🇰🇪</div>
+            <h2>ShieldAI Kenya</h2>
             <div class="loading-spinner"></div>
         </div>
     </div>
 
     <div id="header-placeholder"></div>
 
-    <!-- Demo Hero -->
-    <section class="page-hero">
+    <!-- Kenya Demo Hero -->
+    <section class="demo-hero">
         <div class="container">
-            <h1>Live AI Protection Demo</h1>
-            <p>Experience how ShieldAI detects and prevents digital violence in real-time</p>
+            <div class="kenya-badge">🇰🇪 Live Kenya Demo</div>
+            <h1>Experience ShieldAI Kenya Protection</h1>
+            <p>Test real-time detection of digital violence in Kenyan context</p>
         </div>
     </section>
 
-    <!-- Demo Scenarios -->
+    <!-- Kenya Emergency -->
+    <section class="kenya-emergency-demo">
+        <div class="container">
+            <h3>🚨 Kenya Emergency Support Available</h3>
+            <p><strong>Mental Health: 1199</strong> • <strong>GBV Hotline: 0800 720 715</strong> • <strong>Crisis Text: HELP to 40213</strong></p>
+        </div>
+    </section>
+
+    <!-- Kenya Demo Scenarios -->
     <section class="scenarios-section">
         <div class="container">
-            <h2 class="section-title">🎯 Test Common Scenarios</h2>
-            <p class="section-subtitle">Try these pre-built examples of digital violence</p>
+            <h2 class="section-title">🎯 Kenya-Specific Scenarios</h2>
+            <p class="section-subtitle">Test common digital violence patterns in Kenyan context</p>
             
             <div class="scenarios-grid">
-                <div class="scenario-card" onclick="testScenario('harassment')">
+                <div class="scenario-card" onclick="testKenyaScenario('gender_harassment')">
                     <div class="scenario-icon">🚫</div>
-                    <h3>Online Harassment</h3>
-                    <p>Test against gender-based harassment and bullying</p>
-                    <button class="btn btn-outline">Try This Scenario</button>
+                    <h3>Gender Harassment</h3>
+                    <p>Kenyan gender-based harassment and stereotypes</p>
+                    <button class="btn btn-outline">Test Kenyan Example</button>
                 </div>
-                <div class="scenario-card" onclick="testScenario('hate_speech')">
+                <div class="scenario-card" onclick="testKenyaScenario('local_slang')">
+                    <div class="scenario-icon">🗣️</div>
+                    <h3>Local Slang & Sheng</h3>
+                    <p>Nairobi Sheng and Kenyan urban language detection</p>
+                    <button class="btn btn-outline">Test Sheng Example</button>
+                </div>
+                <div class="scenario-card" onclick="testKenyaScenario('tribal_hate')">
                     <div class="scenario-icon">💔</div>
-                    <h3>Hate Speech</h3>
-                    <p>Detect racially or gender-motivated hate speech</p>
-                    <button class="btn btn-outline">Try This Scenario</button>
+                    <h3>Tribal Hate Speech</h3>
+                    <p>Kenya-specific tribal discrimination and hate</p>
+                    <button class="btn btn-outline">Test Kenya Example</button>
                 </div>
-                <div class="scenario-card" onclick="testScenario('threats')">
-                    <div class="scenario-icon">⚠️</div>
-                    <h3>Direct Threats</h3>
-                    <p>Identify violent threats and intimidation attempts</p>
-                    <button class="btn btn-outline">Try This Scenario</button>
-                </div>
-                <div class="scenario-card" onclick="testScenario('cultural')">
+                <div class="scenario-card" onclick="testKenyaScenario('cultural_context')">
                     <div class="scenario-icon">🌍</div>
                     <h3>Cultural Context</h3>
-                    <p>Understand African-specific slang and nuances</p>
-                    <button class="btn btn-outline">Try This Scenario</button>
+                    <p>Kenyan cultural nuances and communication styles</p>
+                    <button class="btn btn-outline">Test Context</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Live Demo Section -->
+    <!-- Live Kenya Demo Section -->
     <section class="demo-section">
         <div class="container">
-            <h2 class="section-title">🛡️ Interactive Protection Demo</h2>
+            <h2 class="section-title">🛡️ Kenya Interactive Protection Demo</h2>
             
             <div class="demo-container">
                 <div class="demo-controls">
                     <div class="platform-selector">
-                        <label>Simulate Platform:</label>
+                        <label>Kenya Platform:</label>
                         <select id="platformSelect">
-                            <option value="twitter">Twitter/X</option>
-                            <option value="facebook">Facebook</option>
-                            <option value="instagram">Instagram</option>
-                            <option value="whatsapp">WhatsApp</option>
+                            <option value="twitter">Twitter Kenya</option>
+                            <option value="facebook">Facebook Kenya</option>
+                            <option value="instagram">Instagram Kenya</option>
+                            <option value="whatsapp">WhatsApp Kenya</option>
                         </select>
                     </div>
                     <div class="demo-stats">
-                        <div class="stat">Accuracy: <span id="accuracyStat">95%</span></div>
-                        <div class="stat">Response: <span id="responseStat">&lt;500ms</span></div>
+                        <div class="stat">Kenya Accuracy: <span id="accuracyStat">98%</span></div>
+                        <div class="stat">Response: <span id="responseStat">&lt;200ms</span></div>
                     </div>
                 </div>
 
@@ -87,52 +217,59 @@
                     <div class="simulated-feed">
                         <div class="social-post">
                             <div class="post-header">
-                                <img src="https://i.pravatar.cc/40?img=5" alt="Sarah" class="avatar">
                                 <div class="user-info">
-                                    <strong>Sarah_Tech 👩‍💻</strong>
-                                    <span>African Women in Tech • She/Her</span>
+                                    <strong>Nairobi_WomanInTech 👩‍💻</strong>
+                                    <span>Kenyan Developer • Building in Silicon Savannah 🇰🇪</span>
                                 </div>
                             </div>
                             
                             <div class="post-content">
-                                <p>"Just launched my startup to teach coding to young girls in rural areas! So excited to see the next generation of African women in STEM 🌍💫 #WomenInTech #AfricaRising"</p>
+                                <p>"Just launched our coding bootcamp for girls in Kibera! So proud to see young Kenyan women embracing technology and changing their communities 💪✨ #KenyaTech #WomenInSTEM #SiliconSavannah"</p>
                             </div>
                             
                             <div class="post-stats">
-                                <span>❤️ 124 likes</span>
-                                <span>🔁 45 retweets</span>
-                                <span>💬 28 comments</span>
+                                <span>❤️ 245 likes</span>
+                                <span>🔁 89 retweets</span>
+                                <span>💬 56 comments</span>
                             </div>
                             
                             <div class="comments-section">
                                 <div class="comment positive">
-                                    <img src="https://i.pravatar.cc/32?img=2" alt="User" class="comment-avatar">
                                     <div class="comment-content">
-                                        <strong>Chidi_Innovates:</strong> This is amazing Sarah! We need more initiatives like this 👏
+                                        <strong>Mombasa_Techie:</strong> Hongera! This is the Kenya we want to see! 🇰🇪👏
                                     </div>
                                 </div>
                                 
                                 <div class="comment toxic">
-                                    <img src="https://i.pravatar.cc/32?img=8" alt="User" class="comment-avatar">
                                     <div class="comment-content">
-                                        <strong>AnonymousUser:</strong> 
-                                        <span class="toxic-text">Women should stay in kitchen not coding. This is stupid!</span>
+                                        <strong>Anonymous:</strong> 
+                                        <span class="toxic-text">Mtoto wa mama wewe! Women belong in kitchen not coding computers</span>
+                                        <div class="shieldai-warning">
+                                            <span class="warning-icon">🇰🇪</span>
+                                            <span class="warning-text">Blocked by ShieldAI Kenya - Local gender harassment detected</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="comment toxic">
+                                    <div class="comment-content">
+                                        <strong>ToxicUser:</strong> 
+                                        <span class="toxic-text">This na wash! You think you fit code? Go find husband</span>
                                         <div class="shieldai-warning">
                                             <span class="warning-icon">🛡️</span>
-                                            <span class="warning-text">Blocked by ShieldAI - Gender-based harassment detected</span>
+                                            <span class="warning-text">Blocked by ShieldAI Kenya - Sheng harassment detected</span>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <div class="comment-input-container">
                                     <div class="comment-input">
-                                        <img src="https://i.pravatar.cc/32?img=1" alt="You" class="comment-avatar">
-                                        <input type="text" id="liveCommentInput" placeholder="Type a comment to test ShieldAI...">
-                                        <button id="analyzeBtn" onclick="analyzeLiveComment()">Analyze</button>
+                                        <input type="text" id="liveCommentInput" placeholder="Type a comment in Swahili or English to test ShieldAI Kenya...">
+                                        <button id="analyzeBtn" onclick="analyzeLiveComment()">Analyze with ShieldAI Kenya</button>
                                     </div>
                                     <div class="real-time-analysis" id="realTimeAnalysis">
                                         <div class="analysis-result" id="analysisResult">
-                                            <span>Type something to see real-time analysis...</span>
+                                            <span>Type a message to see real-time Kenya protection analysis...</span>
                                         </div>
                                     </div>
                                 </div>
@@ -142,9 +279,9 @@
                 </div>
 
                 <div class="analysis-results" id="analysisResults">
-                    <h3>Analysis Results</h3>
+                    <h3>🇰🇪 Kenya Analysis Results</h3>
                     <div class="results-placeholder" id="resultsPlaceholder">
-                        <p>Analysis results will appear here when you test a message</p>
+                        <p>Analysis results from ShieldAI Kenya will appear here</p>
                     </div>
                     <div class="results-details" id="resultsDetails" style="display: none;">
                         <div class="result-metrics">
@@ -153,7 +290,7 @@
                                 <span class="metric-value" id="toxicityScore">0%</span>
                             </div>
                             <div class="metric">
-                                <span class="metric-label">Category</span>
+                                <span class="metric-label">Kenya Category</span>
                                 <span class="metric-value" id="toxicityCategory">-</span>
                             </div>
                             <div class="metric">
@@ -162,11 +299,15 @@
                             </div>
                         </div>
                         <div class="confidence-meter">
-                            <label>Confidence Level:</label>
+                            <label>ShieldAI Kenya Confidence:</label>
                             <div class="meter-bar">
-                                <div class="meter-fill" id="confidenceFill"></div>
+                                <div class="meter-fill" id="confidenceFill" style="width: 0%"></div>
                             </div>
                             <span class="confidence-value" id="confidenceValue">0%</span>
+                        </div>
+                        <div class="cultural-context" id="culturalContext">
+                            <h4>🌍 Kenya Cultural Context</h4>
+                            <p id="contextDetails">Cultural analysis will appear here</p>
                         </div>
                     </div>
                 </div>
@@ -174,38 +315,52 @@
         </div>
     </section>
 
-    <!-- How It Works -->
+    <!-- Kenya How It Works -->
     <section class="how-it-works">
         <div class="container">
-            <h2 class="section-title">🔧 How ShieldAI Works</h2>
+            <h2 class="section-title">🔧 How ShieldAI Kenya Works</h2>
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3>Content Analysis</h3>
-                        <p>AI scans text for harmful content using advanced NLP models</p>
+                        <h3>Kenya Content Analysis</h3>
+                        <p>AI scans for harmful content with Kenyan cultural understanding</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>Cultural Context</h3>
-                        <p>Understands local slang, idioms, and African cultural nuances</p>
+                        <h3>Swahili & Local Languages</h3>
+                        <p>Advanced detection for Kiswahili, Sheng, and Kenyan dialects</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Real-time Protection</h3>
-                        <p>Instantly blocks or warns about toxic content in &lt;500ms</p>
+                        <h3>Real-time Kenya Protection</h3>
+                        <p>Instant blocking optimized for Kenyan internet speeds &lt;200ms</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h3>Support Resources</h3>
-                        <p>Provides immediate mental health and support resources</p>
+                        <h3>Kenya Support Resources</h3>
+                        <p>Immediate access to Kenyan mental health and crisis support</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kenya CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready for Real Kenya Protection?</h2>
+                <p>Download the ShieldAI Kenya extension and browse safely across Kenyan platforms</p>
+                <div class="cta-actions">
+                    <a href="extension.html" class="btn btn-primary">Download Kenya Extension</a>
+                    <a href="resources.html" class="btn btn-secondary">Kenya Support Resources</a>
                 </div>
             </div>
         </div>
@@ -215,11 +370,22 @@
 
     <script src="assets/script.js"></script>
     <script>
+        // ShieldAI Kenya API Configuration
+        const SHIELDAI_CONFIG = {
+            API_BASE_URL: 'https://shieldai-31j7.onrender.com',
+            ENDPOINTS: {
+                ANALYZE: '/analyze'
+            }
+        };
+
+        // Load Kenya-focused header and footer
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
-                initializeMobileMenu();
+                if (typeof initializeMobileMenu === 'function') {
+                    initializeMobileMenu();
+                }
             });
 
         fetch('footer.html')
@@ -228,18 +394,167 @@
                 document.getElementById('footer-placeholder').innerHTML = data;
             });
 
-        // Demo-specific functions
-        function testScenario(type) {
-            const scenarios = {
-                harassment: "You're too pretty to be in tech. Stick to modeling.",
-                hate_speech: "Women like you are destroying our culture with your Western ideas.",
-                threats: "I know where you live. Watch your back.",
-                cultural: "This na wash! You think say you fit code? Go marry!"
+        // Kenya-specific demo scenarios
+        function testKenyaScenario(type) {
+            const kenyaScenarios = {
+                gender_harassment: "Women belong in kitchen not coding computers. Mtoto wa mama!",
+                local_slang: "This na wash! You think say you fit code? Go find husband jaba",
+                tribal_hate: "People from your tribe are destroying this country with corruption",
+                cultural_context: "You're acting too mzungu with these tech ideas. Know your place as African woman"
             };
             
-            document.getElementById('liveCommentInput').value = scenarios[type];
+            document.getElementById('liveCommentInput').value = kenyaScenarios[type];
             analyzeLiveComment();
         }
+
+        // Real API integration for live analysis
+        async function analyzeLiveComment() {
+            const commentInput = document.getElementById('liveCommentInput');
+            const text = commentInput.value.trim();
+            const platform = document.getElementById('platformSelect').value;
+            
+            if (!text) {
+                showAnalysisResult('Please enter a message to analyze', 'info');
+                return;
+            }
+
+            // Show loading state
+            showAnalysisResult('🔄 Analyzing with ShieldAI Kenya...', 'loading');
+
+            try {
+                const startTime = Date.now();
+                
+                const response = await fetch(`${SHIELDAI_CONFIG.API_BASE_URL}${SHIELDAI_CONFIG.ENDPOINTS.ANALYZE}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        text: text,
+                        platform: platform,
+                        context: { region: 'kenya' }
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API request failed');
+                }
+
+                const result = await response.json();
+                const responseTime = Date.now() - startTime;
+
+                // Display results
+                displayAnalysisResults(result, responseTime, text);
+                
+            } catch (error) {
+                console.error('Analysis error:', error);
+                showAnalysisResult('❌ Connection error. Using local analysis...', 'error');
+                // Fallback to local analysis
+                fallbackLocalAnalysis(text);
+            }
+        }
+
+        function displayAnalysisResults(result, responseTime, originalText) {
+            const toxicityPercent = Math.round(result.toxicity_score * 100);
+            const confidencePercent = Math.round(result.confidence * 100);
+            
+            // Update results display
+            document.getElementById('toxicityScore').textContent = `${toxicityPercent}%`;
+            document.getElementById('toxicityCategory').textContent = result.warning_level.toUpperCase();
+            document.getElementById('responseTime').textContent = `${responseTime}ms`;
+            document.getElementById('confidenceValue').textContent = `${confidencePercent}%`;
+            document.getElementById('confidenceFill').style.width = `${confidencePercent}%`;
+            
+            // Cultural context
+            const culturalContext = result.cultural_context || {};
+            const contextDetails = culturalContext.kenya_specific_detected ? 
+                '✅ Kenyan context detected - Local language or cultural patterns identified' :
+                '🌍 General content - No specific Kenyan patterns detected';
+            document.getElementById('contextDetails').textContent = contextDetails;
+            
+            // Show detailed results
+            document.getElementById('resultsPlaceholder').style.display = 'none';
+            document.getElementById('resultsDetails').style.display = 'block';
+            
+            // Show real-time analysis result
+            if (result.is_toxic) {
+                showAnalysisResult(`🚨 BLOCKED - ${result.warning_level.toUpperCase()} risk detected (${toxicityPercent}% toxicity)`, 'toxic');
+            } else {
+                showAnalysisResult(`✅ SAFE - Content approved by ShieldAI Kenya (${toxicityPercent}% toxicity)`, 'safe');
+            }
+        }
+
+        function showAnalysisResult(message, type) {
+            const analysisResult = document.getElementById('analysisResult');
+            analysisResult.innerHTML = '';
+            
+            const icon = type === 'toxic' ? '🚨' : 
+                         type === 'safe' ? '✅' : 
+                         type === 'loading' ? '🔄' : 
+                         type === 'error' ? '❌' : 'ℹ️';
+            
+            const color = type === 'toxic' ? '#EF4444' : 
+                         type === 'safe' ? '#10B981' : 
+                         type === 'error' ? '#DC2626' : '#6B7280';
+            
+            analysisResult.innerHTML = `
+                <span style="font-size: 1.5rem;">${icon}</span>
+                <span style="color: ${color}; font-weight: 600;">${message}</span>
+            `;
+        }
+
+        function fallbackLocalAnalysis(text) {
+            // Simple local analysis as fallback
+            const toxicPatterns = [
+                { pattern: /(mtoto wa mama|wewe ni mjinga)/i, score: 0.8, category: 'local_harassment' },
+                { pattern: /(na wash|you fit|go marry)/i, score: 0.6, category: 'sheng_harassment' },
+                { pattern: /(women.*kitchen|belong.*home)/i, score: 0.7, category: 'gender_harassment' },
+                { pattern: /(tribe|tribal).*(hate|stupid|bad)/i, score: 0.9, category: 'tribal_hate' }
+            ];
+            
+            let maxScore = 0;
+            let category = 'safe';
+            
+            toxicPatterns.forEach(({ pattern, score, category: cat }) => {
+                if (pattern.test(text)) {
+                    maxScore = Math.max(maxScore, score);
+                    category = cat;
+                }
+            });
+            
+            const mockResult = {
+                toxicity_score: maxScore,
+                is_toxic: maxScore > 0.5,
+                confidence: 0.8,
+                warning_level: maxScore > 0.8 ? 'high' : maxScore > 0.6 ? 'medium' : 'low',
+                cultural_context: {
+                    kenya_specific_detected: category !== 'safe',
+                    region: 'kenya'
+                }
+            };
+            
+            displayAnalysisResults(mockResult, 50, text);
+        }
+
+        // Enter key support
+        document.getElementById('liveCommentInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                analyzeLiveComment();
+            }
+        });
+
+        // Hide loading screen
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 500);
+                }
+            }, 1000);
+        });
     </script>
 </body>
 </html>

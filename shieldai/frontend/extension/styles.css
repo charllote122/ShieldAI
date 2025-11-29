@@ -1,0 +1,62 @@
+.shieldai-kenya-warning {
+    background: linear-gradient(135deg, #FEF3C7, #FDE68A) !important;
+    border: 2px solid #D97706 !important;
+    border-radius: 8px !important;
+    padding: 15px !important;
+    margin: 10px 0 !important;
+    position: relative !important;
+    font-family: Arial, sans-serif !important;
+}
+
+.shieldai-warning-content {
+    text-align: center !important;
+}
+
+.shieldai-warning-content .shieldai-icon {
+    font-size: 24px !important;
+    display: block !important;
+    margin-bottom: 8px !important;
+}
+
+.shieldai-warning-content strong {
+    display: block !important;
+    margin-bottom: 5px !important;
+    color: #92400E !important;
+}
+
+.shieldai-warning-content p {
+    margin: 5px 0 !important;
+    color: #92400E !important;
+}
+
+.shieldai-warning-content small {
+    display: block !important;
+    margin: 8px 0 !important;
+    color: #92400E !important;
+}
+
+.shieldai-show-btn, .shieldai-report-btn {
+    background: #DC2626 !important;
+    color: white !important;
+    border: none !important;
+    padding: 6px 12px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    margin: 2px !important;
+    font-size: 12px !important;
+}
+
+.shieldai-report-btn {
+    background: #6B7280 !important;
+}
+
+.shieldai-safe-badge {
+    margin-left: 8px !important;
+    padding: 2px 6px !important;
+    background: #10B981 !important;
+    color: white !important;
+    border-radius: 12px !important;
+    font-size: 10px !important;
+    font-weight: bold !important;
+    display: inline-block !important;
+}

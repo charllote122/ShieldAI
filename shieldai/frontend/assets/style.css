@@ -1359,6 +1359,111 @@ section {
         font-size: 2rem;
     }
 }
+/* Kenya regional support */
+.regional-support {
+    background: #f8fafc;
+    padding: 80px 0;
+}
+
+.regional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.region-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid #006600; /* Kenya green */
+}
+
+.region-card h3 {
+    color: #006600;
+    margin-bottom: 1rem;
+}
+
+.region-card ul {
+    list-style: none;
+}
+
+.region-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.region-card li:last-child {
+    border-bottom: none;
+}
+
+/* Kenya legal info */
+.legal-info {
+    background: linear-gradient(135deg, #006600 0%, #009900 100%);
+    color: white;
+}
+
+.legal-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.legal-points ul, .legal-actions ol {
+    margin-top: 1rem;
+}
+
+.legal-points li, .legal-actions li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+.kenya-cities {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.cities-list {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.city-tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+}
+
+.emergency-section {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+    text-align: center;
+}
+
+.emergency-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.emergency-icon {
+    font-size: 4rem;
+}
+
+.emergency-contacts {
+    margin: 1.5rem 0;
+}
+
+.contact-item {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
 
 /* Utility Classes */
 .text-center {

@@ -3,38 +3,275 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-brand">
-                <h3>🛡️ ShieldAI</h3>
-                <p>Making digital spaces safer for women and girls across Africa</p>
+                <h3>🇰🇪 ShieldAI Kenya</h3>
+                <p>Protecting women and girls from digital violence across Kenya & East Africa</p>
                 <div class="social-links">
-                    <a href="#" aria-label="GitHub">📘</a>
-                    <a href="#" aria-label="Twitter">🐦</a>
-                    <a href="#" aria-label="LinkedIn">💼</a>
+                    <a href="#" aria-label="Twitter Kenya" title="Follow us on Twitter">🐦</a>
+                    <a href="#" aria-label="Facebook Kenya" title="Like us on Facebook">📘</a>
+                    <a href="#" aria-label="LinkedIn Kenya" title="Connect on LinkedIn">💼</a>
+                    <a href="#" aria-label="Instagram Kenya" title="Follow on Instagram">📸</a>
+                </div>
+                <div class="kenya-emergency-footer">
+                    <strong>🚨 Kenya Emergency:</strong> 1199
                 </div>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
-                    <h4>Product</h4>
-                    <a href="demo.html">Demo</a>
-                    <a href="features.html">Features</a>
-                    <a href="extension.html">Extension</a>
+                    <h4>Kenya Protection</h4>
+                    <a href="demo.html">Live Demo</a>
+                    <a href="features.html">Kenya Features</a>
+                    <a href="extension.html">Get Protection</a>
+                    <a href="impact.html">Kenya Impact</a>
                 </div>
                 <div class="footer-column">
-                    <h4>Resources</h4>
-                    <a href="resources.html">Support</a>
-                    <a href="#">API Docs</a>
-                    <a href="#">Privacy</a>
+                    <h4>Kenya Resources</h4>
+                    <a href="resources.html?country=kenya">Kenya Support</a>
+                    <a href="resources.html?country=kenya#hotlines">Emergency Hotlines</a>
+                    <a href="resources.html?country=kenya#organizations">Local Organizations</a>
+                    <a href="resources.html?country=kenya#hospitals">Mental Health</a>
                 </div>
                 <div class="footer-column">
-                    <h4>Company</h4>
-                    <a href="about.html">About</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Careers</a>
+                    <h4>About ShieldAI</h4>
+                    <a href="about.html">Our Kenya Mission</a>
+                    <a href="impact.html">Impact in Kenya</a>
+                    <a href="#">Contact Kenya Team</a>
+                    <a href="#">Privacy & Safety</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Kenya Cities</h4>
+                    <a href="#">Nairobi</a>
+                    <a href="#">Mombasa</a>
+                    <a href="#">Kisumu</a>
+                    <a href="#">Nakuru</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Built for POWER HACKS 2025 - UNiTE to End Digital Violence Against All Women & Girls</p>
-            <p class="copyright">&copy; 2024 ShieldAI. All rights reserved.</p>
+            <div class="kenya-partners">
+                <span>🇰🇪 Trusted by Kenyan Women Across:</span>
+                <div class="cities-list">
+                    <span>Nairobi</span>
+                    <span>Mombasa</span>
+                    <span>Kisumu</span>
+                    <span>Nakuru</span>
+                    <span>Eldoret</span>
+                </div>
+            </div>
+            <p>Built for POWER HACKS 2025 - UNiTE to End Digital Violence Against Women & Girls in Kenya</p>
+            <p class="copyright">&copy; 2025 ShieldAI Kenya. Protecting women across the nation.</p>
         </div>
     </div>
 </footer>
+
+<style>
+.footer {
+    background: linear-gradient(135deg, #000000 0%, #1a365d 100%);
+    color: #E5E7EB;
+    padding: 3rem 0 1rem;
+    border-top: 2px solid #FF0000;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-brand h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FF0000, #FFD700, #006600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-links a:hover {
+    background: linear-gradient(135deg, #FF0000, #FFD700);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.kenya-emergency-footer {
+    background: linear-gradient(135deg, #DC2626, #991B1B);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #FFD700;
+    font-size: 0.9rem;
+}
+
+.kenya-emergency-footer strong {
+    color: white;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.footer-column h4 {
+    color: #FFD700;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.footer-column a {
+    display: block;
+    color: #E5E7EB;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    opacity: 0.8;
+}
+
+.footer-column a:hover {
+    color: #FFD700;
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.kenya-partners {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.kenya-partners span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #FFD700;
+}
+
+.cities-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.cities-list span {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.875rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom p {
+    margin: 0.5rem 0;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+.copyright {
+    opacity: 0.6 !important;
+    font-size: 0.8rem !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .cities-list {
+        justify-content: flex-start;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .cities-list span {
+        font-size: 0.8rem;
+    }
+}
+
+/* Kenya Flag Animation */
+@keyframes pulse-kenya {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.footer-brand h3:hover {
+    animation: pulse-kenya 0.6s ease-in-out;
+}
+</style>
+
+<script>
+// Add current year to copyright
+document.addEventListener('DOMContentLoaded', function() {
+    const copyrightElements = document.querySelectorAll('.copyright');
+    copyrightElements.forEach(element => {
+        element.textContent = element.textContent.replace('2025', new Date().getFullYear());
+    });
+});
+
+// Add smooth scrolling for anchor links
+document.addEventListener('DOMContentLoaded', function() {
+    const footerLinks = document.querySelectorAll('.footer a[href^="#"]');
+    footerLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+</script>

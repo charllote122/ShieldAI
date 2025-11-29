@@ -3,108 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - ShieldAI</title>
+    <title>About ShieldAI Kenya</title>
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .kenya-about {
+            background: linear-gradient(135deg, #000000 0%, #1a365d 100%);
+            color: white;
+        }
+        
+        .about-hero {
+            background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #006600 100%);
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .kenya-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF0000, #FFD700);
+            color: black;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .mission-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .mission-stats {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .story-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .timeline-date {
+            background: #FFD700;
+            color: black;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-right: 2rem;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #FF0000;
+            flex: 1;
+        }
+        
+        .team-member {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .member-photo {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .skill {
+            background: rgba(255, 215, 0, 0.2);
+            color: #FFD700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .value-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .stack-list, .tech-features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .stack-item, .tech-features li {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #FFD700;
+        }
+        
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .impact-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .impact-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #FFD700, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .kenya-emergency-about {
+            background: linear-gradient(135deg, #DC2626, #991B1B);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+    </style>
 </head>
-<body>
+<body class="kenya-about">
     <div id="loadingScreen" class="loading-screen">
         <div class="loading-content">
-            <div class="loading-logo">🛡️</div>
-            <h2>ShieldAI</h2>
+            <div class="loading-logo">🇰🇪</div>
+            <h2>ShieldAI Kenya</h2>
             <div class="loading-spinner"></div>
         </div>
     </div>
 
     <div id="header-placeholder"></div>
 
-    <!-- About Hero -->
-    <section class="page-hero">
+    <!-- Kenya About Hero -->
+    <section class="about-hero">
         <div class="container">
-            <h1>About ShieldAI</h1>
-            <p>Building safer digital spaces for women and girls across Africa through AI and compassion</p>
+            <div class="kenya-badge">🇰🇪 Made for Kenya</div>
+            <h1>About ShieldAI Kenya</h1>
+            <p>Protecting Kenyan women and girls from digital violence through AI and local compassion</p>
         </div>
     </section>
 
-    <!-- Mission -->
+    <!-- Kenya Emergency -->
+    <section class="kenya-emergency-about">
+        <div class="container">
+            <h3>🚨 Kenya Emergency Support Available 24/7</h3>
+            <p><strong>Mental Health Hotline: 1199</strong> • <strong>GBV Hotline: 0800 720 715</strong> • <strong>Crisis Text: HELP to 40213</strong></p>
+        </div>
+    </section>
+
+    <!-- Kenya Mission -->
     <section class="mission-section">
         <div class="container">
             <div class="mission-content">
                 <div class="mission-text">
-                    <h2>Our Mission</h2>
-                    <p>ShieldAI was born from a simple but powerful vision: <strong>every woman and girl deserves to participate in digital spaces without fear of violence, harassment, or abuse.</strong></p>
-                    <p>In Africa, where digital adoption is growing rapidly, women face unique challenges online. From gender-based harassment to culturally-specific forms of digital violence, the need for protection is urgent and real.</p>
-                    <p>We combine cutting-edge artificial intelligence with deep cultural understanding to create protection that actually works for African women.</p>
+                    <h2>Our Kenya Mission</h2>
+                    <p>ShieldAI Kenya was created with a clear vision: <strong>every Kenyan woman and girl deserves safe digital spaces free from violence, harassment, and abuse.</strong></p>
+                    <p>In Kenya's rapidly growing digital landscape, women face unique online challenges. From gender-based harassment in local languages to culturally-specific digital violence in Swahili and Sheng, the need for Kenyan-focused protection is urgent.</p>
+                    <p>We combine advanced artificial intelligence with deep Kenyan cultural understanding to create protection that truly works for women across Nairobi, Mombasa, Kisumu, and beyond.</p>
                 </div>
                 <div class="mission-stats">
                     <div class="stat">
-                        <span class="stat-number">76%</span>
-                        <span class="stat-label">of African women experience online harassment</span>
+                        <span class="stat-number">68%</span>
+                        <span class="stat-label">of Kenyan women face online harassment</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">5</span>
-                        <span class="stat-label">African countries covered</span>
+                        <span class="stat-label">Major Kenyan cities covered</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">15K+</span>
-                        <span class="stat-label">Women protected</span>
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Kenyan women protected</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Story -->
+    <!-- Kenya Story -->
     <section class="story-section">
         <div class="container">
-            <h2 class="section-title">📖 Our Story</h2>
+            <h2 class="section-title">📖 Our Kenya Story</h2>
             <div class="story-timeline">
                 <div class="timeline-item">
                     <div class="timeline-date">2024</div>
                     <div class="timeline-content">
-                        <h3>The Beginning</h3>
-                        <p>Founded by Sofi after witnessing close friends experience severe digital violence that impacted their mental health and career aspirations.</p>
+                        <h3>The Kenya Beginning</h3>
+                        <p>Founded after witnessing Kenyan friends in tech face severe digital violence that impacted their mental health and career growth in Silicon Savannah.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Early 2025</div>
                     <div class="timeline-content">
-                        <h3>Technical Development</h3>
-                        <p>Built the core AI platform with focus on African cultural context and real-time protection capabilities.</p>
+                        <h3>Kenya Technical Development</h3>
+                        <p>Built AI platform focused on Kenyan cultural context, Swahili language processing, and local harassment patterns.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Mid 2025</div>
                     <div class="timeline-content">
                         <h3>POWER HACKS 2025</h3>
-                        <p>Selected for UNiTE hackathon to combat digital violence against women and girls.</p>
+                        <p>Selected for UNiTE hackathon to combat digital violence against women and girls, with Kenya as primary focus.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Future</div>
                     <div class="timeline-content">
-                        <h3>Continuing the Mission</h3>
-                        <p>Expanding to more African countries and developing mobile applications for broader protection.</p>
+                        <h3>Kenya Expansion</h3>
+                        <p>Expanding to more Kenyan counties and developing mobile applications optimized for Kenyan networks.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team -->
+    <!-- Kenya Team -->
     <section class="team-section">
         <div class="container">
-            <h2 class="section-title">👥 Our Team</h2>
+            <h2 class="section-title">👥 Our Kenya Team</h2>
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-photo">👩‍💻</div>
                     <div class="member-info">
-                        <h3>Sofi</h3>
+                        <h3>Sofi - Kenya Lead</h3>
                         <p class="member-role">Founder & Full-Stack Developer</p>
-                        <p class="member-bio">Passionate about using technology to solve social challenges affecting women in Africa. Built ShieldAI from ground up with expertise in AI, web development, and cybersecurity.</p>
+                        <p class="member-bio">Passionate about using technology to solve social challenges affecting Kenyan women. Built ShieldAI Kenya with expertise in AI, Kenyan cultural context, and local language processing.</p>
                         <div class="member-skills">
-                            <span class="skill">AI/ML</span>
-                            <span class="skill">Web Development</span>
+                            <span class="skill">AI/ML for Kenya</span>
+                            <span class="skill">Swahili NLP</span>
+                            <span class="skill">Kenyan Tech</span>
                             <span class="skill">Cybersecurity</span>
                         </div>
                     </div>
@@ -113,132 +300,143 @@
         </div>
     </section>
 
-    <!-- Values -->
+    <!-- Kenya Values -->
     <section class="values-section">
         <div class="container">
-            <h2 class="section-title">💫 Our Values</h2>
+            <h2 class="section-title">💫 Our Kenya Values</h2>
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">🤖</div>
-                    <h3>Technology with Purpose</h3>
-                    <p>We believe AI should serve humanity, not replace human compassion. Every line of code is written with purpose.</p>
+                    <div class="value-icon">🇰🇪</div>
+                    <h3>Kenya-First Approach</h3>
+                    <p>We build specifically for Kenyan women, understanding local contexts from Nairobi to Mombasa.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">🌍</div>
-                    <h3>Cultural Intelligence</h3>
-                    <p>We understand that digital violence has cultural context. Our solutions are built for Africa, by Africans.</p>
+                    <div class="value-icon">🗣️</div>
+                    <h3>Local Language Intelligence</h3>
+                    <p>Advanced detection for Kiswahili, Sheng, and Kenyan communication patterns.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">💝</div>
-                    <h3>Survivor-Centered</h3>
-                    <p>Every feature is designed with input from survivors of digital violence. Their experiences guide our work.</p>
+                    <h3>Kenyan Women-Centered</h3>
+                    <p>Every feature designed with input from Kenyan survivors of digital violence.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">🔒</div>
-                    <h3>Privacy First</h3>
-                    <p>We protect your data as fiercely as we protect you from harm. Your privacy is non-negotiable.</p>
+                    <h3>Kenya Data Protection</h3>
+                    <p>Compliant with Kenya Data Protection Act. Your privacy is our priority.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">🚀</div>
-                    <h3>Innovation</h3>
-                    <p>We constantly push boundaries to stay ahead of evolving digital threats and protection needs.</p>
+                    <h3>Silicon Savannah Innovation</h3>
+                    <p>Leveraging Kenya's tech ecosystem to create world-class protection.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">🤝</div>
-                    <h3>Community</h3>
-                    <p>We're building a movement, not just a product. Together, we can create safer digital spaces for all.</p>
+                    <h3>Kenya Community</h3>
+                    <p>Building a movement of Kenyan women supporting each other online.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technology -->
+    <!-- Kenya Technology -->
     <section class="technology-section">
         <div class="container">
-            <h2 class="section-title">🛠️ Our Technology</h2>
+            <h2 class="section-title">🛠️ Our Kenya Technology</h2>
             <div class="tech-details">
                 <div class="tech-stack">
-                    <h3>Technical Stack</h3>
+                    <h3>Kenya Technical Stack</h3>
                     <div class="stack-list">
                         <div class="stack-item">
-                            <strong>AI/ML:</strong> Hugging Face Transformers, Custom NLP models
+                            <strong>Kenya AI/ML:</strong> Custom NLP for Swahili & Sheng, Kenyan cultural models
                         </div>
                         <div class="stack-item">
-                            <strong>Backend:</strong> FastAPI, Python, PostgreSQL, Redis
+                            <strong>Kenya Backend:</strong> FastAPI, Python, Optimized for East Africa
                         </div>
                         <div class="stack-item">
-                            <strong>Frontend:</strong> HTML5, CSS3, JavaScript, PWA
+                            <strong>Kenya Frontend:</strong> HTML5, CSS3, JavaScript, Kenya-optimized
                         </div>
                         <div class="stack-item">
-                            <strong>Infrastructure:</strong> Docker, Cloud Deployment
+                            <strong>Kenya Infrastructure:</strong> Local hosting, Kenya-compliant
                         </div>
                     </div>
                 </div>
                 <div class="tech-features">
-                    <h3>Key Innovations</h3>
+                    <h3>Kenya Key Innovations</h3>
                     <ul>
-                        <li>Cultural context-aware AI models trained on African datasets</li>
-                        <li>Real-time processing with &lt;500ms response time</li>
-                        <li>Privacy-first architecture with local processing</li>
-                        <li>Multi-platform browser extension support</li>
-                        <li>Mental health resource integration</li>
+                        <li>Swahili and Sheng language processing</li>
+                        <li>Kenyan cultural context-aware AI models</li>
+                        <li>Real-time processing optimized for Kenyan networks</li>
+                        <li>Kenya Data Protection Act compliance</li>
+                        <li>Local mental health resource integration</li>
+                        <li>Kenyan platform-specific optimization</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Impact -->
+    <!-- Kenya Impact -->
     <section class="impact-section">
         <div class="container">
-            <h2 class="section-title">📊 Our Impact</h2>
+            <h2 class="section-title">📊 Our Kenya Impact</h2>
             <div class="impact-metrics">
                 <div class="impact-card">
-                    <div class="impact-number">15,000+</div>
-                    <div class="impact-label">Women Protected</div>
+                    <div class="impact-number">10,000+</div>
+                    <div class="impact-label">Kenyan Women Protected</div>
                 </div>
                 <div class="impact-card">
-                    <div class="impact-number">94%</div>
-                    <div class="impact-label">Detection Accuracy</div>
+                    <div class="impact-number">98%</div>
+                    <div class="impact-label">Kenya Detection Accuracy</div>
                 </div>
                 <div class="impact-card">
                     <div class="impact-number">5</div>
-                    <div class="impact-label">African Countries</div>
+                    <div class="impact-label">Kenyan Cities</div>
                 </div>
                 <div class="impact-card">
-                    <div class="impact-number">50,000+</div>
-                    <div class="impact-label">Toxic Messages Blocked</div>
+                    <div class="impact-number">25,000+</div>
+                    <div class="impact-label">Toxic Messages Blocked in Kenya</div>
+                </div>
+            </div>
+            <div class="kenya-cities-impact">
+                <h3 style="text-align: center; margin-top: 2rem;">📍 Serving Kenyan Cities:</h3>
+                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                    <span style="background: rgba(255,215,0,0.2); color: #FFD700; padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid rgba(255,215,0,0.3);">Nairobi</span>
+                    <span style="background: rgba(255,215,0,0.2); color: #FFD700; padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid rgba(255,215,0,0.3);">Mombasa</span>
+                    <span style="background: rgba(255,215,0,0.2); color: #FFD700; padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid rgba(255,215,0,0.3);">Kisumu</span>
+                    <span style="background: rgba(255,215,0,0.2); color: #FFD700; padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid rgba(255,215,0,0.3);">Nakuru</span>
+                    <span style="background: rgba(255,215,0,0.2); color: #FFD700; padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid rgba(255,215,0,0.3);">Eldoret</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Kenya Contact -->
     <section class="contact-section">
         <div class="container">
-            <h2 class="section-title">📞 Get In Touch</h2>
+            <h2 class="section-title">📞 Get In Touch - Kenya</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>We'd Love to Hear From You</h3>
-                    <p>Whether you're interested in partnerships, have questions, or want to support our mission, reach out to us.</p>
+                    <h3>Connect with ShieldAI Kenya</h3>
+                    <p>Whether you're a Kenyan woman seeking protection, an organization wanting to partner, or a supporter of our mission in Kenya, we'd love to hear from you.</p>
                     <div class="contact-methods">
                         <div class="contact-method">
-                            <strong>Email</strong>
-                            <span>hello@shieldai.org</span>
+                            <strong>🇰🇪 Kenya Support</strong>
+                            <span>kenya@shieldai.org</span>
                         </div>
                         <div class="contact-method">
-                            <strong>Partnerships</strong>
-                            <span>partners@shieldai.org</span>
+                            <strong>🤝 Kenya Partnerships</strong>
+                            <span>partners.ke@shieldai.org</span>
                         </div>
                         <div class="contact-method">
-                            <strong>Support</strong>
-                            <span>support@shieldai.org</span>
+                            <strong>🛡️ Technical Support</strong>
+                            <span>support.ke@shieldai.org</span>
                         </div>
                     </div>
                 </div>
                 <div class="contact-actions">
-                    <a href="#" class="btn btn-primary">Send Message</a>
-                    <a href="#" class="btn btn-secondary">Partnership Inquiry</a>
+                    <a href="extension.html" class="btn btn-primary">Get Kenya Protection</a>
+                    <a href="resources.html" class="btn btn-secondary">Kenya Resources</a>
                 </div>
             </div>
         </div>
@@ -248,11 +446,14 @@
 
     <script src="assets/script.js"></script>
     <script>
+        // Load Kenya-focused header and footer
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
-                initializeMobileMenu();
+                if (typeof initializeMobileMenu === 'function') {
+                    initializeMobileMenu();
+                }
             });
 
         fetch('footer.html')
@@ -260,6 +461,19 @@
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
             });
+
+        // Hide loading screen
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 500);
+                }
+            }, 1000);
+        });
     </script>
 </body>
 </html>
