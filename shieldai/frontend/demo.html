@@ -6,169 +6,6 @@
     <title>African Live Demo - ShieldAI</title>
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        .africa-demo {
-            background: linear-gradient(135deg, #000000 0%, #1a365d 100%);
-            color: white;
-        }
-        
-        .demo-hero {
-            background: var(--africa-gradient);
-            text-align: center;
-            padding: 4rem 0;
-        }
-        
-        .africa-badge {
-            display: inline-block;
-            background: var(--africa-gradient);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .scenario-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        
-        .scenario-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--africa-gold);
-        }
-        
-        .scenario-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .social-simulator {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .social-post {
-            background: #1F2937;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid #374151;
-        }
-        
-        .toxic-text {
-            color: #EF4444;
-            text-decoration: line-through;
-        }
-        
-        .shieldai-warning {
-            background: #FEF3C7;
-            color: #92400E;
-            padding: 0.5rem;
-            border-radius: 6px;
-            margin-top: 0.5rem;
-            border-left: 4px solid #D97706;
-        }
-        
-        .comment-input-container {
-            margin-top: 1rem;
-        }
-        
-        .comment-input {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-        
-        #liveCommentInput {
-            flex: 1;
-            padding: 0.75rem;
-            border: 1px solid #4B5563;
-            border-radius: 8px;
-            background: #374151;
-            color: white;
-        }
-        
-        #analyzeBtn {
-            background: var(--africa-gold);
-            color: black;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        #analyzeBtn:hover {
-            transform: translateY(-2px);
-        }
-        
-        .real-time-analysis {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            min-height: 60px;
-        }
-        
-        .analysis-result {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .africa-emergency-demo {
-            background: linear-gradient(135deg, #DC2626, #991B1B);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            margin: 2rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .region-selector {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 1rem 0;
-            flex-wrap: wrap;
-        }
-
-        .region-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .region-btn.active {
-            background: var(--africa-green);
-            border-color: var(--africa-gold);
-        }
-
-        .language-badge {
-            display: inline-block;
-            background: rgba(255, 215, 0, 0.2);
-            color: var(--africa-gold);
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            margin-left: 0.5rem;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-    </style>
 </head>
 <body class="africa-demo">
     <div id="loadingScreen" class="loading-screen">
@@ -256,102 +93,507 @@
     </section>
 
     <!-- Live Africa Demo Section -->
-    <!-- Replace the entire demo-section with this realistic version -->
-<section class="demo-section">
-    <div class="container">
-        <h2 class="section-title">🛡️ Africa Interactive Protection Demo</h2>
-        
-        <div class="demo-container">
-            <div class="demo-controls">
-                <div class="platform-selector">
-                    <label>Select African Platform:</label>
-                    <select id="platformSelect" onchange="switchPlatform()">
-                        <option value="facebook">Facebook Africa</option>
-                        <option value="twitter">Twitter Africa</option>
-                        <option value="instagram">Instagram Africa</option>
-                        <option value="whatsapp">WhatsApp Africa</option>
-                        <option value="tiktok">TikTok Africa</option>
-                    </select>
-                </div>
-                <div class="demo-stats">
-                    <div class="stat">Accuracy: <span id="accuracyStat">96%</span></div>
-                    <div class="stat">Response: <span id="responseStat">&lt;200ms</span></div>
-                    <div class="stat">Languages: <span id="languageStat">8</span></div>
-                </div>
-            </div>
-
-            <!-- Platform Container -->
-            <div class="platform-container" id="platformContainer">
-                <!-- Facebook Simulation -->
-                <div class="platform-simulation facebook-sim active" id="facebookSim">
-                    <div class="facebook-header">
-                        <div class="fb-nav">
-                            <div class="fb-logo">f</div>
-                            <div class="fb-search">🔍 Search Facebook</div>
-                            <div class="fb-nav-icons">
-                                <span>🏠</span><span>👥</span><span>📺</span><span>🛍️</span>
-                            </div>
-                        </div>
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="section-title">🛡️ Africa Interactive Protection Demo</h2>
+            
+            <div class="demo-container">
+                <div class="demo-controls">
+                    <div class="platform-selector">
+                        <label>Select African Platform:</label>
+                        <select id="platformSelect" onchange="switchPlatform()">
+                            <option value="facebook">Facebook Africa</option>
+                            <option value="twitter">Twitter Africa</option>
+                            <option value="instagram">Instagram Africa</option>
+                            <option value="whatsapp">WhatsApp Africa</option>
+                            <option value="tiktok">TikTok Africa</option>
+                        </select>
                     </div>
-                    
-                    <div class="facebook-layout">
-                        <div class="fb-sidebar">
-                            <div class="fb-profile">
-                                <div class="profile-pic">👩‍💻</div>
-                                <div class="profile-name">African_WomanInTech</div>
-                            </div>
-                            <div class="fb-menu">
-                                <div class="menu-item active">📰 News Feed</div>
-                                <div class="menu-item">👥 Friends</div>
-                                <div class="menu-item">📺 Watch</div>
-                                <div class="menu-item">🛍️ Marketplace</div>
-                                <div class="menu-item">📅 Events</div>
+                    <div class="demo-stats">
+                        <div class="stat">Accuracy: <span id="accuracyStat">96%</span></div>
+                        <div class="stat">Response: <span id="responseStat">&lt;200ms</span></div>
+                        <div class="stat">Languages: <span id="languageStat">8</span></div>
+                    </div>
+                </div>
+
+                <!-- Platform Container -->
+                <div class="platform-container" id="platformContainer">
+                    <!-- Facebook Simulation -->
+                    <div class="platform-simulation facebook-sim active" id="facebookSim">
+                        <div class="facebook-header">
+                            <div class="fb-nav">
+                                <div class="fb-logo">f</div>
+                                <div class="fb-search">🔍 Search Facebook</div>
+                                <div class="fb-nav-icons">
+                                    <span>🏠</span><span>👥</span><span>📺</span><span>🛍️</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="fb-main">
-                            <div class="fb-post-creator">
-                                <div class="post-input">
-                                    <div class="user-avatar">👩‍💻</div>
-                                    <input type="text" placeholder="What's on your mind, African_WomanInTech?" readonly>
+                        <div class="facebook-layout">
+                            <div class="fb-sidebar">
+                                <div class="fb-profile">
+                                    <div class="profile-pic">👩‍💻</div>
+                                    <div class="profile-name">African_WomanInTech</div>
+                                </div>
+                                <div class="fb-menu">
+                                    <div class="menu-item active">📰 News Feed</div>
+                                    <div class="menu-item">👥 Friends</div>
+                                    <div class="menu-item">📺 Watch</div>
+                                    <div class="menu-item">🛍️ Marketplace</div>
+                                    <div class="menu-item">📅 Events</div>
                                 </div>
                             </div>
                             
-                            <div class="fb-post">
-                                <div class="post-header">
-                                    <div class="poster-info">
-                                        <div class="poster-avatar">👩‍💻</div>
-                                        <div class="poster-details">
-                                            <strong>African_WomanInTech</strong>
-                                            <span>Just now · 🌍</span>
+                            <div class="fb-main">
+                                <div class="fb-post-creator">
+                                    <div class="post-input">
+                                        <div class="user-avatar">👩‍💻</div>
+                                        <input type="text" placeholder="What's on your mind, African_WomanInTech?" readonly>
+                                    </div>
+                                </div>
+                                
+                                <div class="fb-post">
+                                    <div class="post-header">
+                                        <div class="poster-info">
+                                            <div class="poster-avatar">👩‍💻</div>
+                                            <div class="poster-details">
+                                                <strong>African_WomanInTech</strong>
+                                                <span>Just now · 🌍</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="post-content">
+                                        <p>Just launched our coding bootcamp for girls across Africa! So proud to see young African women embracing technology and changing their communities 💪✨ #AfricaTech #WomenInSTEM #DigitalAfrica</p>
+                                    </div>
+                                    
+                                    <div class="post-stats">
+                                        <span>👍 1.2K</span>
+                                        <span>💬 189 comments</span>
+                                        <span>🔄 356 shares</span>
+                                    </div>
+                                    
+                                    <div class="post-actions">
+                                        <button>👍 Like</button>
+                                        <button>💬 Comment</button>
+                                        <button>🔄 Share</button>
+                                    </div>
+                                    
+                                    <div class="comments-section">
+                                        <div class="comment">
+                                            <div class="comment-avatar">👨‍💻</div>
+                                            <div class="comment-content">
+                                                <strong>Lagos_Developer</strong>
+                                                <p>Amazing work! Nigeria is proud 🇳🇬👏 This is exactly what we need across West Africa!</p>
+                                                <div class="comment-actions">
+                                                    <span>Like · Reply · 2h</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="comment toxic">
+                                            <div class="comment-avatar">😠</div>
+                                            <div class="comment-content">
+                                                <strong>Toxic_User</strong>
+                                                <p class="toxic-text">Women belong in kitchen not coding computers. Mtoto wa mama wewe!</p>
+                                                <div class="shieldai-warning">
+                                                    <span class="warning-icon">🛡️</span>
+                                                    <span class="warning-text">Blocked by ShieldAI Africa - Gender harassment detected</span>
+                                                </div>
+                                                <div class="comment-actions">
+                                                    <span>Like · Reply · 1h</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="comment-input">
+                                            <div class="comment-avatar">👩‍💻</div>
+                                            <div class="input-container">
+                                                <input type="text" id="fbCommentInput" placeholder="Write a comment...">
+                                                <button onclick="analyzeComment('facebook')">💬</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="fb-sidebar-right">
+                                <div class="sponsored">Sponsored</div>
+                                <div class="birthdays">🎂 Friend's Birthday</div>
+                                <div class="contacts">
+                                    <div class="contact">👨‍💻 Nairobi_Coder</div>
+                                    <div class="contact">👩‍🎓 Ghana_Student</div>
+                                    <div class="contact">🧑‍💼 SA_Entrepreneur</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Twitter Simulation -->
+                    <div class="platform-simulation twitter-sim" id="twitterSim">
+                        <div class="twitter-layout">
+                            <div class="twitter-sidebar">
+                                <div class="twitter-logo">𝕏</div>
+                                <div class="twitter-menu">
+                                    <div class="menu-item active">🏠 Home</div>
+                                    <div class="menu-item">🔍 Explore</div>
+                                    <div class="menu-item">🔔 Notifications</div>
+                                    <div class="menu-item">✉️ Messages</div>
+                                    <div class="menu-item">📋 Lists</div>
+                                    <div class="menu-item">👤 Profile</div>
+                                </div>
+                                <button class="tweet-btn">Post</button>
+                            </div>
+                            
+                            <div class="twitter-main">
+                                <div class="twitter-header">
+                                    <strong>Home</strong>
+                                    <span>✨</span>
+                                </div>
+                                
+                                <div class="tweet-composer">
+                                    <div class="composer-avatar">👩‍💻</div>
+                                    <div class="composer-input">
+                                        <input type="text" placeholder="What is happening?!" readonly>
+                                        <div class="composer-actions">
+                                            <span>🌍 Everyone can reply</span>
+                                            <button>Post</button>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="post-content">
-                                    <p>Just launched our coding bootcamp for girls across Africa! So proud to see young African women embracing technology and changing their communities 💪✨ #AfricaTech #WomenInSTEM #DigitalAfrica</p>
+                                <div class="twitter-feed">
+                                    <div class="tweet">
+                                        <div class="tweet-avatar">👩‍💻</div>
+                                        <div class="tweet-content">
+                                            <div class="tweet-header">
+                                                <strong>African_WomanInTech</strong>
+                                                <span>@AfroTechWoman · 2h</span>
+                                            </div>
+                                            <div class="tweet-text">
+                                                Just launched our coding bootcamp for girls across Africa! So proud to see young African women embracing technology and changing their communities 💪✨ 
+                                            </div>
+                                            <div class="tweet-stats">
+                                                <span>💬 45</span>
+                                                <span>🔄 128</span>
+                                                <span>❤️ 1.2K</span>
+                                                <span>📤 89</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tweet toxic">
+                                        <div class="tweet-avatar">😠</div>
+                                        <div class="tweet-content">
+                                            <div class="tweet-header">
+                                                <strong>Toxic_Tweeter</strong>
+                                                <span>@Hater123 · 1h</span>
+                                            </div>
+                                            <div class="tweet-text toxic-text">
+                                                This na wash! You think say you fit code? Go find husband jare. Women and coding no match!
+                                            </div>
+                                            <div class="shieldai-warning">
+                                                <span class="warning-icon">🛡️</span>
+                                                <span class="warning-text">Blocked by ShieldAI Africa - West African harassment detected</span>
+                                            </div>
+                                            <div class="tweet-stats">
+                                                <span>💬 2</span>
+                                                <span>🔄 0</span>
+                                                <span>❤️ 1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tweet-reply">
+                                        <div class="reply-avatar">👩‍💻</div>
+                                        <div class="reply-input">
+                                            <input type="text" id="twitterReplyInput" placeholder="Post your reply">
+                                            <button onclick="analyzeComment('twitter')">💬</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="twitter-sidebar-right">
+                                <div class="search-box">
+                                    <input type="text" placeholder="Search Twitter">
+                                </div>
+                                <div class="trending">
+                                    <strong>Trending in Africa</strong>
+                                    <div class="trend">#AfricaTech</div>
+                                    <div class="trend">#WomenInSTEM</div>
+                                    <div class="trend">#DigitalAfrica</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Simulation -->
+                    <div class="platform-simulation whatsapp-sim" id="whatsappSim">
+                        <div class="whatsapp-layout">
+                            <div class="whatsapp-sidebar">
+                                <div class="wa-header">
+                                    <div class="wa-avatar">👩‍💻</div>
+                                    <div class="wa-actions">
+                                        <span>📹</span>
+                                        <span>💬</span>
+                                        <span>⋮</span>
+                                    </div>
                                 </div>
                                 
-                                <div class="post-stats">
-                                    <span>👍 1.2K</span>
-                                    <span>💬 189 comments</span>
-                                    <span>🔄 356 shares</span>
+                                <div class="wa-search">
+                                    <div class="search-icon">🔍</div>
+                                    <input type="text" placeholder="Search or start new chat">
                                 </div>
                                 
-                                <div class="post-actions">
-                                    <button>👍 Like</button>
-                                    <button>💬 Comment</button>
-                                    <button>🔄 Share</button>
+                                <div class="wa-chats">
+                                    <div class="chat active">
+                                        <div class="chat-avatar">👥</div>
+                                        <div class="chat-info">
+                                            <strong>African Women in Tech</strong>
+                                            <span>Lagos_Developer: This is amazing! 👏</span>
+                                        </div>
+                                        <div class="chat-time">2h</div>
+                                    </div>
+                                    <div class="chat">
+                                        <div class="chat-avatar">👩‍🎓</div>
+                                        <div class="chat-info">
+                                            <strong>Nairobi Coders</strong>
+                                            <span>You: Just shared the bootcamp info</span>
+                                        </div>
+                                        <div class="chat-time">1d</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="whatsapp-main">
+                                <div class="wa-chat-header">
+                                    <div class="chat-profile">
+                                        <div class="profile-avatar">👥</div>
+                                        <div class="profile-info">
+                                            <strong>African Women in Tech</strong>
+                                            <span>Lagos_Developer, Accra_Coder, Nairobi_Techie +24</span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-actions">
+                                        <span>🔍</span>
+                                        <span>📹</span>
+                                        <span>⋮</span>
+                                    </div>
                                 </div>
                                 
-                                <div class="comments-section">
+                                <div class="wa-messages">
+                                    <div class="message-date">TODAY</div>
+                                    
+                                    <div class="message received">
+                                        <div class="message-avatar">👩‍💻</div>
+                                        <div class="message-content">
+                                            <div class="message-text">
+                                                Just launched our coding bootcamp for girls across Africa! So proud to see young African women embracing technology 💪✨
+                                            </div>
+                                            <div class="message-time">10:30 AM</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="message received">
+                                        <div class="message-avatar">👨‍💻</div>
+                                        <div class="message-content">
+                                            <div class="message-text">
+                                                Amazing work! Nigeria is proud 🇳🇬👏 This is exactly what we need across West Africa!
+                                            </div>
+                                            <div class="message-time">10:32 AM</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="message toxic received">
+                                        <div class="message-avatar">😠</div>
+                                        <div class="message-content">
+                                            <div class="message-text toxic-text">
+                                                Women belong in kitchen not coding computers. Mtoto wa mama wewe!
+                                            </div>
+                                            <div class="shieldai-warning">
+                                                <span class="warning-icon">🛡️</span>
+                                                <span class="warning-text">Blocked by ShieldAI Africa - Gender harassment detected</span>
+                                            </div>
+                                            <div class="message-time">10:33 AM</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="message received">
+                                        <div class="message-avatar">👩‍🎓</div>
+                                        <div class="message-content">
+                                            <div class="message-text">
+                                                Ignore the hate! We're building the future here in Ghana 🇬🇭💫
+                                            </div>
+                                            <div class="message-time">10:34 AM</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="wa-input">
+                                    <div class="input-actions">
+                                        <span>😊</span>
+                                        <span>📎</span>
+                                        <span>📷</span>
+                                    </div>
+                                    <input type="text" id="waMessageInput" placeholder="Type a message">
+                                    <button onclick="analyzeComment('whatsapp')">🎤</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Simulation -->
+                    <div class="platform-simulation instagram-sim" id="instagramSim">
+                        <div class="instagram-layout">
+                            <div class="instagram-header">
+                                <div class="ig-logo">Instagram</div>
+                                <div class="ig-search">🔍 Search</div>
+                                <div class="ig-actions">
+                                    <span>❤️</span>
+                                    <span>💬</span>
+                                </div>
+                            </div>
+                            
+                            <div class="instagram-main">
+                                <div class="ig-stories">
+                                    <div class="story your-story">
+                                        <div class="story-circle">👩‍💻</div>
+                                        <span>Your Story</span>
+                                    </div>
+                                    <div class="story">
+                                        <div class="story-circle">👨‍💻</div>
+                                        <span>Lagos_Coder</span>
+                                    </div>
+                                    <div class="story">
+                                        <div class="story-circle">👩‍🎓</div>
+                                        <span>Nairobi_Tech</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="ig-post">
+                                    <div class="post-header">
+                                        <div class="poster-info">
+                                            <div class="poster-avatar">👩‍💻</div>
+                                            <div class="poster-name">african_womanintech</div>
+                                        </div>
+                                        <span>⋯</span>
+                                    </div>
+                                    
+                                    <div class="post-image">
+                                        <div class="image-placeholder">
+                                            🌍 African Tech Bootcamp Launch!
+                                            <div class="image-caption">Teaching girls to code across the continent</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="post-actions">
+                                        <div class="action-icons">
+                                            <span>❤️</span>
+                                            <span>💬</span>
+                                            <span>📤</span>
+                                            <span>📌</span>
+                                        </div>
+                                        <span>🔖</span>
+                                    </div>
+                                    
+                                    <div class="post-likes">
+                                        <strong>1,247 likes</strong>
+                                    </div>
+                                    
+                                    <div class="post-caption">
+                                        <strong>african_womanintech</strong>
+                                        Just launched our coding bootcamp for girls across Africa! So proud to see young African women embracing technology and changing their communities 💪✨ 
+                                        <span>#AfricaTech #WomenInSTEM #DigitalAfrica #CodingBootcamp</span>
+                                    </div>
+                                    
+                                    <div class="post-comments">
+                                        <div class="comment">
+                                            <strong>lagos_developer</strong>
+                                            Amazing work! Nigeria is proud 🇳🇬👏
+                                        </div>
+                                        
+                                        <div class="comment toxic">
+                                            <strong>toxic_follower</strong>
+                                            <span class="toxic-text">Women and coding no match! Go find husband</span>
+                                            <div class="shieldai-warning">
+                                                <span class="warning-icon">🛡️</span>
+                                                <span class="warning-text">Blocked by ShieldAI Africa - Gender harassment detected</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="view-comments">View all 189 comments</div>
+                                        
+                                        <div class="comment-input">
+                                            <input type="text" id="igCommentInput" placeholder="Add a comment...">
+                                            <button onclick="analyzeComment('instagram')">Post</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TikTok Simulation -->
+                    <div class="platform-simulation tiktok-sim" id="tiktokSim">
+                        <div class="tiktok-layout">
+                            <div class="tiktok-video">
+                                <div class="video-player">
+                                    <div class="video-placeholder">
+                                        🎥 AFRICA TECH BOOTCAMP
+                                        <div class="video-caption">Teaching girls to code across the continent</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="video-sidebar">
+                                    <div class="profile-avatar">👩‍💻</div>
+                                    <div class="video-actions">
+                                        <div class="action">
+                                            <span>❤️</span>
+                                            <strong>12.4K</strong>
+                                        </div>
+                                        <div class="action">
+                                            <span>💬</span>
+                                            <strong>1.2K</strong>
+                                        </div>
+                                        <div class="action">
+                                            <span>🔄</span>
+                                            <strong>3.4K</strong>
+                                        </div>
+                                        <div class="action">
+                                            <span>📌</span>
+                                            <strong>Save</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="video-info">
+                                    <div class="video-profile">
+                                        <strong>@african_womanintech</strong>
+                                        <p>Just launched our coding bootcamp for girls across Africa! 💪✨</p>
+                                        <div class="video-music">
+                                            <span>🎵 Original Sound - African_WomanInTech</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tiktok-comments">
+                                <div class="comments-header">
+                                    <strong>1,247 comments</strong>
+                                    <span>✕</span>
+                                </div>
+                                
+                                <div class="comments-list">
                                     <div class="comment">
                                         <div class="comment-avatar">👨‍💻</div>
                                         <div class="comment-content">
-                                            <strong>Lagos_Developer</strong>
-                                            <p>Amazing work! Nigeria is proud 🇳🇬👏 This is exactly what we need across West Africa!</p>
+                                            <strong>@lagos_coder</strong>
+                                            <p>This is amazing! Nigeria is proud 🇳🇬👏</p>
                                             <div class="comment-actions">
-                                                <span>Like · Reply · 2h</span>
+                                                <span>❤️ 245</span>
+                                                <span>Reply</span>
                                             </div>
                                         </div>
                                     </div>
@@ -359,724 +601,171 @@
                                     <div class="comment toxic">
                                         <div class="comment-avatar">😠</div>
                                         <div class="comment-content">
-                                            <strong>Toxic_User</strong>
-                                            <p class="toxic-text">Women belong in kitchen not coding computers. Mtoto wa mama wewe!</p>
+                                            <strong>@hater_account</strong>
+                                            <p class="toxic-text">Women belong in kitchen not coding! Mtoto wa mama!</p>
                                             <div class="shieldai-warning">
                                                 <span class="warning-icon">🛡️</span>
                                                 <span class="warning-text">Blocked by ShieldAI Africa - Gender harassment detected</span>
                                             </div>
                                             <div class="comment-actions">
-                                                <span>Like · Reply · 1h</span>
+                                                <span>❤️ 2</span>
+                                                <span>Reply</span>
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="comment-input">
-                                        <div class="comment-avatar">👩‍💻</div>
-                                        <div class="input-container">
-                                            <input type="text" id="fbCommentInput" placeholder="Write a comment...">
-                                            <button onclick="analyzeComment('facebook')">💬</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="fb-sidebar-right">
-                            <div class="sponsored">Sponsored</div>
-                            <div class="birthdays">🎂 Friend's Birthday</div>
-                            <div class="contacts">
-                                <div class="contact">👨‍💻 Nairobi_Coder</div>
-                                <div class="contact">👩‍🎓 Ghana_Student</div>
-                                <div class="contact">🧑‍💼 SA_Entrepreneur</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Twitter Simulation -->
-                <div class="platform-simulation twitter-sim" id="twitterSim">
-                    <div class="twitter-layout">
-                        <div class="twitter-sidebar">
-                            <div class="twitter-logo">𝕏</div>
-                            <div class="twitter-menu">
-                                <div class="menu-item active">🏠 Home</div>
-                                <div class="menu-item">🔍 Explore</div>
-                                <div class="menu-item">🔔 Notifications</div>
-                                <div class="menu-item">✉️ Messages</div>
-                                <div class="menu-item">📋 Lists</div>
-                                <div class="menu-item">👤 Profile</div>
-                            </div>
-                            <button class="tweet-btn">Post</button>
-                        </div>
-                        
-                        <div class="twitter-main">
-                            <div class="twitter-header">
-                                <strong>Home</strong>
-                                <span>✨</span>
-                            </div>
-                            
-                            <div class="tweet-composer">
-                                <div class="composer-avatar">👩‍💻</div>
-                                <div class="composer-input">
-                                    <input type="text" placeholder="What is happening?!" readonly>
-                                    <div class="composer-actions">
-                                        <span>🌍 Everyone can reply</span>
-                                        <button>Post</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="twitter-feed">
-                                <div class="tweet">
-                                    <div class="tweet-avatar">👩‍💻</div>
-                                    <div class="tweet-content">
-                                        <div class="tweet-header">
-                                            <strong>African_WomanInTech</strong>
-                                            <span>@AfroTechWoman · 2h</span>
-                                        </div>
-                                        <div class="tweet-text">
-                                            Just launched our coding bootcamp for girls across Africa! So proud to see young African women embracing technology and changing their communities 💪✨ 
-                                        </div>
-                                        <div class="tweet-stats">
-                                            <span>💬 45</span>
-                                            <span>🔄 128</span>
-                                            <span>❤️ 1.2K</span>
-                                            <span>📤 89</span>
-                                        </div>
-                                    </div>
                                 </div>
                                 
-                                <div class="tweet toxic">
-                                    <div class="tweet-avatar">😠</div>
-                                    <div class="tweet-content">
-                                        <div class="tweet-header">
-                                            <strong>Toxic_Tweeter</strong>
-                                            <span>@Hater123 · 1h</span>
-                                        </div>
-                                        <div class="tweet-text toxic-text">
-                                            This na wash! You think say you fit code? Go find husband jare. Women and coding no match!
-                                        </div>
-                                        <div class="shieldai-warning">
-                                            <span class="warning-icon">🛡️</span>
-                                            <span class="warning-text">Blocked by ShieldAI Africa - West African harassment detected</span>
-                                        </div>
-                                        <div class="tweet-stats">
-                                            <span>💬 2</span>
-                                            <span>🔄 0</span>
-                                            <span>❤️ 1</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="tweet-reply">
-                                    <div class="reply-avatar">👩‍💻</div>
-                                    <div class="reply-input">
-                                        <input type="text" id="twitterReplyInput" placeholder="Post your reply">
-                                        <button onclick="analyzeComment('twitter')">💬</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="twitter-sidebar-right">
-                            <div class="search-box">
-                                <input type="text" placeholder="Search Twitter">
-                            </div>
-                            <div class="trending">
-                                <strong>Trending in Africa</strong>
-                                <div class="trend">#AfricaTech</div>
-                                <div class="trend">#WomenInSTEM</div>
-                                <div class="trend">#DigitalAfrica</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- WhatsApp Simulation -->
-                <div class="platform-simulation whatsapp-sim" id="whatsappSim">
-                    <div class="whatsapp-layout">
-                        <div class="whatsapp-sidebar">
-                            <div class="wa-header">
-                                <div class="wa-avatar">👩‍💻</div>
-                                <div class="wa-actions">
-                                    <span>📹</span>
-                                    <span>💬</span>
-                                    <span>⋮</span>
-                                </div>
-                            </div>
-                            
-                            <div class="wa-search">
-                                <div class="search-icon">🔍</div>
-                                <input type="text" placeholder="Search or start new chat">
-                            </div>
-                            
-                            <div class="wa-chats">
-                                <div class="chat active">
-                                    <div class="chat-avatar">👥</div>
-                                    <div class="chat-info">
-                                        <strong>African Women in Tech</strong>
-                                        <span>Lagos_Developer: This is amazing! 👏</span>
-                                    </div>
-                                    <div class="chat-time">2h</div>
-                                </div>
-                                <div class="chat">
-                                    <div class="chat-avatar">👩‍🎓</div>
-                                    <div class="chat-info">
-                                        <strong>Nairobi Coders</strong>
-                                        <span>You: Just shared the bootcamp info</span>
-                                    </div>
-                                    <div class="chat-time">1d</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="whatsapp-main">
-                            <div class="wa-chat-header">
-                                <div class="chat-profile">
-                                    <div class="profile-avatar">👥</div>
-                                    <div class="profile-info">
-                                        <strong>African Women in Tech</strong>
-                                        <span>Lagos_Developer, Accra_Coder, Nairobi_Techie +24</span>
-                                    </div>
-                                </div>
-                                <div class="chat-actions">
-                                    <span>🔍</span>
-                                    <span>📹</span>
-                                    <span>⋮</span>
-                                </div>
-                            </div>
-                            
-                            <div class="wa-messages">
-                                <div class="message-date">TODAY</div>
-                                
-                                <div class="message received">
-                                    <div class="message-avatar">👩‍💻</div>
-                                    <div class="message-content">
-                                        <div class="message-text">
-                                            Just launched our coding bootcamp for girls across Africa! So proud to see young African women embracing technology 💪✨
-                                        </div>
-                                        <div class="message-time">10:30 AM</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="message received">
-                                    <div class="message-avatar">👨‍💻</div>
-                                    <div class="message-content">
-                                        <div class="message-text">
-                                            Amazing work! Nigeria is proud 🇳🇬👏 This is exactly what we need across West Africa!
-                                        </div>
-                                        <div class="message-time">10:32 AM</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="message toxic received">
-                                    <div class="message-avatar">😠</div>
-                                    <div class="message-content">
-                                        <div class="message-text toxic-text">
-                                            Women belong in kitchen not coding computers. Mtoto wa mama wewe!
-                                        </div>
-                                        <div class="shieldai-warning">
-                                            <span class="warning-icon">🛡️</span>
-                                            <span class="warning-text">Blocked by ShieldAI Africa - Gender harassment detected</span>
-                                        </div>
-                                        <div class="message-time">10:33 AM</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="message received">
-                                    <div class="message-avatar">👩‍🎓</div>
-                                    <div class="message-content">
-                                        <div class="message-text">
-                                            Ignore the hate! We're building the future here in Ghana 🇬🇭💫
-                                        </div>
-                                        <div class="message-time">10:34 AM</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="wa-input">
-                                <div class="input-actions">
-                                    <span>😊</span>
-                                    <span>📎</span>
-                                    <span>📷</span>
-                                </div>
-                                <input type="text" id="waMessageInput" placeholder="Type a message">
-                                <button onclick="analyzeComment('whatsapp')">🎤</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Instagram Simulation -->
-                <div class="platform-simulation instagram-sim" id="instagramSim">
-                    <div class="instagram-layout">
-                        <div class="instagram-header">
-                            <div class="ig-logo">Instagram</div>
-                            <div class="ig-search">🔍 Search</div>
-                            <div class="ig-actions">
-                                <span>❤️</span>
-                                <span>💬</span>
-                            </div>
-                        </div>
-                        
-                        <div class="instagram-main">
-                            <div class="ig-stories">
-                                <div class="story your-story">
-                                    <div class="story-circle">👩‍💻</div>
-                                    <span>Your Story</span>
-                                </div>
-                                <div class="story">
-                                    <div class="story-circle">👨‍💻</div>
-                                    <span>Lagos_Coder</span>
-                                </div>
-                                <div class="story">
-                                    <div class="story-circle">👩‍🎓</div>
-                                    <span>Nairobi_Tech</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ig-post">
-                                <div class="post-header">
-                                    <div class="poster-info">
-                                        <div class="poster-avatar">👩‍💻</div>
-                                        <div class="poster-name">african_womanintech</div>
-                                    </div>
-                                    <span>⋯</span>
-                                </div>
-                                
-                                <div class="post-image">
-                                    <div class="image-placeholder">
-                                        🌍 African Tech Bootcamp Launch!
-                                        <div class="image-caption">Teaching girls to code across the continent</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="post-actions">
-                                    <div class="action-icons">
-                                        <span>❤️</span>
-                                        <span>💬</span>
-                                        <span>📤</span>
-                                        <span>📌</span>
-                                    </div>
-                                    <span>🔖</span>
-                                </div>
-                                
-                                <div class="post-likes">
-                                    <strong>1,247 likes</strong>
-                                </div>
-                                
-                                <div class="post-caption">
-                                    <strong>african_womanintech</strong>
-                                    Just launched our coding bootcamp for girls across Africa! So proud to see young African women embracing technology and changing their communities 💪✨ 
-                                    <span>#AfricaTech #WomenInSTEM #DigitalAfrica #CodingBootcamp</span>
-                                </div>
-                                
-                                <div class="post-comments">
-                                    <div class="comment">
-                                        <strong>lagos_developer</strong>
-                                        Amazing work! Nigeria is proud 🇳🇬👏
-                                    </div>
-                                    
-                                    <div class="comment toxic">
-                                        <strong>toxic_follower</strong>
-                                        <span class="toxic-text">Women and coding no match! Go find husband</span>
-                                        <div class="shieldai-warning">
-                                            <span class="warning-icon">🛡️</span>
-                                            <span class="warning-text">Blocked by ShieldAI Africa - Gender harassment detected</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="view-comments">View all 189 comments</div>
-                                    
-                                    <div class="comment-input">
-                                        <input type="text" id="igCommentInput" placeholder="Add a comment...">
-                                        <button onclick="analyzeComment('instagram')">Post</button>
-                                    </div>
+                                <div class="comment-input">
+                                    <input type="text" id="tiktokCommentInput" placeholder="Add comment...">
+                                    <button onclick="analyzeComment('tiktok')">Post</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- TikTok Simulation -->
-                <div class="platform-simulation tiktok-sim" id="tiktokSim">
-                    <div class="tiktok-layout">
-                        <div class="tiktok-video">
-                            <div class="video-player">
-                                <div class="video-placeholder">
-                                    🎥 AFRICA TECH BOOTCAMP
-                                    <div class="video-caption">Teaching girls to code across the continent</div>
-                                </div>
-                            </div>
-                            
-                            <div class="video-sidebar">
-                                <div class="profile-avatar">👩‍💻</div>
-                                <div class="video-actions">
-                                    <div class="action">
-                                        <span>❤️</span>
-                                        <strong>12.4K</strong>
-                                    </div>
-                                    <div class="action">
-                                        <span>💬</span>
-                                        <strong>1.2K</strong>
-                                    </div>
-                                    <div class="action">
-                                        <span>🔄</span>
-                                        <strong>3.4K</strong>
-                                    </div>
-                                    <div class="action">
-                                        <span>📌</span>
-                                        <strong>Save</strong>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="video-info">
-                                <div class="video-profile">
-                                    <strong>@african_womanintech</strong>
-                                    <p>Just launched our coding bootcamp for girls across Africa! 💪✨</p>
-                                    <div class="video-music">
-                                        <span>🎵 Original Sound - African_WomanInTech</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="tiktok-comments">
-                            <div class="comments-header">
-                                <strong>1,247 comments</strong>
-                                <span>✕</span>
-                            </div>
-                            
-                            <div class="comments-list">
-                                <div class="comment">
-                                    <div class="comment-avatar">👨‍💻</div>
-                                    <div class="comment-content">
-                                        <strong>@lagos_coder</strong>
-                                        <p>This is amazing! Nigeria is proud 🇳🇬👏</p>
-                                        <div class="comment-actions">
-                                            <span>❤️ 245</span>
-                                            <span>Reply</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="comment toxic">
-                                    <div class="comment-avatar">😠</div>
-                                    <div class="comment-content">
-                                        <strong>@hater_account</strong>
-                                        <p class="toxic-text">Women belong in kitchen not coding! Mtoto wa mama!</p>
-                                        <div class="shieldai-warning">
-                                            <span class="warning-icon">🛡️</span>
-                                            <span class="warning-text">Blocked by ShieldAI Africa - Gender harassment detected</span>
-                                        </div>
-                                        <div class="comment-actions">
-                                            <span>❤️ 2</span>
-                                            <span>Reply</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="comment-input">
-                                <input type="text" id="tiktokCommentInput" placeholder="Add comment...">
-                                <button onclick="analyzeComment('tiktok')">Post</button>
-                            </div>
-                        </div>
+                <!-- Analysis Results Panel -->
+                <div class="analysis-results" id="analysisResults">
+                    <h3>🌍 Africa Analysis Results</h3>
+                    <div class="results-placeholder" id="resultsPlaceholder">
+                        <p>Type a message in any platform to see real-time protection analysis</p>
                     </div>
-                </div>
-            </div>
-
-            <!-- Analysis Results Panel -->
-            <div class="analysis-results" id="analysisResults">
-                <h3>🌍 Africa Analysis Results</h3>
-                <div class="results-placeholder" id="resultsPlaceholder">
-                    <p>Type a message in any platform to see real-time protection analysis</p>
-                </div>
-                <div class="results-details" id="resultsDetails" style="display: none;">
-                    <!-- Results content remains the same -->
+                    <div class="results-details" id="resultsDetails" style="display: none;">
+                        <!-- Results content remains the same -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-/* Platform Simulation Styles */
-.platform-simulation {
-    display: none;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    margin: 1rem 0;
-}
+    <div id="footer-placeholder"></div>
 
-.platform-simulation.active {
-    display: block;
-}
+    <script src="assets/script.js"></script>
+    <script>
+        // Load header and footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                if (typeof initializeMobileMenu === 'function') {
+                    initializeMobileMenu();
+                }
+            });
 
-/* Facebook Styles */
-.facebook-sim {
-    font-family: Helvetica, Arial, sans-serif;
-}
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
 
-.fb-nav {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background: #1877F2;
-    color: white;
-    gap: 1rem;
-}
+        // Platform Switching Function
+        function switchPlatform() {
+            const platform = document.getElementById('platformSelect').value;
+            
+            // Hide all platforms
+            document.querySelectorAll('.platform-simulation').forEach(sim => {
+                sim.classList.remove('active');
+            });
+            
+            // Show selected platform
+            document.getElementById(platform + 'Sim').classList.add('active');
+        }
 
-.fb-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+        // Analyze Comment Function
+        function analyzeComment(platform) {
+            let inputId = '';
+            switch(platform) {
+                case 'facebook': inputId = 'fbCommentInput'; break;
+                case 'twitter': inputId = 'twitterReplyInput'; break;
+                case 'whatsapp': inputId = 'waMessageInput'; break;
+                case 'instagram': inputId = 'igCommentInput'; break;
+                case 'tiktok': inputId = 'tiktokCommentInput'; break;
+            }
+            
+            const input = document.getElementById(inputId);
+            const text = input.value.trim();
+            
+            if (!text) {
+                alert('Please enter a message to analyze');
+                return;
+            }
+            
+            // Your existing analysis logic here
+            analyzeLiveComment(text, platform);
+            
+            // Clear input after analysis
+            input.value = '';
+        }
 
-.fb-search {
-    flex: 1;
-    background: rgba(255,255,255,0.2);
-    padding: 0.5rem;
-    border-radius: 20px;
-    text-align: center;
-}
+        // African region selection
+        function setAfricanRegion(region) {
+            // Update active region button
+            document.querySelectorAll('.region-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update context based on region
+            const regionData = {
+                'east': { languages: ['Swahili', 'English', 'Kinyarwanda'], emergency: '1199' },
+                'west': { languages: ['Pidgin', 'English', 'French', 'Yoruba'], emergency: '112' },
+                'south': { languages: ['English', 'Afrikaans', 'Zulu', 'Xhosa'], emergency: '0800 428 428' },
+                'north': { languages: ['Arabic', 'French', 'English'], emergency: '122' }
+            };
+            
+            const data = regionData[region];
+            console.log(`Region set to ${region}:`, data);
+        }
 
-.facebook-layout {
-    display: grid;
-    grid-template-columns: 280px 1fr 280px;
-    height: 600px;
-}
+        // Test African scenarios
+        function testAfricanScenario(scenario) {
+            const scenarioData = {
+                'gender_harassment': {
+                    content: "Women should know their place in the kitchen, not in leadership positions",
+                    type: "Gender Harassment",
+                    severity: "High",
+                    language: "English",
+                    action: "Content Moderated",
+                    confidence: 92,
+                    culturalContext: "Detected patriarchal language common in some African contexts. ShieldAI considers local gender dynamics while maintaining protection standards."
+                },
+                'local_slang': {
+                    content: "That guy is such a 'mchepu' always causing trouble",
+                    type: "Local Slang Insult",
+                    severity: "Medium",
+                    language: "Sheng (Kenyan)",
+                    action: "Flagged for Review",
+                    confidence: 88,
+                    culturalContext: "Detected Sheng slang 'mchepu' (troublemaker). ShieldAI's African language models understand local urban languages."
+                },
+                'tribal_hate': {
+                    content: "People from that tribe are backward and uneducated",
+                    type: "Ethnic Hate Speech",
+                    severity: "High",
+                    language: "English",
+                    action: "Content Removed",
+                    confidence: 95,
+                    culturalContext: "Identified tribal discrimination. ShieldAI recognizes Africa-specific ethnic sensitivities and historical contexts."
+                },
+                'cultural_context': {
+                    content: "Our traditions are primitive and need to be abandoned",
+                    type: "Cultural Disrespect",
+                    severity: "Medium",
+                    language: "English",
+                    action: "Content Flagged",
+                    confidence: 85,
+                    culturalContext: "Detected disrespect towards African cultural heritage. ShieldAI distinguishes between constructive criticism and cultural denigration."
+                }
+            };
+            
+            const data = scenarioData[scenario];
+            analyzeLiveComment(data.content, 'demo');
+        }
 
-.fb-sidebar, .fb-sidebar-right {
-    background: #F0F2F5;
-    padding: 1rem;
-}
-
-.fb-main {
-    background: white;
-    padding: 1rem;
-    overflow-y: auto;
-}
-
-.fb-post {
-    background: white;
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1rem 0;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-/* Twitter Styles */
-.twitter-sim {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-.twitter-layout {
-    display: grid;
-    grid-template-columns: 250px 1fr 350px;
-    height: 600px;
-}
-
-.twitter-sidebar {
-    border-right: 1px solid #E1E8ED;
-    padding: 1rem;
-}
-
-.twitter-main {
-    border-right: 1px solid #E1E8ED;
-    overflow-y: auto;
-}
-
-.tweet {
-    display: flex;
-    padding: 1rem;
-    border-bottom: 1px solid #E1E8ED;
-}
-
-/* WhatsApp Styles */
-.whatsapp-sim {
-    font-family: Segoe UI, sans-serif;
-}
-
-.whatsapp-layout {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    height: 600px;
-}
-
-.whatsapp-sidebar {
-    background: #F0F2F5;
-    border-right: 1px solid #E1E8ED;
-}
-
-.whatsapp-main {
-    background: #E5DDD5;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.04"><path fill="%23000000" d="M0 0h100v100H0z"/></svg>');
-}
-
-.message {
-    display: flex;
-    margin: 0.5rem 1rem;
-}
-
-.message.received .message-content {
-    background: white;
-    border-radius: 8px 8px 8px 0;
-}
-
-/* Instagram Styles */
-.instagram-sim {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-.instagram-header {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid #DBDBDB;
-    justify-content: space-between;
-}
-
-.ig-stories {
-    display: flex;
-    padding: 1rem;
-    gap: 1rem;
-    border-bottom: 1px solid #DBDBDB;
-}
-
-.story-circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-}
-
-/* TikTok Styles */
-.tiktok-sim {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-.tiktok-layout {
-    display: grid;
-    grid-template-columns: 1fr 400px;
-    height: 600px;
-}
-
-.tiktok-video {
-    background: black;
-    color: white;
-    position: relative;
-}
-
-.video-placeholder {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-size: 2rem;
-}
-
-/* Common Styles for All Platforms */
-.toxic-text {
-    color: #EF4444;
-    text-decoration: line-through;
-}
-
-.shieldai-warning {
-    background: #FEF3C7;
-    color: #92400E;
-    padding: 0.5rem;
-    border-radius: 6px;
-    margin-top: 0.5rem;
-    border-left: 4px solid #D97706;
-    font-size: 0.875rem;
-}
-
-.comment-input, .wa-input, .tweet-reply {
-    display: flex;
-    gap: 0.5rem;
-    padding: 1rem;
-    border-top: 1px solid #E1E8ED;
-    background: white;
-}
-
-.comment-input input, .wa-input input, .tweet-reply input {
-    flex: 1;
-    padding: 0.75rem;
-    border: 1px solid #E1E8ED;
-    border-radius: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .facebook-layout,
-    .twitter-layout,
-    .whatsapp-layout,
-    .tiktok-layout {
-        grid-template-columns: 1fr;
-    }
-    
-    .fb-sidebar, .fb-sidebar-right,
-    .twitter-sidebar, .twitter-sidebar-right,
-    .whatsapp-sidebar,
-    .tiktok-comments {
-        display: none;
-    }
-}
-</style>
-
-<script>
-// Platform Switching Function
-function switchPlatform() {
-    const platform = document.getElementById('platformSelect').value;
-    
-    // Hide all platforms
-    document.querySelectorAll('.platform-simulation').forEach(sim => {
-        sim.classList.remove('active');
-    });
-    
-    // Show selected platform
-    document.getElementById(platform + 'Sim').classList.add('active');
-}
-
-// Analyze Comment Function
-function analyzeComment(platform) {
-    let inputId = '';
-    switch(platform) {
-        case 'facebook': inputId = 'fbCommentInput'; break;
-        case 'twitter': inputId = 'twitterReplyInput'; break;
-        case 'whatsapp': inputId = 'waMessageInput'; break;
-        case 'instagram': inputId = 'igCommentInput'; break;
-        case 'tiktok': inputId = 'tiktokCommentInput'; break;
-    }
-    
-    const input = document.getElementById(inputId);
-    const text = input.value.trim();
-    
-    if (!text) {
-        alert('Please enter a message to analyze');
-        return;
-    }
-    
-    // Your existing analysis logic here
-    analyzeLiveComment(text, platform);
-    
-    // Clear input after analysis
-    input.value = '';
-}
-
-// Initialize first platform
-document.addEventListener('DOMContentLoaded', function() {
-    switchPlatform();
-});
-</script>
+        // Initialize first platform
+        document.addEventListener('DOMContentLoaded', function() {
+            switchPlatform();
+        });
+    </script>
 </body>
 </html>

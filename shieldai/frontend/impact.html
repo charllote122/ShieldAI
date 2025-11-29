@@ -4,173 +4,8 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>African Impact Dashboard - ShieldAI</title>
-    <link rel='stylesheet' href='css/style.css'>
+    <link rel='stylesheet' href='assets/style.css'>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        .africa-impact {
-            background: linear-gradient(135deg, #000000 0%, #1a365d 100%);
-            color: white;
-            min-height: 100vh;
-        }
-        
-        .impact-hero {
-            text-align: center;
-            padding: 4rem 0 2rem;
-            background: var(--africa-gradient);
-        }
-        
-        .africa-flag {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-        
-        .impact-stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-        
-        .impact-stat-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #FFD700, #FFFFFF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            color: #E5E7EB;
-            font-size: 1.1rem;
-        }
-        
-        .regions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .region-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .platform-stats {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-        }
-        
-        .platform-bar {
-            background: rgba(255, 255, 255, 0.1);
-            height: 8px;
-            border-radius: 4px;
-            margin: 0.5rem 0;
-            overflow: hidden;
-        }
-        
-        .platform-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #FF0000, #FFD700);
-            border-radius: 4px;
-        }
-        
-        .africa-emergency {
-            background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            color: #9CA3AF;
-        }
-        
-        .api-status {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            margin-left: 1rem;
-        }
-        
-        .api-live {
-            background: #10B981;
-            color: white;
-        }
-        
-        .api-offline {
-            background: #EF4444;
-            color: white;
-        }
-
-        .countries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .country-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .country-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--africa-green);
-        }
-
-        .context-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .context-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--africa-green);
-        }
-
-        .language-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .language-stat {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-        }
-    </style>
 </head>
 <body class='africa-impact'>
     <header class='header'>
@@ -381,6 +216,10 @@
         async function loadAfricaImpact() {
             try {
                 console.log('🌍 Loading Africa impact data...');
+                
+                // Test backend connection first
+                const healthResponse = await fetch(`${SHIELDAI_CONFIG.API_BASE_URL}${SHIELDAI_CONFIG.ENDPOINTS.HEALTH}`);
+                if (!healthResponse.ok) throw new Error('Health check failed');
                 
                 // Load stats from backend
                 const statsResponse = await fetch(`${SHIELDAI_CONFIG.API_BASE_URL}${SHIELDAI_CONFIG.ENDPOINTS.STATS}`);
