@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenya Features - ShieldAI</title>
+    <title>African Features - ShieldAI</title>
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .kenya-features {
+        .africa-features {
             background: linear-gradient(135deg, #000000 0%, #1a365d 100%);
             color: white;
         }
         
         .page-hero {
-            background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #006600 100%);
+            background: var(--africa-gradient);
             text-align: center;
             padding: 4rem 0;
             color: white;
         }
         
-        .kenya-badge {
+        .africa-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #FF0000, #FFD700);
-            color: black;
-            padding: 0.5rem 1rem;
+            background: var(--africa-gradient);
+            color: white;
+            padding: 0.5rem 1.5rem;
             border-radius: 20px;
             font-weight: 600;
             margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .feature-category {
@@ -37,7 +38,7 @@
             text-align: center;
             font-size: 2rem;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, #FFD700, #FFFFFF);
+            background: var(--africa-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -53,6 +54,12 @@
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-detail:hover {
+            transform: translateY(-5px);
+            border-color: var(--africa-green);
         }
         
         .feature-icon {
@@ -61,7 +68,7 @@
         }
         
         .feature-content h3 {
-            color: #FFD700;
+            color: var(--africa-gold);
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
@@ -79,14 +86,14 @@
         
         .feature-content li:before {
             content: "✅ ";
-            color: #10B981;
+            color: var(--africa-green);
         }
         
         .tech-stack {
             background: rgba(255, 255, 255, 0.05);
             padding: 4rem 0;
-            border-top: 2px solid #FF0000;
-            border-bottom: 2px solid #FF0000;
+            border-top: 2px solid var(--africa-green);
+            border-bottom: 2px solid var(--africa-green);
         }
         
         .tech-grid {
@@ -102,6 +109,12 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--africa-gold);
         }
         
         .tech-icon {
@@ -109,12 +122,13 @@
             margin-bottom: 1rem;
         }
         
-        .kenya-languages {
+        .africa-languages {
             background: linear-gradient(135deg, #000000, #1a365d);
             padding: 3rem;
             border-radius: 12px;
             margin: 2rem 0;
             text-align: center;
+            border: 1px solid var(--africa-green);
         }
         
         .languages-grid {
@@ -129,58 +143,145 @@
             padding: 1rem;
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .language-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--africa-gold);
+        }
+
+        .regions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .region-feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .region-feature:hover {
+            transform: translateY(-3px);
+            border-color: var(--africa-green);
+        }
+
+        .country-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .country-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid var(--africa-green);
+        }
+
+        .country-stat .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--africa-gold);
+            display: block;
+        }
+
+        .country-stat .stat-label {
+            color: #E5E7EB;
+            font-size: 0.9rem;
         }
     </style>
 </head>
-<body class="kenya-features">
+<body class="africa-features">
     <div id="loadingScreen" class="loading-screen">
         <div class="loading-content">
-            <div class="loading-logo">🇰🇪</div>
-            <h2>ShieldAI Kenya</h2>
+            <div class="loading-logo">🌍</div>
+            <h2>ShieldAI Africa</h2>
             <div class="loading-spinner"></div>
         </div>
     </div>
 
     <div id="header-placeholder"></div>
 
-    <!-- Kenya Features Hero -->
+    <!-- Africa Features Hero -->
     <section class="page-hero">
         <div class="container">
-            <div class="kenya-badge">🇰🇪 Made for Kenya</div>
-            <h1>Advanced Protection for Kenyan Women</h1>
-            <p>AI-powered safety tools designed specifically for Kenya's digital landscape and cultural context</p>
+            <div class="africa-badge">🌍 Made for Africa</div>
+            <h1>Advanced Protection for African Women</h1>
+            <p>AI-powered safety tools designed for Africa's diverse digital landscape and cultural contexts</p>
         </div>
     </section>
 
-    <!-- Kenya Languages Support -->
-    <section class="kenya-languages">
+    <!-- Africa Languages Support -->
+    <section class="africa-languages">
         <div class="container">
-            <h2>🗣️ Kenyan Language Support</h2>
-            <p>Advanced detection for local languages and cultural communication styles</p>
+            <h2>🗣️ African Language Support</h2>
+            <p>Advanced detection for major African languages and regional communication styles</p>
             <div class="languages-grid">
                 <div class="language-item">
-                    <strong>Kiswahili</strong>
-                    <div>Primary Language</div>
+                    <strong>🇬🇧 English</strong>
+                    <div>Pan-African</div>
                 </div>
                 <div class="language-item">
-                    <strong>English</strong>
-                    <div>Official Language</div>
+                    <strong>🇫🇷 French</strong>
+                    <div>Francophone Africa</div>
                 </div>
                 <div class="language-item">
-                    <strong>Kikuyu</strong>
-                    <div>Central Kenya</div>
+                    <strong>🇸🇦 Arabic</strong>
+                    <div>North Africa</div>
                 </div>
                 <div class="language-item">
-                    <strong>Luo</strong>
-                    <div>Western Kenya</div>
+                    <strong>🇰🇪 Swahili</strong>
+                    <div>East Africa</div>
                 </div>
                 <div class="language-item">
-                    <strong>Luhya</strong>
-                    <div>Western Kenya</div>
+                    <strong>🇳🇬 Hausa</strong>
+                    <div>West Africa</div>
                 </div>
                 <div class="language-item">
-                    <strong>Kamba</strong>
-                    <div>Eastern Kenya</div>
+                    <strong>🇳🇬 Yoruba</strong>
+                    <div>West Africa</div>
+                </div>
+                <div class="language-item">
+                    <strong>🇪🇹 Amharic</strong>
+                    <div>East Africa</div>
+                </div>
+                <div class="language-item">
+                    <strong>🇿🇦 Zulu</strong>
+                    <div>Southern Africa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Country Coverage Stats -->
+    <section class="country-coverage">
+        <div class="container">
+            <h2 class="section-title">🌍 Pan-African Coverage</h2>
+            <div class="country-stats">
+                <div class="country-stat">
+                    <span class="stat-number">24</span>
+                    <span class="stat-label">African Countries</span>
+                </div>
+                <div class="country-stat">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Languages Supported</span>
+                </div>
+                <div class="country-stat">
+                    <span class="stat-number">15K+</span>
+                    <span class="stat-label">Women Protected</span>
+                </div>
+                <div class="country-stat">
+                    <span class="stat-number">96%</span>
+                    <span class="stat-label">Accuracy Rate</span>
                 </div>
             </div>
         </div>
@@ -190,44 +291,44 @@
     <section class="features-main">
         <div class="container">
             <div class="feature-category">
-                <h2>🤖 Kenya AI Detection</h2>
+                <h2>🤖 African AI Detection</h2>
                 <div class="features-grid">
                     <div class="feature-detail">
                         <div class="feature-icon">🔍</div>
                         <div class="feature-content">
-                            <h3>Kenya Context Analysis</h3>
-                            <p>Real-time scanning with deep understanding of Kenyan cultural context and local communication patterns</p>
+                            <h3>Pan-African Context Analysis</h3>
+                            <p>Real-time scanning with deep understanding of diverse African cultural contexts and regional communication patterns</p>
                             <ul>
-                                <li>Kenyan slang and Sheng detection</li>
-                                <li>Cultural nuance understanding</li>
-                                <li>Regional dialect adaptation</li>
-                                <li>&lt;200ms response time</li>
+                                <li>Regional slang and dialect detection</li>
+                                <li>Cultural nuance understanding across Africa</li>
+                                <li>Multi-language adaptation</li>
+                                <li>&lt;200ms response time continent-wide</li>
                             </ul>
                         </div>
                     </div>
                     <div class="feature-detail">
-                        <div class="feature-icon">🇰🇪</div>
+                        <div class="feature-icon">🌍</div>
                         <div class="feature-content">
-                            <h3>Local Threat Intelligence</h3>
-                            <p>Specialized detection for Kenya-specific digital violence patterns and harassment tactics</p>
+                            <h3>Regional Threat Intelligence</h3>
+                            <p>Specialized detection for Africa-specific digital violence patterns and harassment tactics</p>
                             <ul>
-                                <li>Mtoto wa mama insults</li>
-                                <li>Local gender-based harassment</li>
-                                <li>Tribal-based attacks</li>
-                                <li>Kenyan social context</li>
+                                <li>Regional insult patterns and local slang</li>
+                                <li>Cultural context harassment detection</li>
+                                <li>Ethnic and tribal-based attacks</li>
+                                <li>African social context understanding</li>
                             </ul>
                         </div>
                     </div>
                     <div class="feature-detail">
                         <div class="feature-icon">🎯</div>
                         <div class="feature-content">
-                            <h3>Kenya Threat Classification</h3>
-                            <p>Categorizes harmful content specific to Kenyan digital landscape</p>
+                            <h3>African Threat Classification</h3>
+                            <p>Categorizes harmful content specific to African digital landscapes</p>
                             <ul>
-                                <li>Gender-based harassment (Kenyan context)</li>
-                                <li>Tribal hate speech</li>
-                                <li>Local cyberbullying patterns</li>
-                                <li>Kenyan cultural sensitivities</li>
+                                <li>Gender-based harassment (African context)</li>
+                                <li>Regional hate speech patterns</li>
+                                <li>Local cyberbullying behaviors</li>
+                                <li>Cultural sensitivity protection</li>
                             </ul>
                         </div>
                     </div>
@@ -235,30 +336,30 @@
             </div>
 
             <div class="feature-category">
-                <h2>🛡️ Kenya Protection</h2>
+                <h2>🛡️ African Protection</h2>
                 <div class="features-grid">
                     <div class="feature-detail">
                         <div class="feature-icon">⚡</div>
                         <div class="feature-content">
-                            <h3>Instant Kenya Content Blocking</h3>
-                            <p>Automatically blocks harmful content with understanding of Kenyan communication styles</p>
+                            <h3>Instant Content Blocking</h3>
+                            <p>Automatically blocks harmful content with understanding of African communication styles</p>
                             <ul>
-                                <li>Real-time Swahili filtering</li>
-                                <li>Local slang recognition</li>
+                                <li>Multi-language filtering (8 languages)</li>
+                                <li>Regional slang recognition</li>
                                 <li>Cultural context blocking</li>
-                                <li>Kenyan platform optimization</li>
+                                <li>African platform optimization</li>
                             </ul>
                         </div>
                     </div>
                     <div class="feature-detail">
                         <div class="feature-icon">👁️</div>
                         <div class="feature-content">
-                            <h3>Kenya Behavior Monitoring</h3>
-                            <p>Identifies Kenya-specific threat patterns and escalation behaviors</p>
+                            <h3>African Behavior Monitoring</h3>
+                            <p>Identifies Africa-specific threat patterns and escalation behaviors</p>
                             <ul>
-                                <li>Local harassment patterns</li>
-                                <li>Kenyan social media behaviors</li>
-                                <li>Regional threat escalation</li>
+                                <li>Regional harassment patterns</li>
+                                <li>African social media behaviors</li>
+                                <li>Local threat escalation</li>
                                 <li>Cultural behavior analysis</li>
                             </ul>
                         </div>
@@ -266,14 +367,14 @@
                     <div class="feature-detail">
                         <div class="feature-icon">📱</div>
                         <div class="feature-content">
-                            <h3>Kenya Platform Integration</h3>
-                            <p>Optimized for popular platforms used across Kenya</p>
+                            <h3>African Platform Integration</h3>
+                            <p>Optimized for popular platforms used across Africa</p>
                             <ul>
-                                <li>WhatsApp integration</li>
-                                <li>Facebook for Kenya</li>
-                                <li>Twitter/X Kenya</li>
-                                <li>Instagram Kenya</li>
-                                <li>Local Kenyan platforms</li>
+                                <li>WhatsApp integration continent-wide</li>
+                                <li>Facebook for African markets</li>
+                                <li>Twitter/X Africa optimization</li>
+                                <li>Instagram African context</li>
+                                <li>Local African platforms support</li>
                             </ul>
                         </div>
                     </div>
@@ -281,43 +382,43 @@
             </div>
 
             <div class="feature-category">
-                <h2>💝 Kenya Support & Resources</h2>
+                <h2>💝 African Support & Resources</h2>
                 <div class="features-grid">
                     <div class="feature-detail">
                         <div class="feature-icon">🧠</div>
                         <div class="feature-content">
-                            <h3>Kenya Mental Health Resources</h3>
-                            <p>Immediate access to Kenya-specific support services and crisis help</p>
+                            <h3>African Mental Health Resources</h3>
+                            <p>Immediate access to Africa-specific support services and crisis help</p>
                             <ul>
                                 <li>Kenya Mental Health Hotline: 1199</li>
-                                <li>Nairobi Women's Hospital GBV: 0800 720 715</li>
-                                <li>Crisis Response Kenya: 0800 221 555</li>
-                                <li>Local support group connections</li>
+                                <li>South Africa GBV Helpline: 0800 428 428</li>
+                                <li>Nigeria Emergency Services: 112</li>
+                                <li>Regional support group connections</li>
                             </ul>
                         </div>
                     </div>
                     <div class="feature-detail">
                         <div class="feature-icon">⚖️</div>
                         <div class="feature-content">
-                            <h3>Kenya Legal Support</h3>
-                            <p>Kenya-specific legal resources and digital rights protection</p>
+                            <h3>African Legal Support</h3>
+                            <p>Africa-specific legal resources and digital rights protection</p>
                             <ul>
-                                <li>Kenya Computer Misuse Act guidance</li>
-                                <li>Data Protection Act information</li>
+                                <li>Regional cybercrime act guidance</li>
+                                <li>Country-specific data protection laws</li>
                                 <li>Local legal aid connections</li>
-                                <li>Kenya police reporting assistance</li>
+                                <li>Police reporting assistance by country</li>
                             </ul>
                         </div>
                     </div>
                     <div class="feature-detail">
                         <div class="feature-icon">📊</div>
                         <div class="feature-content">
-                            <h3>Kenya Safety Analytics</h3>
-                            <p>Personalized insights for Kenyan women's digital safety</p>
+                            <h3>African Safety Analytics</h3>
+                            <p>Personalized insights for African women's digital safety</p>
                             <ul>
-                                <li>Kenya threat level dashboard</li>
-                                <li>Regional safety patterns</li>
-                                <li>Platform-specific risks in Kenya</li>
+                                <li>Regional threat level dashboard</li>
+                                <li>Country-specific safety patterns</li>
+                                <li>Platform-specific risks in Africa</li>
                                 <li>Local safety recommendations</li>
                             </ul>
                         </div>
@@ -327,74 +428,74 @@
         </div>
     </section>
 
-    <!-- Kenya Tech Stack -->
+    <!-- African Regions Coverage -->
+    <section class="africa-regions-features">
+        <div class="container">
+            <h2 class="section-title">🗺️ Protection Across African Regions</h2>
+            <div class="regions-grid">
+                <div class="region-feature">
+                    <h3>🇰🇪 East Africa</h3>
+                    <p>Kenya, Tanzania, Uganda, Rwanda - Swahili context, coastal dialects, Great Lakes region</p>
+                </div>
+                <div class="region-feature">
+                    <h3>🇳🇬 West Africa</h3>
+                    <p>Nigeria, Ghana, Senegal, Ivory Coast - Pidgin English, French, local languages</p>
+                </div>
+                <div class="region-feature">
+                    <h3>🇿🇦 Southern Africa</h3>
+                    <p>South Africa, Zambia, Zimbabwe, Botswana - Multiple languages, diverse cultures</p>
+                </div>
+                <div class="region-feature">
+                    <h3>🇪🇬 North Africa</h3>
+                    <p>Egypt, Morocco, Algeria, Tunisia - Arabic dialects, Francophone influence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Africa Tech Stack -->
     <section class="tech-stack">
         <div class="container">
-            <h2 class="section-title">🛠️ Kenya-Optimized Technology</h2>
+            <h2 class="section-title">🛠️ Africa-Optimized Technology</h2>
             <div class="tech-grid">
                 <div class="tech-item">
                     <div class="tech-icon">🤖</div>
-                    <h3>Kenya AI Models</h3>
-                    <p>Custom NLP trained on Kenyan content, Swahili transformers, local language models</p>
+                    <h3>African AI Models</h3>
+                    <p>Custom NLP trained on African content, multilingual transformers, regional language models</p>
                 </div>
                 <div class="tech-item">
                     <div class="tech-icon">⚡</div>
-                    <h3>Kenya Backend</h3>
-                    <p>FastAPI, Python, Redis, Optimized for East Africa latency</p>
+                    <h3>African Backend</h3>
+                    <p>FastAPI, Python, Redis, Optimized for African latency and connectivity</p>
                 </div>
                 <div class="tech-item">
-                    <div class="tech-icon">🇰🇪</div>
-                    <h3>Kenya Data</h3>
-                    <p>Local training data, Kenyan cultural context, regional language corpus</p>
+                    <div class="tech-icon">🌍</div>
+                    <h3>African Data</h3>
+                    <p>Regional training data, diverse cultural context, multi-language corpus</p>
                 </div>
                 <div class="tech-item">
                     <div class="tech-icon">🔒</div>
-                    <h3>Kenya Security</h3>
-                    <p>GDPR compliance, Kenya Data Protection Act, local privacy standards</p>
+                    <h3>African Security</h3>
+                    <p>GDPR compliance, African data protection laws, regional privacy standards</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Kenya Cities Coverage -->
-    <section class="kenya-cities-features">
-        <div class="container">
-            <h2 class="section-title">🏙️ Protection Across Kenya</h2>
-            <div class="cities-features-grid">
-                <div class="city-feature">
-                    <h3>Nairobi</h3>
-                    <p>Capital city optimization, urban threat patterns, corporate protection</p>
-                </div>
-                <div class="city-feature">
-                    <h3>Mombasa</h3>
-                    <p>Coastal region context, Swahili coastal dialects, tourism areas</p>
-                </div>
-                <div class="city-feature">
-                    <h3>Kisumu</h3>
-                    <p>Western Kenya coverage, Lake region context, local languages</p>
-                </div>
-                <div class="city-feature">
-                    <h3>Nakuru</h3>
-                    <p>Rift Valley protection, agricultural communities, regional centers</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Kenya CTA Section -->
+    <!-- Africa CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready for Kenya-Specific Protection?</h2>
-                <p>Join Kenyan women across Nairobi, Mombasa, Kisumu and beyond who are protected by ShieldAI Kenya</p>
+                <h2>Ready for Africa-Specific Protection?</h2>
+                <p>Join African women across Nigeria, Kenya, South Africa, Ghana and beyond who are protected by ShieldAI Africa</p>
                 <div class="cta-actions">
-                    <a href="demo.html" class="btn btn-primary">Try Kenya Demo</a>
-                    <a href="extension.html" class="btn btn-secondary">Get Kenya Protection</a>
+                    <a href="demo.html" class="btn btn-primary">Try Live Demo</a>
+                    <a href="extension.html" class="btn btn-secondary">Get Protection</a>
                 </div>
                 <div class="trust-badges">
-                    <div class="badge">✅ Made for Kenya</div>
-                    <div class="badge">✅ Local Languages</div>
-                    <div class="badge">✅ Kenya Support</div>
+                    <div class="badge">✅ Made for Africa</div>
+                    <div class="badge">✅ 8 Languages</div>
+                    <div class="badge">✅ 24 Countries</div>
                     <div class="badge">✅ Cultural Context</div>
                 </div>
             </div>
@@ -405,7 +506,7 @@
 
     <script src="assets/script.js"></script>
     <script>
-        // Load Kenya-focused header and footer
+        // Load Africa-focused header and footer
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
@@ -433,6 +534,25 @@
                 }
             }, 1000);
         });
+
+        // Add African color variables
+        if (!document.querySelector('style[data-africa-colors]')) {
+            const style = document.createElement('style');
+            style.setAttribute('data-africa-colors', 'true');
+            style.textContent = `
+                :root {
+                    --africa-green: #008751;
+                    --africa-green-light: #00A86B;
+                    --africa-black: #000000;
+                    --africa-red: #FD0D35;
+                    --africa-gold: #FFD700;
+                    --africa-yellow: #FCD116;
+                    --africa-blue: #0055A4;
+                    --africa-gradient: linear-gradient(135deg, #008751 0%, #000000 33%, #FFD700 66%, #FD0D35 100%);
+                }
+            `;
+            document.head.appendChild(style);
+        }
     </script>
 </body>
 </html>

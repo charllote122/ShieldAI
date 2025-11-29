@@ -3,62 +3,74 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-brand">
-                <h3>🇰🇪 ShieldAI Kenya</h3>
-                <p>Protecting women and girls from digital violence across Kenya & East Africa</p>
+                <h3>🌍 ShieldAI Africa</h3>
+                <p>Protecting women and girls from digital violence across the African continent</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Twitter Kenya" title="Follow us on Twitter">🐦</a>
-                    <a href="#" aria-label="Facebook Kenya" title="Like us on Facebook">📘</a>
-                    <a href="#" aria-label="LinkedIn Kenya" title="Connect on LinkedIn">💼</a>
-                    <a href="#" aria-label="Instagram Kenya" title="Follow on Instagram">📸</a>
+                    <a href="#" aria-label="Twitter Africa" title="Follow us on Twitter">🐦</a>
+                    <a href="#" aria-label="Facebook Africa" title="Like us on Facebook">📘</a>
+                    <a href="#" aria-label="LinkedIn Africa" title="Connect on LinkedIn">💼</a>
+                    <a href="#" aria-label="Instagram Africa" title="Follow on Instagram">📸</a>
                 </div>
-                <div class="kenya-emergency-footer">
-                    <strong>🚨 Kenya Emergency:</strong> 1199
+                <div class="africa-emergency-footer">
+                    <strong>🚨 Pan-African Emergency:</strong> Multiple Helplines Available
                 </div>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
-                    <h4>Kenya Protection</h4>
+                    <h4>African Protection</h4>
                     <a href="demo.html">Live Demo</a>
-                    <a href="features.html">Kenya Features</a>
+                    <a href="features.html">African Features</a>
                     <a href="extension.html">Get Protection</a>
-                    <a href="impact.html">Kenya Impact</a>
+                    <a href="impact.html">Africa Impact</a>
                 </div>
                 <div class="footer-column">
-                    <h4>Kenya Resources</h4>
-                    <a href="resources.html?country=kenya">Kenya Support</a>
-                    <a href="resources.html?country=kenya#hotlines">Emergency Hotlines</a>
-                    <a href="resources.html?country=kenya#organizations">Local Organizations</a>
-                    <a href="resources.html?country=kenya#hospitals">Mental Health</a>
+                    <h4>African Resources</h4>
+                    <a href="resources.html">Pan-African Support</a>
+                    <a href="resources.html#hotlines">Emergency Hotlines</a>
+                    <a href="resources.html#organizations">Local Organizations</a>
+                    <a href="resources.html#hospitals">Mental Health</a>
                 </div>
                 <div class="footer-column">
                     <h4>About ShieldAI</h4>
-                    <a href="about.html">Our Kenya Mission</a>
-                    <a href="impact.html">Impact in Kenya</a>
-                    <a href="#">Contact Kenya Team</a>
+                    <a href="about.html">Our African Mission</a>
+                    <a href="impact.html">Impact Across Africa</a>
+                    <a href="#">Contact African Team</a>
                     <a href="#">Privacy & Safety</a>
                 </div>
                 <div class="footer-column">
-                    <h4>Kenya Cities</h4>
-                    <a href="#">Nairobi</a>
-                    <a href="#">Mombasa</a>
-                    <a href="#">Kisumu</a>
-                    <a href="#">Nakuru</a>
+                    <h4>African Regions</h4>
+                    <a href="resources.html?region=east">East Africa</a>
+                    <a href="resources.html?region=west">West Africa</a>
+                    <a href="resources.html?region=south">Southern Africa</a>
+                    <a href="resources.html?region=north">North Africa</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="kenya-partners">
-                <span>🇰🇪 Trusted by Kenyan Women Across:</span>
-                <div class="cities-list">
-                    <span>Nairobi</span>
-                    <span>Mombasa</span>
-                    <span>Kisumu</span>
-                    <span>Nakuru</span>
-                    <span>Eldoret</span>
+            <div class="africa-partners">
+                <span>🌍 Trusted by African Women Across 24 Countries:</span>
+                <div class="countries-list">
+                    <span>Nigeria</span>
+                    <span>Kenya</span>
+                    <span>South Africa</span>
+                    <span>Ghana</span>
+                    <span>Egypt</span>
+                    <span>Ethiopia</span>
                 </div>
             </div>
-            <p>Built for POWER HACKS 2025 - UNiTE to End Digital Violence Against Women & Girls in Kenya</p>
-            <p class="copyright">&copy; 2025 ShieldAI Kenya. Protecting women across the nation.</p>
+            <div class="language-support">
+                <span>🗣️ Available in 8 Languages:</span>
+                <div class="languages-list">
+                    <span>English</span>
+                    <span>French</span>
+                    <span>Arabic</span>
+                    <span>Swahili</span>
+                    <span>Hausa</span>
+                    <span>Yoruba</span>
+                </div>
+            </div>
+            <p>Built for POWER HACKS 2025 - UNiTE to End Digital Violence Against Women & Girls Across Africa</p>
+            <p class="copyright">&copy; 2025 ShieldAI Africa. Protecting women across the continent.</p>
         </div>
     </div>
 </footer>
@@ -68,8 +80,20 @@
     background: linear-gradient(135deg, #000000 0%, #1a365d 100%);
     color: #E5E7EB;
     padding: 3rem 0 1rem;
-    border-top: 2px solid #FF0000;
+    border-top: 2px solid var(--africa-green);
     margin-top: 4rem;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--africa-gradient);
+    opacity: 0.6;
 }
 
 .footer-content {
@@ -82,7 +106,7 @@
 .footer-brand h3 {
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #FF0000, #FFD700, #006600);
+    background: var(--africa-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
@@ -115,20 +139,20 @@
 }
 
 .social-links a:hover {
-    background: linear-gradient(135deg, #FF0000, #FFD700);
+    background: var(--africa-gradient);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
 }
 
-.kenya-emergency-footer {
-    background: linear-gradient(135deg, #DC2626, #991B1B);
+.africa-emergency-footer {
+    background: linear-gradient(135deg, var(--africa-red), #991B1B);
     padding: 0.75rem 1rem;
     border-radius: 8px;
-    border-left: 4px solid #FFD700;
+    border-left: 4px solid var(--africa-gold);
     font-size: 0.9rem;
 }
 
-.kenya-emergency-footer strong {
+.africa-emergency-footer strong {
     color: white;
 }
 
@@ -139,7 +163,7 @@
 }
 
 .footer-column h4 {
-    color: #FFD700;
+    color: var(--africa-gold);
     font-size: 1.1rem;
     margin-bottom: 1rem;
     font-weight: 600;
@@ -152,12 +176,26 @@
     margin-bottom: 0.5rem;
     transition: color 0.3s ease;
     opacity: 0.8;
+    position: relative;
+    padding-left: 0.5rem;
 }
 
 .footer-column a:hover {
-    color: #FFD700;
+    color: var(--africa-gold);
     opacity: 1;
     transform: translateX(5px);
+}
+
+.footer-column a::before {
+    content: '▸';
+    position: absolute;
+    left: -0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.footer-column a:hover::before {
+    opacity: 1;
 }
 
 .footer-bottom {
@@ -166,33 +204,57 @@
     text-align: center;
 }
 
-.kenya-partners {
+.africa-partners {
     margin-bottom: 1rem;
     padding: 1rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
+    border: 1px solid rgba(0, 135, 81, 0.2);
 }
 
-.kenya-partners span {
+.africa-partners span {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #FFD700;
+    color: var(--africa-gold);
 }
 
-.cities-list {
+.language-support {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.language-support span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--africa-gold);
+}
+
+.countries-list, .languages-list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
 
-.cities-list span {
-    background: rgba(255, 255, 255, 0.1);
+.countries-list span, .languages-list span {
+    background: rgba(0, 135, 81, 0.1);
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.875rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--africa-green);
+    color: var(--africa-green);
+    font-weight: 500;
+}
+
+.languages-list span {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid var(--africa-gold);
+    color: var(--africa-gold);
 }
 
 .footer-bottom p {
@@ -204,6 +266,28 @@
 .copyright {
     opacity: 0.6 !important;
     font-size: 0.8rem !important;
+}
+
+/* Continent Animation */
+@keyframes pulse-africa {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.footer-brand h3:hover {
+    animation: pulse-africa 0.6s ease-in-out;
+}
+
+/* Regional Background Patterns */
+.footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--africa-gradient);
+    opacity: 0.3;
 }
 
 /* Mobile Responsive */
@@ -218,7 +302,7 @@
         gap: 1.5rem;
     }
     
-    .cities-list {
+    .countries-list, .languages-list {
         justify-content: flex-start;
     }
     
@@ -232,19 +316,28 @@
         grid-template-columns: 1fr;
     }
     
-    .cities-list span {
+    .countries-list span, .languages-list span {
         font-size: 0.8rem;
     }
 }
 
-/* Kenya Flag Animation */
-@keyframes pulse-kenya {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+/* African Pattern Overlay */
+.footer {
+    position: relative;
 }
 
-.footer-brand h3:hover {
-    animation: pulse-kenya 0.6s ease-in-out;
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 135, 81, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(253, 13, 53, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 50%);
+    pointer-events: none;
 }
 </style>
 
@@ -271,6 +364,55 @@ document.addEventListener('DOMContentLoaded', function() {
                     block: 'start'
                 });
             }
+        });
+    });
+});
+
+// Add African color variables if not already defined
+if (!document.querySelector('style[data-africa-colors]')) {
+    const style = document.createElement('style');
+    style.setAttribute('data-africa-colors', 'true');
+    style.textContent = `
+        :root {
+            --africa-green: #008751;
+            --africa-green-light: #00A86B;
+            --africa-black: #000000;
+            --africa-red: #FD0D35;
+            --africa-gold: #FFD700;
+            --africa-yellow: #FCD116;
+            --africa-blue: #0055A4;
+            --africa-gradient: linear-gradient(135deg, #008751 0%, #000000 33%, #FFD700 66%, #FD0D35 100%);
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Add interactive country/language tags
+document.addEventListener('DOMContentLoaded', function() {
+    const countryTags = document.querySelectorAll('.countries-list span');
+    const languageTags = document.querySelectorAll('.languages-list span');
+    
+    countryTags.forEach(tag => {
+        tag.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 4px 8px rgba(0, 135, 81, 0.3)';
+        });
+        
+        tag.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+        });
+    });
+    
+    languageTags.forEach(tag => {
+        tag.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 4px 8px rgba(255, 215, 0, 0.3)';
+        });
+        
+        tag.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
         });
     });
 });

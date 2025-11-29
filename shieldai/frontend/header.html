@@ -3,8 +3,8 @@
     <nav class="nav container">
         <div class="logo">
             <a href="index.html" style="text-decoration: none; color: inherit;">
-                <h1>🇰🇪 ShieldAI Kenya</h1>
-                <span>Protecting Women in Kenya & East Africa</span>
+                <h1>🌍 ShieldAI Africa</h1>
+                <span>Protecting Women Across the African Continent</span>
             </a>
         </div>
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
@@ -15,9 +15,9 @@
         <div class="nav-links" id="navLinks">
             <a href="index.html" class="nav-link">Home</a>
             <a href="demo.html" class="nav-link">Live Demo</a>
-            <a href="features.html" class="nav-link">Kenya Features</a>
-            <a href="impact.html" class="nav-link">Kenya Impact</a>
-            <a href="resources.html" class="nav-link">Kenya Resources</a>
+            <a href="features.html" class="nav-link">African Features</a>
+            <a href="impact.html" class="nav-link">Africa Impact</a>
+            <a href="resources.html" class="nav-link">African Resources</a>
             <a href="extension.html" class="nav-link">Download Extension</a>
         </div>
     </nav>
@@ -26,7 +26,7 @@
 <style>
 .header {
     background: linear-gradient(135deg, #000000 0%, #1a365d 100%);
-    border-bottom: 2px solid #FF0000;
+    border-bottom: 2px solid var(--africa-green);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -43,7 +43,7 @@
     margin: 0;
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #FF0000, #FFD700, #006600);
+    background: var(--africa-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -69,7 +69,7 @@
 }
 
 .nav-link:hover {
-    color: #FFD700;
+    color: var(--africa-gold);
 }
 
 .nav-link::after {
@@ -79,7 +79,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #FF0000, #FFD700);
+    background: var(--africa-gradient);
     transition: width 0.3s ease;
 }
 
@@ -99,7 +99,7 @@
 .mobile-menu-btn span {
     width: 25px;
     height: 3px;
-    background: #FFD700;
+    background: var(--africa-gold);
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
@@ -120,7 +120,7 @@
         background: linear-gradient(135deg, #000000 0%, #1a365d 100%);
         flex-direction: column;
         padding: 1rem;
-        border-top: 2px solid #FF0000;
+        border-top: 2px solid var(--africa-green);
     }
     
     .nav-links.active {
@@ -139,15 +139,104 @@
     }
 }
 
-/* Kenya Flag Animation */
-@keyframes kenya-flag-wave {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    75% { transform: rotate(-5deg); }
+/* Africa Continent Animation */
+@keyframes africa-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .logo h1:hover {
-    animation: kenya-flag-wave 0.5s ease-in-out;
+    animation: africa-pulse 0.5s ease-in-out;
+}
+
+/* African Pattern Background */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(0, 135, 81, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(253, 13, 53, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Regional Indicator */
+.nav::after {
+    content: '🌍 Pan-African Protection';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--africa-gradient);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 0 0 8px 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* Language Indicator */
+.nav-links::before {
+    content: '🗣️ 8 Languages';
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    background: rgba(0, 135, 81, 0.2);
+    color: var(--africa-gold);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid rgba(0, 135, 81, 0.3);
+}
+
+/* Responsive adjustments for indicators */
+@media (max-width: 768px) {
+    .nav::after {
+        display: none;
+    }
+    
+    .nav-links::before {
+        display: none;
+    }
+}
+
+/* Active state styling */
+.nav-link.active {
+    color: var(--africa-gold);
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Country flags in dropdown for mobile */
+@media (max-width: 768px) {
+    .nav-link[href*="impact"]::before {
+        content: '📊 ';
+    }
+    
+    .nav-link[href*="resources"]::before {
+        content: '🆘 ';
+    }
+    
+    .nav-link[href*="features"]::before {
+        content: '✨ ';
+    }
+    
+    .nav-link[href*="demo"]::before {
+        content: '🚀 ';
+    }
+    
+    .nav-link[href*="extension"]::before {
+        content: '🛡️ ';
+    }
 }
 </style>
 
@@ -197,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const linkPage = link.getAttribute('href');
         if (currentPage === linkPage) {
             link.classList.add('active');
-            link.style.color = '#FFD700';
+            link.style.color = 'var(--africa-gold)';
             link.style.fontWeight = '600';
         }
     });
@@ -225,4 +314,29 @@ window.initializeMobileMenu = function() {
         });
     }
 };
+
+// Add continent animation on scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5;
+    
+    header.style.backgroundPosition = `0px ${rate}px`;
+});
+
+// Add CSS variables for African colors
+const style = document.createElement('style');
+style.textContent = `
+    :root {
+        --africa-green: #008751;
+        --africa-green-light: #00A86B;
+        --africa-black: #000000;
+        --africa-red: #FD0D35;
+        --africa-gold: #FFD700;
+        --africa-yellow: #FCD116;
+        --africa-blue: #0055A4;
+        --africa-gradient: linear-gradient(135deg, #008751 0%, #000000 33%, #FFD700 66%, #FD0D35 100%);
+    }
+`;
+document.head.appendChild(style);
 </script>

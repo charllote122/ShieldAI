@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "name": "shieldai-kenya",
+  "builds": [
+    {
+      "src": "**/*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://shieldai-31j7.onrender.com",
+    "NEXT_PUBLIC_ENVIRONMENT": "production"
+  }
+}

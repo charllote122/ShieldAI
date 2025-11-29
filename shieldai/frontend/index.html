@@ -3,33 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShieldAI Kenya - Protecting Women & Girls from Digital Violence</title>
-    <meta name="description" content="AI-powered real-time protection against online harassment and digital violence across Kenya & East Africa">
+    <title>ShieldAI Africa - Protecting Women & Girls from Digital Violence</title>
+    <meta name="description" content="AI-powered real-time protection against online harassment and digital violence across Africa">
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .kenya-hero-badge {
+        .africa-hero-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #FF0000, #FFD700);
-            color: black;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            background: var(--africa-gradient);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
             font-weight: 600;
             margin-bottom: 1rem;
             font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .loading-logo {
             font-size: 4rem;
             margin-bottom: 1rem;
+            animation: pulse 2s infinite;
         }
         
-        .kenya-feature-grid {
+        .africa-feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+        }
+
+        .countries-list {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .country-tag {
+            background: rgba(0, 135, 81, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            border: 1px solid var(--africa-green);
+            color: var(--africa-green);
+            font-weight: 500;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
     </style>
 </head>
@@ -37,8 +62,8 @@
     <!-- Loading Screen -->
     <div id="loadingScreen" class="loading-screen">
         <div class="loading-content">
-            <div class="loading-logo">🇰🇪</div>
-            <h2>ShieldAI Kenya</h2>
+            <div class="loading-logo">🌍</div>
+            <h2>ShieldAI Africa</h2>
             <div class="loading-spinner"></div>
         </div>
     </div>
@@ -50,32 +75,32 @@
     <section class="hero">
         <div class="hero-background"></div>
         <div class="container">
-            <div class="kenya-hero-badge">🇰🇪 Protecting Kenyan Women</div>
+            <div class="africa-hero-badge">🌍 Protecting African Women & Girls</div>
             <div class="hero-content">
-                <h1 class="hero-title">Protecting Women & Girls from Digital Violence in Kenya</h1>
-                <p class="hero-subtitle">AI-powered real-time protection against online harassment, cyberbullying, and toxic content across Kenya & East Africa</p>
+                <h1 class="hero-title">Digital Safety for African Women & Girls</h1>
+                <p class="hero-subtitle">AI-powered real-time protection against online harassment, cyberbullying, and toxic content across Africa</p>
                 <div class="hero-actions">
                     <a href="demo.html" class="btn btn-primary">
                         <span class="btn-icon">🚀</span>
-                        Try Kenya Demo
+                        Try Live Demo
                     </a>
                     <a href="extension.html" class="btn btn-secondary">
                         <span class="btn-icon">🛡️</span>
-                        Get Kenya Extension
+                        Get Browser Extension
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number" id="liveRequests">2,847</span>
-                        <span class="stat-label">Kenyan Women Protected</span>
+                        <span class="stat-number" id="liveRequests">15,842</span>
+                        <span class="stat-label">African Women Protected</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number" id="toxicityRate">98%</span>
-                        <span class="stat-label">Kenya Accuracy</span>
+                        <span class="stat-number" id="toxicityRate">96%</span>
+                        <span class="stat-label">Detection Accuracy</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">&lt;200ms</span>
-                        <span class="stat-label">Kenya Response Time</span>
+                        <span class="stat-label">Response Time</span>
                     </div>
                 </div>
             </div>
@@ -85,37 +110,37 @@
     <!-- Quick Features -->
     <section class="quick-features">
         <div class="container">
-            <h2 class="section-title">✨ Why ShieldAI Kenya?</h2>
-            <div class="kenya-feature-grid">
+            <h2 class="section-title">✨ Why ShieldAI Africa?</h2>
+            <div class="africa-feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🤖</div>
-                    <h3>Kenya AI Detection</h3>
-                    <p>Advanced analysis trained on Kenyan cultural contexts and local languages</p>
+                    <h3>African AI Detection</h3>
+                    <p>Advanced analysis trained on African cultural contexts and local languages</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🇰🇪</div>
-                    <h3>Kenya Context Aware</h3>
-                    <p>Understands Swahili, Sheng, and Kenyan cultural nuances</p>
+                    <div class="feature-icon">🌍</div>
+                    <h3>Pan-African Coverage</h3>
+                    <p>Protecting women across East, West, North, and Southern Africa</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Kenya Fast Protection</h3>
-                    <p>Instant analysis and blocking with &lt;200ms Kenya response time</p>
+                    <h3>Fast Protection</h3>
+                    <p>Instant analysis and blocking with &lt;200ms response time</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🗣️</div>
-                    <h3>Swahili & Sheng Support</h3>
-                    <p>Advanced detection for Kiswahili, local slang, and Kenyan dialects</p>
+                    <h3>Multilingual Support</h3>
+                    <p>Swahili, Hausa, Yoruba, Zulu, Amharic, French, Arabic & English</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💝</div>
-                    <h3>Kenya Support Resources</h3>
-                    <p>Integrated Kenyan mental health and crisis support services</p>
+                    <h3>Local Support Resources</h3>
+                    <p>Integrated emergency contacts and support services across Africa</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🏙️</div>
-                    <h3>Kenya Cities Coverage</h3>
-                    <p>Protection across Nairobi, Mombasa, Kisumu, Nakuru, Eldoret</p>
+                    <h3>Major Cities Coverage</h3>
+                    <p>Lagos, Nairobi, Accra, Johannesburg, Cairo, Dakar, and more</p>
                 </div>
             </div>
         </div>
@@ -126,9 +151,9 @@
         <div class="container">
             <div class="preview-content">
                 <div class="preview-text">
-                    <h2>See ShieldAI Kenya in Action</h2>
-                    <p>Experience real-time protection against digital violence with Kenya-specific scenarios</p>
-                    <a href="demo.html" class="btn btn-primary">Try Kenya Demo →</a>
+                    <h2>See ShieldAI Africa in Action</h2>
+                    <p>Experience real-time protection against digital violence with African-specific scenarios</p>
+                    <a href="demo.html" class="btn btn-primary">Try Live Demo →</a>
                 </div>
                 <div class="preview-visual">
                     <div class="demo-window">
@@ -138,20 +163,24 @@
                                 <span></span>
                                 <span></span>
                             </div>
-                            <span>ShieldAI Kenya Protection Active</span>
+                            <span>ShieldAI Africa Protection Active</span>
                         </div>
                         <div class="demo-content">
                             <div class="message toxic">
                                 <div class="message-text">"Mtoto wa mama! Women belong in kitchen"</div>
-                                <div class="shield-badge">🇰🇪 Blocked</div>
+                                <div class="shield-badge">🌍 Blocked</div>
                             </div>
                             <div class="message toxic">
                                 <div class="message-text">"This na wash! You think you fit code?"</div>
                                 <div class="shield-badge">🛡️ Blocked</div>
                             </div>
+                            <div class="message toxic">
+                                <div class="message-text">"Ashewo! Go back to kitchen"</div>
+                                <div class="shield-badge">🇳🇬 Blocked</div>
+                            </div>
                             <div class="message safe">
-                                <div class="message-text">"Hongera to our Kenyan women in tech!"</div>
-                                <div class="shield-badge">✅ Kenya Safe</div>
+                                <div class="message-text">"Hongera to our African women in tech!"</div>
+                                <div class="shield-badge">✅ Africa Safe</div>
                             </div>
                         </div>
                     </div>
@@ -163,61 +192,68 @@
     <!-- Impact Stats -->
     <section class="impact-stats">
         <div class="container">
-            <h2 class="section-title">📊 Our Impact in Kenya</h2>
+            <h2 class="section-title">📊 Our Impact Across Africa</h2>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number" id="impactRequests">2,847</div>
-                    <div class="stat-label">Kenyan Women Protected</div>
+                    <div class="stat-number" id="impactRequests">15,842</div>
+                    <div class="stat-label">African Women Protected</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Kenyan Cities</div>
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">African Countries</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="impactAccuracy">98%</div>
-                    <div class="stat-label">Kenya Accuracy</div>
+                    <div class="stat-number" id="impactAccuracy">96%</div>
+                    <div class="stat-label">Detection Accuracy</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Kenya Support</div>
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Languages Supported</div>
                 </div>
             </div>
-            <div class="kenya-cities">
-                <h3>📍 Serving Major Kenyan Cities:</h3>
-                <div class="cities-list">
-                    <span class="city-tag">Nairobi</span>
-                    <span class="city-tag">Mombasa</span>
-                    <span class="city-tag">Kisumu</span>
-                    <span class="city-tag">Nakuru</span>
-                    <span class="city-tag">Eldoret</span>
+            <div class="african-countries">
+                <h3>🌍 Serving 24 African Countries:</h3>
+                <div class="countries-list">
+                    <span class="country-tag">Nigeria</span>
+                    <span class="country-tag">Kenya</span>
+                    <span class="country-tag">South Africa</span>
+                    <span class="country-tag">Ghana</span>
+                    <span class="country-tag">Egypt</span>
+                    <span class="country-tag">Ethiopia</span>
+                    <span class="country-tag">Tanzania</span>
+                    <span class="country-tag">Uganda</span>
+                    <span class="country-tag">Algeria</span>
+                    <span class="country-tag">Morocco</span>
+                    <span class="country-tag">Angola</span>
+                    <span class="country-tag">Senegal</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Kenya Emergency Section -->
+    <!-- Africa Emergency Section -->
     <section class="emergency-section">
         <div class="container">
             <div class="emergency-content">
                 <div class="emergency-icon">🚨</div>
                 <div class="emergency-text">
-                    <h2>Kenya Emergency Support</h2>
-                    <p>Immediate help available for Kenyan survivors of digital violence</p>
+                    <h2>Pan-African Emergency Support</h2>
+                    <p>Immediate help available for survivors of digital violence across Africa</p>
                     <div class="emergency-contacts">
                         <div class="contact-item">
-                            <strong>Mental Health Hotline:</strong> 1199
+                            <strong>Kenya Mental Health:</strong> 1199
                         </div>
                         <div class="contact-item">
-                            <strong>GBV Hotline:</strong> 0800 720 715
+                            <strong>South Africa GBV:</strong> 0800 428 428
                         </div>
                         <div class="contact-item">
-                            <strong>Crisis Text:</strong> Text 'HELP' to 40213
+                            <strong>Nigeria Emergency:</strong> 112
                         </div>
                         <div class="contact-item">
-                            <strong>Nairobi Women's Hospital:</strong> 0800 720 715
+                            <strong>Ghana Emergency:</strong> 112 / 999
                         </div>
                     </div>
-                    <a href="resources.html" class="btn btn-outline">View All Kenya Resources →</a>
+                    <a href="resources.html" class="btn btn-outline">View All African Resources →</a>
                 </div>
             </div>
         </div>
@@ -227,17 +263,17 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Take Back Your Digital Space in Kenya?</h2>
-                <p>Join thousands of Kenyan women in Nairobi, Mombasa, Kisumu who are already protected by ShieldAI Kenya</p>
+                <h2>Ready to Secure Your Digital Space in Africa?</h2>
+                <p>Join thousands of African women in Nigeria, Kenya, South Africa, Ghana who are already protected by ShieldAI Africa</p>
                 <div class="cta-actions">
-                    <a href="extension.html" class="btn btn-primary">Get Kenya Protection</a>
-                    <a href="about.html" class="btn btn-secondary">About ShieldAI Kenya</a>
+                    <a href="extension.html" class="btn btn-primary">Get Protection Now</a>
+                    <a href="about.html" class="btn btn-secondary">Learn About Our Mission</a>
                 </div>
                 <div class="trust-badges">
-                    <div class="badge">✅ Made for Kenya</div>
-                    <div class="badge">✅ Swahili & Sheng</div>
-                    <div class="badge">✅ Kenya Support</div>
-                    <div class="badge" id="apiStatus">✅ Kenya API Live</div>
+                    <div class="badge">✅ Made for Africa</div>
+                    <div class="badge">✅ 8 Languages</div>
+                    <div class="badge">✅ 24 Countries</div>
+                    <div class="badge" id="apiStatus">✅ Africa API Live</div>
                 </div>
             </div>
         </div>
@@ -246,23 +282,25 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 
-    <!-- ShieldAI Kenya API Configuration -->
+    <!-- ShieldAI Africa API Configuration -->
     <script>
-        // ShieldAI Kenya API Configuration
+        // ShieldAI Africa API Configuration
         const SHIELDAI_CONFIG = {
             API_BASE_URL: 'https://shieldai-31j7.onrender.com',
             ENDPOINTS: {
                 STATS: '/stats',
                 ANALYZE: '/analyze',
                 HEALTH: '/health',
-                RESOURCES: '/resources',
+                RESOURCES: '/resources/africa',
                 LANGUAGES: '/languages/supported'
             },
             FALLBACK_STATS: {
-                total_requests: 2847,
-                toxic_requests: 426,
+                total_requests: 15842,
+                toxic_requests: 2376,
                 toxicity_rate: 0.15,
-                platform_count: 4
+                platform_count: 4,
+                countries_served: 24,
+                languages_supported: 8
             }
         };
     </script>
@@ -270,7 +308,7 @@
     <!-- Scripts -->
     <script src="assets/script.js"></script>
     <script>
-        // Load Kenya header and footer
+        // Load Africa header and footer
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
@@ -280,7 +318,7 @@
                 }
             })
             .catch(error => {
-                console.log('Kenya header loading failed:', error);
+                console.log('Africa header loading failed:', error);
             });
 
         fetch('footer.html')
@@ -289,38 +327,38 @@
                 document.getElementById('footer-placeholder').innerHTML = data;
             })
             .catch(error => {
-                console.log('Kenya footer loading failed:', error);
+                console.log('Africa footer loading failed:', error);
             });
 
-        // Load real Kenya stats from live backend
+        // Load real Africa stats from live backend
         async function loadRealStats() {
             try {
-                console.log('🇰🇪 Loading Kenya stats from backend...');
+                console.log('🌍 Loading Africa stats from backend...');
                 const response = await fetch(`${SHIELDAI_CONFIG.API_BASE_URL}${SHIELDAI_CONFIG.ENDPOINTS.STATS}`);
                 
                 if (!response.ok) {
-                    throw new Error(`Kenya API error: ${response.status}`);
+                    throw new Error(`Africa API error: ${response.status}`);
                 }
                 
                 const stats = await response.json();
-                console.log('✅ Kenya stats loaded:', stats);
+                console.log('✅ Africa stats loaded:', stats);
                 
-                // Update Kenya stats with real data
+                // Update Africa stats with real data
                 updateStatsDisplay(stats);
                 
             } catch (error) {
-                console.log('❌ Using Kenya fallback stats - backend not connected:', error.message);
+                console.log('❌ Using Africa fallback stats - backend not connected:', error.message);
                 updateStatsDisplay(SHIELDAI_CONFIG.FALLBACK_STATS);
             }
         }
 
-        // Update all Kenya stat displays on the page
+        // Update all Africa stat displays on the page
         function updateStatsDisplay(stats) {
-            // Hero section Kenya stats
+            // Hero section Africa stats
             const totalRequests = stats.total_requests || SHIELDAI_CONFIG.FALLBACK_STATS.total_requests;
             document.getElementById('liveRequests').textContent = totalRequests.toLocaleString();
             
-            // Calculate Kenya toxicity rate percentage
+            // Calculate Africa accuracy rate percentage
             let toxicityRate;
             if (stats.toxicity_rate !== undefined) {
                 toxicityRate = stats.toxicity_rate;
@@ -330,38 +368,52 @@
                 toxicityRate = SHIELDAI_CONFIG.FALLBACK_STATS.toxicity_rate;
             }
             
-            const kenyaAccuracy = Math.round((1 - toxicityRate) * 100); // Convert to Kenya accuracy rate
-            document.getElementById('toxicityRate').textContent = `${kenyaAccuracy}%`;
+            const africaAccuracy = Math.round((1 - toxicityRate) * 100);
+            document.getElementById('toxicityRate').textContent = `${africaAccuracy}%`;
             
-            // Impact section Kenya stats
+            // Impact section Africa stats
             document.getElementById('impactRequests').textContent = totalRequests.toLocaleString();
-            document.getElementById('impactAccuracy').textContent = `${kenyaAccuracy}%`;
+            document.getElementById('impactAccuracy').textContent = `${africaAccuracy}%`;
+
+            // Update countries count if available
+            const countriesServed = stats.countries_served || SHIELDAI_CONFIG.FALLBACK_STATS.countries_served;
+            const countriesElement = document.querySelector('.stat-card:nth-child(2) .stat-number');
+            if (countriesElement) {
+                countriesElement.textContent = countriesServed;
+            }
+
+            // Update languages count if available
+            const languagesSupported = stats.languages_supported || SHIELDAI_CONFIG.FALLBACK_STATS.languages_supported;
+            const languagesElement = document.querySelector('.stat-card:nth-child(4) .stat-number');
+            if (languagesElement) {
+                languagesElement.textContent = languagesSupported;
+            }
         }
 
-        // Test Kenya backend connection and update status
+        // Test Africa backend connection and update status
         async function testBackendConnection() {
             try {
                 const response = await fetch(`${SHIELDAI_CONFIG.API_BASE_URL}${SHIELDAI_CONFIG.ENDPOINTS.HEALTH}`);
-                if (!response.ok) throw new Error('Kenya health check failed');
+                if (!response.ok) throw new Error('Africa health check failed');
                 
                 const health = await response.json();
-                console.log('✅ Kenya backend health:', health);
+                console.log('✅ Africa backend health:', health);
                 
-                // Update Kenya API status badge
+                // Update Africa API status badge
                 const apiStatus = document.getElementById('apiStatus');
                 if (apiStatus) {
-                    apiStatus.textContent = '✅ Kenya API Live';
+                    apiStatus.textContent = '✅ Africa API Live';
                     apiStatus.style.backgroundColor = '#10B981';
                 }
                 
                 return true;
             } catch (error) {
-                console.log('❌ Kenya backend connection failed:', error);
+                console.log('❌ Africa backend connection failed:', error);
                 
-                // Update Kenya API status badge to show error
+                // Update Africa API status badge to show error
                 const apiStatus = document.getElementById('apiStatus');
                 if (apiStatus) {
-                    apiStatus.textContent = '❌ Kenya API Offline';
+                    apiStatus.textContent = '❌ Africa API Offline';
                     apiStatus.style.backgroundColor = '#EF4444';
                 }
                 
@@ -369,11 +421,11 @@
             }
         }
 
-        // Initialize everything when Kenya page loads
+        // Initialize everything when Africa page loads
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Initializing ShieldAI Kenya...');
+            console.log('🚀 Initializing ShieldAI Africa...');
             
-            // Hide Kenya loading screen
+            // Hide Africa loading screen
             setTimeout(() => {
                 const loadingScreen = document.getElementById('loadingScreen');
                 if (loadingScreen) {
@@ -384,21 +436,21 @@
                 }
             }, 1000);
 
-            // Load Kenya stats and test connection
+            // Load Africa stats and test connection
             loadRealStats();
             testBackendConnection();
             
-            // Refresh Kenya stats every 30 seconds
+            // Refresh Africa stats every 30 seconds
             setInterval(loadRealStats, 30000);
             
-            // Refresh Kenya connection status every minute
+            // Refresh Africa connection status every minute
             setInterval(testBackendConnection, 60000);
         });
 
-        // Global Kenya function for other pages to use
+        // Global Africa function for other pages to use
         window.ShieldAPI = {
             config: SHIELDAI_CONFIG,
-            analyzeText: async function(text, platform = 'generic') {
+            analyzeText: async function(text, platform = 'generic', country = 'africa') {
                 try {
                     const response = await fetch(`${SHIELDAI_CONFIG.API_BASE_URL}${SHIELDAI_CONFIG.ENDPOINTS.ANALYZE}`, {
                         method: 'POST',
@@ -408,36 +460,39 @@
                         body: JSON.stringify({
                             text: text,
                             platform: platform,
-                            context: { region: 'kenya' }
+                            context: { 
+                                region: 'africa',
+                                country: country
+                            }
                         })
                     });
                     
-                    if (!response.ok) throw new Error('Kenya analysis failed');
+                    if (!response.ok) throw new Error('Africa analysis failed');
                     return await response.json();
                 } catch (error) {
-                    console.error('Kenya analysis error:', error);
+                    console.error('Africa analysis error:', error);
                     return null;
                 }
             },
             
-            getKenyaResources: async function() {
+            getAfricanResources: async function() {
                 try {
-                    const response = await fetch(`${SHIELDAI_CONFIG.API_BASE_URL}${SHIELDAI_CONFIG.ENDPOINTS.RESOURCES}/kenya`);
-                    if (!response.ok) throw new Error('Kenya resources failed');
+                    const response = await fetch(`${SHIELDAI_CONFIG.API_BASE_URL}${SHIELDAI_CONFIG.ENDPOINTS.RESOURCES}`);
+                    if (!response.ok) throw new Error('Africa resources failed');
                     return await response.json();
                 } catch (error) {
-                    console.error('Kenya resources error:', error);
+                    console.error('Africa resources error:', error);
                     return null;
                 }
             },
             
-            getKenyaLanguages: async function() {
+            getAfricanLanguages: async function() {
                 try {
                     const response = await fetch(`${SHIELDAI_CONFIG.API_BASE_URL}${SHIELDAI_CONFIG.ENDPOINTS.LANGUAGES}`);
-                    if (!response.ok) throw new Error('Kenya languages failed');
+                    if (!response.ok) throw new Error('Africa languages failed');
                     return await response.json();
                 } catch (error) {
-                    console.error('Kenya languages error:', error);
+                    console.error('Africa languages error:', error);
                     return null;
                 }
             }
