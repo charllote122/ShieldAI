@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="africa-resources">
     <div id="loadingScreen" class="loading-screen">
         <div class="loading-content">
             <div class="loading-logo">🌍</div>
@@ -369,6 +369,15 @@
 
     <script src="assets/script.js"></script>
     <script>
+        // ShieldAI Africa API Configuration
+        const SHIELDAI_CONFIG = {
+            API_BASE_URL: 'https://shieldai-31j7.onrender.com',
+            ENDPOINTS: {
+                RESOURCES: '/resources/africa',
+                HEALTH: '/health'
+            }
+        };
+
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
@@ -404,17 +413,43 @@
         // Load African resources from backend
         async function loadAfricanResources() {
             try {
-                const response = await fetch('https://shieldai-31j7.onrender.com/resources/africa');
+                console.log('🌍 Loading African resources from backend...');
+                const response = await fetch(`${SHIELDAI_CONFIG.API_BASE_URL}${SHIELDAI_CONFIG.ENDPOINTS.RESOURCES}`);
+                
+                if (!response.ok) {
+                    throw new Error(`Africa API error: ${response.status}`);
+                }
+                
                 const resources = await response.json();
-                console.log('African resources loaded:', resources);
+                console.log('✅ African resources loaded:', resources);
                 // You can dynamically update the page with the API data here
+                
             } catch (error) {
-                console.log('Using default African resources - backend not connected');
+                console.log('❌ Using default African resources - backend not connected:', error.message);
+            }
+        }
+
+        // Test backend connection
+        async function testBackendConnection() {
+            try {
+                const response = await fetch(`${SHIELDAI_CONFIG.API_BASE_URL}${SHIELDAI_CONFIG.ENDPOINTS.HEALTH}`);
+                if (!response.ok) throw new Error('Africa health check failed');
+                
+                const health = await response.json();
+                console.log('✅ Africa backend health:', health);
+                return true;
+            } catch (error) {
+                console.log('❌ Africa backend connection failed:', error);
+                return false;
             }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Initializing ShieldAI Africa Resources...');
+            
+            // Load resources and test connection
             loadAfricanResources();
+            testBackendConnection();
             
             // Hide loading screen
             setTimeout(() => {
@@ -428,50 +463,5 @@
             }, 1000);
         });
     </script>
-
-    <style>
-        .language-support {
-            background: #f8fafc;
-            padding: 80px 0;
-        }
-
-        .languages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .language-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            border-left: 4px solid var(--africa-green);
-        }
-
-        .language-card h3 {
-            color: var(--africa-green);
-            margin-bottom: 0.5rem;
-        }
-
-        .language-card p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .africa-hero-badge {
-            display: inline-block;
-            background: var(--africa-gradient);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-    </style>
 </body>
 </html>
